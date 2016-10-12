@@ -1,0 +1,1464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		088A343CDC793F7A3BCB6E55D1B5AEA1 /* WebAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1F154311282D48FA15D8244477517 /* WebAuth.swift */; };
+		0A1C0CCFB9A6088D036051558F4CE5C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */; };
+		0F7C38BEA5AFA3A7E1FA70B0532CC4A5 /* NIKFontAwesomeIconFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0569BBF8D9A57179DF6DC039E02248A0 /* NIKFontAwesomeIconFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		130E4EB1E49384AAD6288526844B8269 /* JSONObjectPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74CED722E5AB9BCBB44137BE1BB895 /* JSONObjectPayload.swift */; };
+		13CA1B514D0BED4F91285554371C25F2 /* A0SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 697290C6D7217DD5E6DE5203BE8D6A13 /* A0SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		150837B8AA3555176A7D918AE7BE5EE3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0012CA4257A9FF3042294BB90DBA184 /* Response.swift */; };
+		17AAD6DFAA142121C81AF913C2121663 /* NIKFontAwesomePathRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 90DFB796D23710EFF530B86A952E6E69 /* NIKFontAwesomePathRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17E1E318776CB752042BE59D8E65BF56 /* FontAwesomeIconFactory-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC5239ED21A90EA53837B07164AE588 /* FontAwesomeIconFactory-dummy.m */; };
+		196B612C43F6007F93016F67D5256B00 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABE60801BCE4002B0B7BC29B6EEA3 /* Loggable.swift */; };
+		1B613D717C5B15184A170245C84872AF /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9501D674BD806BC5A1F02CBB1779D8FE /* AuthenticationError.swift */; };
+		1CBE7A25C84031867E56CD9171B09CEE /* NSData+URLSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ACF0B5BA34A80A63E6988CE963EAAC /* NSData+URLSafe.swift */; };
+		1EBE73A1A83DFFFCCC1747E170DDA12E /* OAuth2Grant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDD2210BD9932F4D20CD764BAC5DE4 /* OAuth2Grant.swift */; };
+		1EFD541DE6BE2480DCFB943DC21A9CF0 /* SimpleKeychain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1771364DF25749957E2E4B0498AF8244 /* SimpleKeychain-dummy.m */; };
+		21D2F80118EEF1F86D7721C7E31EB914 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17498F02E1D35B000C5398C75A97118E /* SafariServices.framework */; };
+		249CB13A80605D93CADA3994EA14A2BF /* Auth0.h in Headers */ = {isa = PBXBuildFile; fileRef = 10425D447E1E563332014873C689F45C /* Auth0.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A3B58C421AC152B6EE3B706276DF5B3 /* Pods-AccessWatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E81BF03D511D520B07327FD388F8CFC /* Pods-AccessWatchKit Extension-dummy.m */; };
+		2D4781C09EFA31C26793A3E84C658129 /* _ObjectiveManagementAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716F986D84773F1F78A4FE5A9CA5A30 /* _ObjectiveManagementAPI.swift */; };
+		2FC08535875D7277710BEBE59D3BF387 /* UserPatchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A248B35C329A14398151DF606F2193 /* UserPatchAttributes.swift */; };
+		359795ED01C0E202FC85986A5F9D8628 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D447CE0005BCB43FA3375EAAB91831 /* CoreText.framework */; };
+		381B0D09857369A3DFC62788C60CE32E /* Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949A0FC174DD07585D4B8A6ADC7A0FA /* Management.swift */; };
+		3F24CF0590BFB291161B3FCD3F77D657 /* NSError+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D1E8D7E4B8E62B28000643403C681 /* NSError+Helper.swift */; };
+		4703FB271274BCDD8E43AAF98D6FB68B /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8B1A3D748C22DE88322010935492A /* A0SimpleKeychain+KeyPair.m */; };
+		4A41CC2B1186F23590F9045C34BB10FF /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED84A4C1E1711F5D6FEC4A4942520A37 /* FontAwesome.otf */; };
+		4BF47C75AD2BA9C2B983032F1FE51016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */; };
+		50BD341A15ECC2B66B8FBA5184855688 /* NIKFontAwesomeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643C4D043D91AB62D7DA7E30C462F067 /* NIKFontAwesomeImageView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5131A5AFC4C82FA150E657DFF30047E1 /* Pods-Access-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 766DAA4EF7C83C592A5A2A3F38BE9677 /* Pods-Access-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		527CDB645FFB0E3093031346593D3651 /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542C88CADF1A9D75F24694964F6350E /* Handlers.swift */; };
+		5465727F16A49F31B3E705BABE9A0948 /* ManagementError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4B90FD8E48E017E5DBD94C636093F /* ManagementError.swift */; };
+		617661B7F93678C10BCFC4E4F67A527E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F530E9350828066B5707966A74BEE /* Request.swift */; };
+		6D98ADFE2BCE075610D0BA4EBFCB9203 /* A0ChallengeGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A739DF7C6F0B67BFB426D08379B747 /* A0ChallengeGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71F25F23570741D032394BE3377D125C /* NIKFontAwesomeIconFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 798359574F7BE4235C6FBD13AB285C0D /* NIKFontAwesomeIconFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7341FAC6279FC043B2569701183647D9 /* NIKFontAwesomeImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6540D3F553C597C981D03347433D7AD6 /* NIKFontAwesomeImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		760E06C30200557762A0BB8EDC7540FB /* Pods-AccessWatchKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D676E68D2CC143B99CB52D759CD5CA9 /* Pods-AccessWatchKit-dummy.m */; };
+		77BE26F0542244655035B35EF62E3E32 /* NSURL+Auth0.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F27F670725FCD60AACD94E59ECACB /* NSURL+Auth0.swift */; };
+		8727F39AB965B2E32256B8FAED880FD9 /* _ObjectiveWebAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DC966CB12ADB90E2A7706BDD8DD10 /* _ObjectiveWebAuth.swift */; };
+		8C0AFCA3F27AC002753BAFAF9EC7EB05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B6DEC013D0FC2D95C1174CBFEDDF82 /* UIKit.framework */; };
+		8D122584039F1A6B8CD60EDA5401B785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BAA0AAFC3B7EAF2D4C3522DF1A1258 /* Foundation.framework */; };
+		8D1E085C7FE25676FDBFEA5196BCB3AD /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = BA531543AC838FC1D5D4F4649FEDBD39 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E75CCDC84531A1897A25FECFCFB3213 /* OAuth2Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7419631F1A594FDA9B8DFA2BAE20BBDE /* OAuth2Session.swift */; };
+		8FD73493B9FB90CE4CDC17158B79B0ED /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526B0F10A3B2EA63671B32A6D93458 /* Identity.swift */; };
+		9804A4FEC0F33837554B3D699912D432 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */; };
+		993B108A778E801367FA4922D4BA511E /* SimpleKeychain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CD5D05421132AED7F0C39FB8AA253C /* SimpleKeychain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E5EB67C62C652CF27E85B6C0A4395A1 /* NIKFontAwesomeButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F4F2E98050C57D39162D1CEB53E3C9E /* NIKFontAwesomeButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A06E6309E542387A93CF0A6A200F7EE4 /* A0SimpleKeychain+KeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 6993D1A981F5AEB4B6F3422082ED167A /* A0SimpleKeychain+KeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A201B1B57786ADD35FACEE999A66DD18 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F84FE7997BF6968951043AC33575E1 /* Users.swift */; };
+		A247F92A1DBE1EC39CC1464F016266B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */; };
+		AFCC69B94CDBA344371A1CE3B178EBA5 /* NIKFontAwesomePathFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C38A79553433A7D3D9ABE7C0032B28AA /* NIKFontAwesomePathFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFFC5C1DC06C2628537B9AB5848F5BC1 /* Auth0Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F2AAFBF13ACA9018DC734A2B33843 /* Auth0Error.swift */; };
+		B3F4E355F0597EBDFA1B460F74C95643 /* NIKFontAwesomeIconFactory+iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4016FC6A038809309E3166BEA22DED70 /* NIKFontAwesomeIconFactory+iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA4C7EC9A37D7172D8D230986DA4F9D2 /* NIKFontAwesomePathFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 649D18A03F03DDA943FB34E9418A2966 /* NIKFontAwesomePathFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BC471409A05A3CF81F68F038705DF92B /* NIKFontAwesomeIconTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CE450D85FDB55147F21357D63356153 /* NIKFontAwesomeIconTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCB21E4F2D87C6A8432F1D9F28B40749 /* NIKFontAwesomeIconTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E644F4BE289E36FF41D5A069AF3C05F /* NIKFontAwesomeIconTraits.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDF9E262BF2989E7F9C9D5727C63EFBD /* WebAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC062C2F06131B7E782B2FA0C1DD42C /* WebAuthError.swift */; };
+		C010484A2D4CCC972FE6D69D3DCC3775 /* FontAwesomeIconFactory-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FC278FECB0720D7FCA01A347BCEFC3F /* FontAwesomeIconFactory-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C03CAD29F95BDF678C4447D77A9C871A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535AABF262172B52B9D46D371EB0677C /* Logger.swift */; };
+		C556B6EB9247D663E0E00CC541129495 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D7D68C6A83C67E1673ADD8CC36EE3D /* Profile.swift */; };
+		C6C6662F0EAAA6153180E388C920DC95 /* ControllerModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951745AE1F4A2DAEC3B25FA3F054B9EF /* ControllerModalPresenter.swift */; };
+		C822578B9685E4C42A222B3E82D224B1 /* Auth0-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8F51059196729D6F4B624CD420EAD8 /* Auth0-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9FBB9F6A131EE623422E722E61EC81B /* NIKFontAwesomeTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06389197332CB8C70A3B008F952498FA /* NIKFontAwesomeTabBarItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CEDF98C2A7152DC856DDB7D0933811D5 /* Pods-AccessWatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E771597EF5FA01C4AE4F4C97B4DC51B5 /* Pods-AccessWatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D08FA788CE05180C1815C249FAF8D58D /* NIKFontAwesomeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B922670FF99E7A70F6FBF8091905A33 /* NIKFontAwesomeButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D0CB72C18B8F8A373D13AD8713B4E424 /* SafariWebAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E26BB3814C780BB544607ED287E77 /* SafariWebAuth.swift */; };
+		D237F1ABE076691D5D79751C2A7BB1F5 /* NIKFontAwesomeIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = F2D6BCA95E7411B31AFBEA7E52D4A4F7 /* NIKFontAwesomeIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB1C1497824EA22B053A6006FC331B40 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94ABE0C9B5DB4CF41F5AE457D377CD /* Result.swift */; };
+		DC8DDB534EAB64C553F99D2B12D611E3 /* _ObjectiveAuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CACA329EF516FC291E5FFE2A69BF12 /* _ObjectiveAuthenticationAPI.swift */; };
+		DD46F29A008ADBF886CE4405446A14AB /* Pods-Access-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA23218EF0920444C5F9D711C2CB0E64 /* Pods-Access-dummy.m */; };
+		DF548DCB2156116A186DD7A68D8C257A /* Pods-AccessWatchKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D1EA27CA1AC4648A03981E67F9DDC6 /* Pods-AccessWatchKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4401EA8679DB4FB40BE99630932BDC3 /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE888EE1ECFC301D46EF870E335C6E93 /* SessionStorage.swift */; };
+		E5066FEC09C21B7A960B1F50F5454C58 /* NIKFontAwesomePathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AFEA39715DF5F2C422C8EF925B9FD7 /* NIKFontAwesomePathRenderer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E514227145BBC1B570367D7EEC6E5E16 /* NSURLComponents+OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29BD5992648A4668BD4F3FA20DA3E87 /* NSURLComponents+OAuth2.swift */; };
+		E78D85B9AF1C7E65F1D1AE7829C3B787 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A40A1E00FD444D48462EF212073BA /* Credentials.swift */; };
+		EA13001CB8F8B0C984C0A99E8256A54A /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AA429EB1C01A2D7FADE1AA5BFA0991 /* A0SimpleKeychain.m */; };
+		ECB91B7C5E3B5EEF36C7A31B4BC10305 /* Auth0-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26BD406833E5DC034C8DE4396A945A /* Auth0-dummy.m */; };
+		ED8C0AF3EF37939523C618311D5CB9ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E74BE0A9DE69C5155B446D86AD02C2 /* CoreGraphics.framework */; };
+		F0374C0B077B12B4DC4EE12435EA1C1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BAA0AAFC3B7EAF2D4C3522DF1A1258 /* Foundation.framework */; };
+		F36244D7BF024A8AE959380EC783ABD0 /* FontAwesomeIconFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A3DB2B7F26B9160BA7D5D3B431EC2B /* FontAwesomeIconFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F78BD15CB5EB5A92222B8F534795B152 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921DE0B6EAAEF2974B7470559F762700 /* Requestable.swift */; };
+		F914817C7F0C9E143636665D5718579A /* Auth0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A16F190BA516ABFABB4A85FBB44DCF /* Auth0.swift */; };
+		F935A078D5D45E0C4C678154ABBA4796 /* NIKFontAwesomeIconFactory+OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 665554D6EDFB9D7EB4D85D8178F0D007 /* NIKFontAwesomeIconFactory+OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB62D21D1DE20E689E50CD957FE574A7 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1986B517067E263F37B71BBB4FC27C8 /* Authentication.swift */; };
+		FB816F3C322361B2E938D3A86E8CC4B8 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C58CE31140ABC876E561472F50AA5 /* Telemetry.swift */; };
+		FC2A20FD29E4D3A751E9B8A180459FA8 /* NIKFontAwesomeTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 557ABD5C4BF0AC7D327928E17A7D9289 /* NIKFontAwesomeTabBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD3668F599190DDE65EE33A7869DE2A3 /* Auth0Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E415D1C1AC64A011124934C77B9E1D /* Auth0Authentication.swift */; };
+		FED2A75C0015A59B31E12352C9FA51DB /* A0ChallengeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BAA11CFFF5486516629EF85942F228 /* A0ChallengeGenerator.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F41049BD9430F7B274B6D2C6FBA4187 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC9F93AEC8D05D301C8ADEDF08B5AB83;
+			remoteInfo = SimpleKeychain;
+		};
+		5B4F6C17D128A2798CBB416E995F9C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CE1BA409A44BF1DC98ABCE49F45C1B9;
+			remoteInfo = Auth0;
+		};
+		FA52A707F3A44AB32579A3DF167A6F12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1967A1B7BD24B96811D1E776757119B;
+			remoteInfo = FontAwesomeIconFactory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01D7D68C6A83C67E1673ADD8CC36EE3D /* Profile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = Auth0/Profile.swift; sourceTree = "<group>"; };
+		04928544D445B510AE227D25ADF49754 /* Auth0.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Auth0.xcconfig; sourceTree = "<group>"; };
+		0569BBF8D9A57179DF6DC039E02248A0 /* NIKFontAwesomeIconFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeIconFactory.m; path = FontAwesomeIconFactory/NIKFontAwesomeIconFactory.m; sourceTree = "<group>"; };
+		06389197332CB8C70A3B008F952498FA /* NIKFontAwesomeTabBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeTabBarItem.m; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeTabBarItem.m; sourceTree = "<group>"; };
+		0949A0FC174DD07585D4B8A6ADC7A0FA /* Management.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Management.swift; path = Auth0/Management.swift; sourceTree = "<group>"; };
+		0FF716F6DB86E42CE9F74C687DE3DC70 /* Pods-Access.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Access.modulemap"; sourceTree = "<group>"; };
+		10425D447E1E563332014873C689F45C /* Auth0.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Auth0.h; path = Auth0/Auth0.h; sourceTree = "<group>"; };
+		141BFD30B80B26252E6BF8FA726EAFE1 /* Pods-AccessWatchKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AccessWatchKit.modulemap"; sourceTree = "<group>"; };
+		14B6DEC013D0FC2D95C1174CBFEDDF82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		16D447CE0005BCB43FA3375EAAB91831 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		17498F02E1D35B000C5398C75A97118E /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
+		1771364DF25749957E2E4B0498AF8244 /* SimpleKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SimpleKeychain-dummy.m"; sourceTree = "<group>"; };
+		17AA429EB1C01A2D7FADE1AA5BFA0991 /* A0SimpleKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = A0SimpleKeychain.m; path = SimpleKeychain/A0SimpleKeychain.m; sourceTree = "<group>"; };
+		18B730B2BF3EDB116881ED80EC25A91F /* Pods-AccessWatchKit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AccessWatchKit-frameworks.sh"; sourceTree = "<group>"; };
+		1E644F4BE289E36FF41D5A069AF3C05F /* NIKFontAwesomeIconTraits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeIconTraits.h; path = FontAwesomeIconFactory/NIKFontAwesomeIconTraits.h; sourceTree = "<group>"; };
+		1FC278FECB0720D7FCA01A347BCEFC3F /* FontAwesomeIconFactory-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesomeIconFactory-umbrella.h"; sourceTree = "<group>"; };
+		204B7639E527419E2F20A60179D66F4A /* FontAwesomeIconFactory-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesomeIconFactory-prefix.pch"; sourceTree = "<group>"; };
+		21A4B90FD8E48E017E5DBD94C636093F /* ManagementError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManagementError.swift; path = Auth0/ManagementError.swift; sourceTree = "<group>"; };
+		229F530E9350828066B5707966A74BEE /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Auth0/Request.swift; sourceTree = "<group>"; };
+		25D1EA27CA1AC4648A03981E67F9DDC6 /* Pods-AccessWatchKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AccessWatchKit-umbrella.h"; sourceTree = "<group>"; };
+		2652C4044A7FDADA74D4F91CD248C51D /* Pods-AccessWatchKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AccessWatchKit-resources.sh"; sourceTree = "<group>"; };
+		27ACF0B5BA34A80A63E6988CE963EAAC /* NSData+URLSafe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSData+URLSafe.swift"; path = "Auth0/NSData+URLSafe.swift"; sourceTree = "<group>"; };
+		2ACF29469C7AD2E1BFB3A40EFC1853DF /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD3BAB0ED73D6BD64A56E75A6E8048B /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED83A90AF79B4413FE9EB6CEC6B7FA7 /* Pods-Access.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Access.release.xcconfig"; sourceTree = "<group>"; };
+		330932859DA081AEFE49C94B65E53D2B /* FontAwesomeIconFactory.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesomeIconFactory.xcconfig; sourceTree = "<group>"; };
+		33BDB1A13B8204DA30D9BF3B3D44AA32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34DD1F5FB6DDD7C8B80F3FB405BD3B2F /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
+		350DC966CB12ADB90E2A7706BDD8DD10 /* _ObjectiveWebAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = _ObjectiveWebAuth.swift; path = Auth0/_ObjectiveWebAuth.swift; sourceTree = "<group>"; };
+		381D1E8D7E4B8E62B28000643403C681 /* NSError+Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSError+Helper.swift"; path = "Auth0/NSError+Helper.swift"; sourceTree = "<group>"; };
+		4016FC6A038809309E3166BEA22DED70 /* NIKFontAwesomeIconFactory+iOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NIKFontAwesomeIconFactory+iOS.h"; path = "FontAwesomeIconFactory/NIKFontAwesomeIconFactory+iOS.h"; sourceTree = "<group>"; };
+		411DBB5DE998C358E2151F25611F48D8 /* Pods-AccessWatchKit Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AccessWatchKit Extension-resources.sh"; sourceTree = "<group>"; };
+		45CACA329EF516FC291E5FFE2A69BF12 /* _ObjectiveAuthenticationAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = _ObjectiveAuthenticationAPI.swift; path = Auth0/_ObjectiveAuthenticationAPI.swift; sourceTree = "<group>"; };
+		49AB7A54C1A5BC7B902CDD31D8B0C7DE /* Auth0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Auth0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B0AC6B02F7DE6FB89B1D7B7A296260D /* Auth0-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Auth0-prefix.pch"; sourceTree = "<group>"; };
+		4B922670FF99E7A70F6FBF8091905A33 /* NIKFontAwesomeButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeButton.m; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeButton.m; sourceTree = "<group>"; };
+		4CC5239ED21A90EA53837B07164AE588 /* FontAwesomeIconFactory-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesomeIconFactory-dummy.m"; sourceTree = "<group>"; };
+		4DC062C2F06131B7E782B2FA0C1DD42C /* WebAuthError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebAuthError.swift; path = Auth0/WebAuthError.swift; sourceTree = "<group>"; };
+		4F74CED722E5AB9BCBB44137BE1BB895 /* JSONObjectPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONObjectPayload.swift; path = Auth0/JSONObjectPayload.swift; sourceTree = "<group>"; };
+		52526B0F10A3B2EA63671B32A6D93458 /* Identity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identity.swift; path = Auth0/Identity.swift; sourceTree = "<group>"; };
+		535AABF262172B52B9D46D371EB0677C /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Auth0/Logger.swift; sourceTree = "<group>"; };
+		557ABD5C4BF0AC7D327928E17A7D9289 /* NIKFontAwesomeTabBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeTabBarItem.h; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeTabBarItem.h; sourceTree = "<group>"; };
+		5F4F2E98050C57D39162D1CEB53E3C9E /* NIKFontAwesomeButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeButton.h; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeButton.h; sourceTree = "<group>"; };
+		609D9AF7BF0A1F1F7C5FF5923D979428 /* Pods-AccessWatchKit Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AccessWatchKit Extension.modulemap"; sourceTree = "<group>"; };
+		61A16F190BA516ABFABB4A85FBB44DCF /* Auth0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Auth0.swift; path = Auth0/Auth0.swift; sourceTree = "<group>"; };
+		62E4077E65221E66A5E7B22539EE04AD /* Pods-AccessWatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AccessWatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
+		63F3A2D7413DBBDD2B1244E59C0C3A1D /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		643C4D043D91AB62D7DA7E30C462F067 /* NIKFontAwesomeImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomeImageView.m; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeImageView.m; sourceTree = "<group>"; };
+		649D18A03F03DDA943FB34E9418A2966 /* NIKFontAwesomePathFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomePathFactory.m; path = FontAwesomeIconFactory/NIKFontAwesomePathFactory.m; sourceTree = "<group>"; };
+		6540D3F553C597C981D03347433D7AD6 /* NIKFontAwesomeImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeImageView.h; path = FontAwesomeIconFactory/iOS/NIKFontAwesomeImageView.h; sourceTree = "<group>"; };
+		65E1F154311282D48FA15D8244477517 /* WebAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebAuth.swift; path = Auth0/WebAuth.swift; sourceTree = "<group>"; };
+		665554D6EDFB9D7EB4D85D8178F0D007 /* NIKFontAwesomeIconFactory+OSX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NIKFontAwesomeIconFactory+OSX.h"; path = "FontAwesomeIconFactory/NIKFontAwesomeIconFactory+OSX.h"; sourceTree = "<group>"; };
+		66931DCC845ABE31224C93D80D0AC1CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		697290C6D7217DD5E6DE5203BE8D6A13 /* A0SimpleKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = A0SimpleKeychain.h; path = SimpleKeychain/A0SimpleKeychain.h; sourceTree = "<group>"; };
+		6993D1A981F5AEB4B6F3422082ED167A /* A0SimpleKeychain+KeyPair.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "A0SimpleKeychain+KeyPair.h"; path = "SimpleKeychain/A0SimpleKeychain+KeyPair.h"; sourceTree = "<group>"; };
+		6BADC92BA7F8351DE9573E132666D94A /* Pods_AccessWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E81BF03D511D520B07327FD388F8CFC /* Pods-AccessWatchKit Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AccessWatchKit Extension-dummy.m"; sourceTree = "<group>"; };
+		6F232E85BFDB20B493E5FA24727FCDA6 /* Pods-AccessWatchKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AccessWatchKit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6FEFC8BB34719FE98032F785B98BAFAE /* SimpleKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SimpleKeychain.xcconfig; sourceTree = "<group>"; };
+		6FF8B1A3D748C22DE88322010935492A /* A0SimpleKeychain+KeyPair.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "A0SimpleKeychain+KeyPair.m"; path = "SimpleKeychain/A0SimpleKeychain+KeyPair.m"; sourceTree = "<group>"; };
+		718775620E6531E48003DF83A6C83AAA /* Pods-Access-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Access-resources.sh"; sourceTree = "<group>"; };
+		72BAA11CFFF5486516629EF85942F228 /* A0ChallengeGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = A0ChallengeGenerator.m; path = Auth0/A0ChallengeGenerator.m; sourceTree = "<group>"; };
+		7371246C259B70F6B5BE085C4DAC5CCC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7419631F1A594FDA9B8DFA2BAE20BBDE /* OAuth2Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OAuth2Session.swift; path = Auth0/OAuth2Session.swift; sourceTree = "<group>"; };
+		751A40A1E00FD444D48462EF212073BA /* Credentials.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Auth0/Credentials.swift; sourceTree = "<group>"; };
+		766DAA4EF7C83C592A5A2A3F38BE9677 /* Pods-Access-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Access-umbrella.h"; sourceTree = "<group>"; };
+		7957B076BD664EC2EEBEA7F62C0AAB59 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		798359574F7BE4235C6FBD13AB285C0D /* NIKFontAwesomeIconFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeIconFactory.h; path = FontAwesomeIconFactory/NIKFontAwesomeIconFactory.h; sourceTree = "<group>"; };
+		7B0F2AAFBF13ACA9018DC734A2B33843 /* Auth0Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Auth0Error.swift; path = Auth0/Auth0Error.swift; sourceTree = "<group>"; };
+		7C94ABE0C9B5DB4CF41F5AE457D377CD /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Auth0/Result.swift; sourceTree = "<group>"; };
+		7D676E68D2CC143B99CB52D759CD5CA9 /* Pods-AccessWatchKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AccessWatchKit-dummy.m"; sourceTree = "<group>"; };
+		833F6325B9B0731732148C8FB8111ACF /* Pods-Access-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Access-frameworks.sh"; sourceTree = "<group>"; };
+		8474DF421A62ADDCB4F105CA650DA64C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B26BD406833E5DC034C8DE4396A945A /* Auth0-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Auth0-dummy.m"; sourceTree = "<group>"; };
+		8CE450D85FDB55147F21357D63356153 /* NIKFontAwesomeIconTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeIconTypes.h; path = FontAwesomeIconFactory/NIKFontAwesomeIconTypes.h; sourceTree = "<group>"; };
+		90DFB796D23710EFF530B86A952E6E69 /* NIKFontAwesomePathRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomePathRenderer.h; path = FontAwesomeIconFactory/NIKFontAwesomePathRenderer.h; sourceTree = "<group>"; };
+		921DE0B6EAAEF2974B7470559F762700 /* Requestable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Requestable.swift; path = Auth0/Requestable.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93BAA0AAFC3B7EAF2D4C3522DF1A1258 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9501D674BD806BC5A1F02CBB1779D8FE /* AuthenticationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationError.swift; path = Auth0/AuthenticationError.swift; sourceTree = "<group>"; };
+		951745AE1F4A2DAEC3B25FA3F054B9EF /* ControllerModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControllerModalPresenter.swift; path = Auth0/ControllerModalPresenter.swift; sourceTree = "<group>"; };
+		96F84FE7997BF6968951043AC33575E1 /* Users.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Auth0/Users.swift; sourceTree = "<group>"; };
+		9ADDD2210BD9932F4D20CD764BAC5DE4 /* OAuth2Grant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OAuth2Grant.swift; path = Auth0/OAuth2Grant.swift; sourceTree = "<group>"; };
+		9C353236E695A4BECEB201863F29DA18 /* Pods-AccessWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccessWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		9DC50136705FEA5F6CE22626707E5AC9 /* SimpleKeychain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SimpleKeychain.modulemap; sourceTree = "<group>"; };
+		9E1E26BB3814C780BB544607ED287E77 /* SafariWebAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SafariWebAuth.swift; path = Auth0/SafariWebAuth.swift; sourceTree = "<group>"; };
+		9E2CC24E0428E823AC862C460C60CB28 /* Auth0.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Auth0.modulemap; sourceTree = "<group>"; };
+		A1986B517067E263F37B71BBB4FC27C8 /* Authentication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authentication.swift; path = Auth0/Authentication.swift; sourceTree = "<group>"; };
+		A28DA35AA3A67C0E5BE682B0C97473EF /* Pods-AccessWatchKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccessWatchKit.debug.xcconfig"; sourceTree = "<group>"; };
+		A29BD5992648A4668BD4F3FA20DA3E87 /* NSURLComponents+OAuth2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSURLComponents+OAuth2.swift"; path = "Auth0/NSURLComponents+OAuth2.swift"; sourceTree = "<group>"; };
+		A4E74BE0A9DE69C5155B446D86AD02C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		A53F27F670725FCD60AACD94E59ECACB /* NSURL+Auth0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSURL+Auth0.swift"; path = "Auth0/NSURL+Auth0.swift"; sourceTree = "<group>"; };
+		A542C88CADF1A9D75F24694964F6350E /* Handlers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Handlers.swift; path = Auth0/Handlers.swift; sourceTree = "<group>"; };
+		A56B4C0DF638ED517D6A6454CC623197 /* Pods-Access-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Access-acknowledgements.plist"; sourceTree = "<group>"; };
+		AF647C52E6B3D7D3A6D9318C1AC04856 /* Pods-AccessWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccessWatchKit.release.xcconfig"; sourceTree = "<group>"; };
+		B3132BB9E31271C0BF7DC1CEB946A46A /* Pods_AccessWatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3A3DB2B7F26B9160BA7D5D3B431EC2B /* FontAwesomeIconFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FontAwesomeIconFactory.h; path = FontAwesomeIconFactory/FontAwesomeIconFactory.h; sourceTree = "<group>"; };
+		B4A248B35C329A14398151DF606F2193 /* UserPatchAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserPatchAttributes.swift; path = Auth0/UserPatchAttributes.swift; sourceTree = "<group>"; };
+		B5C184272256B63C55E443EB7E1A28F1 /* FontAwesomeIconFactory.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FontAwesomeIconFactory.modulemap; sourceTree = "<group>"; };
+		B679CBBFA6D622B992743CB220FB0C0C /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesomeIconFactory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA531543AC838FC1D5D4F4649FEDBD39 /* SimpleKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SimpleKeychain.h; path = SimpleKeychain/SimpleKeychain.h; sourceTree = "<group>"; };
+		C0012CA4257A9FF3042294BB90DBA184 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Auth0/Response.swift; sourceTree = "<group>"; };
+		C38A79553433A7D3D9ABE7C0032B28AA /* NIKFontAwesomePathFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomePathFactory.h; path = FontAwesomeIconFactory/NIKFontAwesomePathFactory.h; sourceTree = "<group>"; };
+		C3E415D1C1AC64A011124934C77B9E1D /* Auth0Authentication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Auth0Authentication.swift; path = Auth0/Auth0Authentication.swift; sourceTree = "<group>"; };
+		D2AFEA39715DF5F2C422C8EF925B9FD7 /* NIKFontAwesomePathRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIKFontAwesomePathRenderer.m; path = FontAwesomeIconFactory/NIKFontAwesomePathRenderer.m; sourceTree = "<group>"; };
+		D36C58CE31140ABC876E561472F50AA5 /* Telemetry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Telemetry.swift; path = Auth0/Telemetry.swift; sourceTree = "<group>"; };
+		D716F986D84773F1F78A4FE5A9CA5A30 /* _ObjectiveManagementAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = _ObjectiveManagementAPI.swift; path = Auth0/_ObjectiveManagementAPI.swift; sourceTree = "<group>"; };
+		DA23218EF0920444C5F9D711C2CB0E64 /* Pods-Access-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Access-dummy.m"; sourceTree = "<group>"; };
+		DAFBE01D12A47B8FF3477A37810C37F0 /* Pods-AccessWatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AccessWatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		DB8F51059196729D6F4B624CD420EAD8 /* Auth0-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Auth0-umbrella.h"; sourceTree = "<group>"; };
+		E0E35CC9654EDC2378DF754715D6667E /* Pods-AccessWatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AccessWatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E4A739DF7C6F0B67BFB426D08379B747 /* A0ChallengeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = A0ChallengeGenerator.h; path = Auth0/A0ChallengeGenerator.h; sourceTree = "<group>"; };
+		E771597EF5FA01C4AE4F4C97B4DC51B5 /* Pods-AccessWatchKit Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AccessWatchKit Extension-umbrella.h"; sourceTree = "<group>"; };
+		E8071C9C8ED4D06E46A2EC7A91244FF1 /* Pods-AccessWatchKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AccessWatchKit-acknowledgements.plist"; sourceTree = "<group>"; };
+		E9CD5D05421132AED7F0C39FB8AA253C /* SimpleKeychain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SimpleKeychain-umbrella.h"; sourceTree = "<group>"; };
+		EA567987BFF04F830A4EC917D8DE03B3 /* Pods-Access-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Access-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ED84A4C1E1711F5D6FEC4A4942520A37 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.otf; path = "Font-Awesome/fonts/FontAwesome.otf"; sourceTree = "<group>"; };
+		F2C5B8F4B4D53234BA8D596BF892EE4E /* SimpleKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SimpleKeychain-prefix.pch"; sourceTree = "<group>"; };
+		F2D6BCA95E7411B31AFBEA7E52D4A4F7 /* NIKFontAwesomeIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIKFontAwesomeIcon.h; path = FontAwesomeIconFactory/NIKFontAwesomeIcon.h; sourceTree = "<group>"; };
+		FBCABE60801BCE4002B0B7BC29B6EEA3 /* Loggable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Loggable.swift; path = Auth0/Loggable.swift; sourceTree = "<group>"; };
+		FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FE888EE1ECFC301D46EF870E335C6E93 /* SessionStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionStorage.swift; path = Auth0/SessionStorage.swift; sourceTree = "<group>"; };
+		FED88C6FE58E2B9AE79AAE61E28F297F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A25B3415C5CA9049372E2B7EFFFFCC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9804A4FEC0F33837554B3D699912D432 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D33742DB6372C7410D444CCBC03A9A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF47C75AD2BA9C2B983032F1FE51016 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18CB84D2B33764702C5AEFE98F282F5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1C0CCFB9A6088D036051558F4CE5C4 /* Foundation.framework in Frameworks */,
+				21D2F80118EEF1F86D7721C7E31EB914 /* SafariServices.framework in Frameworks */,
+				8C0AFCA3F27AC002753BAFAF9EC7EB05 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25DFE5526830E4BFAB0D1BFA1F25D9CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0374C0B077B12B4DC4EE12435EA1C1C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742922E5E0DA4E94DA615A5DBF4F1EA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D122584039F1A6B8CD60EDA5401B785 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D6AFDA3C4D7B62F99B163B3B9BDDF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED8C0AF3EF37939523C618311D5CB9ED /* CoreGraphics.framework in Frameworks */,
+				359795ED01C0E202FC85986A5F9D8628 /* CoreText.framework in Frameworks */,
+				A247F92A1DBE1EC39CC1464F016266B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DA7BD4BE06CCDFCE144AEBB4A57D59E /* FontAwesomeIconFactory */ = {
+			isa = PBXGroup;
+			children = (
+				B3A3DB2B7F26B9160BA7D5D3B431EC2B /* FontAwesomeIconFactory.h */,
+				5F4F2E98050C57D39162D1CEB53E3C9E /* NIKFontAwesomeButton.h */,
+				4B922670FF99E7A70F6FBF8091905A33 /* NIKFontAwesomeButton.m */,
+				F2D6BCA95E7411B31AFBEA7E52D4A4F7 /* NIKFontAwesomeIcon.h */,
+				798359574F7BE4235C6FBD13AB285C0D /* NIKFontAwesomeIconFactory.h */,
+				0569BBF8D9A57179DF6DC039E02248A0 /* NIKFontAwesomeIconFactory.m */,
+				4016FC6A038809309E3166BEA22DED70 /* NIKFontAwesomeIconFactory+iOS.h */,
+				665554D6EDFB9D7EB4D85D8178F0D007 /* NIKFontAwesomeIconFactory+OSX.h */,
+				1E644F4BE289E36FF41D5A069AF3C05F /* NIKFontAwesomeIconTraits.h */,
+				8CE450D85FDB55147F21357D63356153 /* NIKFontAwesomeIconTypes.h */,
+				6540D3F553C597C981D03347433D7AD6 /* NIKFontAwesomeImageView.h */,
+				643C4D043D91AB62D7DA7E30C462F067 /* NIKFontAwesomeImageView.m */,
+				C38A79553433A7D3D9ABE7C0032B28AA /* NIKFontAwesomePathFactory.h */,
+				649D18A03F03DDA943FB34E9418A2966 /* NIKFontAwesomePathFactory.m */,
+				90DFB796D23710EFF530B86A952E6E69 /* NIKFontAwesomePathRenderer.h */,
+				D2AFEA39715DF5F2C422C8EF925B9FD7 /* NIKFontAwesomePathRenderer.m */,
+				557ABD5C4BF0AC7D327928E17A7D9289 /* NIKFontAwesomeTabBarItem.h */,
+				06389197332CB8C70A3B008F952498FA /* NIKFontAwesomeTabBarItem.m */,
+				C6AB2962131F7E82FD4189F16C10E86E /* Resources */,
+				4111804E2C4EC5481D42BD39091FE146 /* Support Files */,
+			);
+			path = FontAwesomeIconFactory;
+			sourceTree = "<group>";
+		};
+		3320B79D6257105B765781EAEEC6DD5D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1878C9D409E37E15BDE517CB300C7FC /* Pods-Access */,
+				D59A42A254E2336E81524C0EB06F9A4C /* Pods-AccessWatchKit */,
+				8D07CAAB72B0113DE01C51EDF7631822 /* Pods-AccessWatchKit Extension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4111804E2C4EC5481D42BD39091FE146 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5C184272256B63C55E443EB7E1A28F1 /* FontAwesomeIconFactory.modulemap */,
+				330932859DA081AEFE49C94B65E53D2B /* FontAwesomeIconFactory.xcconfig */,
+				4CC5239ED21A90EA53837B07164AE588 /* FontAwesomeIconFactory-dummy.m */,
+				204B7639E527419E2F20A60179D66F4A /* FontAwesomeIconFactory-prefix.pch */,
+				1FC278FECB0720D7FCA01A347BCEFC3F /* FontAwesomeIconFactory-umbrella.h */,
+				66931DCC845ABE31224C93D80D0AC1CB /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesomeIconFactory";
+			sourceTree = "<group>";
+		};
+		58D20026B8ED0C64DF88C4ACF631B9F0 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				93BAA0AAFC3B7EAF2D4C3522DF1A1258 /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		6778228A511082BFBF67266B41D3AB24 /* SimpleKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				697290C6D7217DD5E6DE5203BE8D6A13 /* A0SimpleKeychain.h */,
+				17AA429EB1C01A2D7FADE1AA5BFA0991 /* A0SimpleKeychain.m */,
+				6993D1A981F5AEB4B6F3422082ED167A /* A0SimpleKeychain+KeyPair.h */,
+				6FF8B1A3D748C22DE88322010935492A /* A0SimpleKeychain+KeyPair.m */,
+				BA531543AC838FC1D5D4F4649FEDBD39 /* SimpleKeychain.h */,
+				712BFCA4AA690BFC5B0B77760807F4EA /* Support Files */,
+			);
+			path = SimpleKeychain;
+			sourceTree = "<group>";
+		};
+		712BFCA4AA690BFC5B0B77760807F4EA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				33BDB1A13B8204DA30D9BF3B3D44AA32 /* Info.plist */,
+				9DC50136705FEA5F6CE22626707E5AC9 /* SimpleKeychain.modulemap */,
+				6FEFC8BB34719FE98032F785B98BAFAE /* SimpleKeychain.xcconfig */,
+				1771364DF25749957E2E4B0498AF8244 /* SimpleKeychain-dummy.m */,
+				F2C5B8F4B4D53234BA8D596BF892EE4E /* SimpleKeychain-prefix.pch */,
+				E9CD5D05421132AED7F0C39FB8AA253C /* SimpleKeychain-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SimpleKeychain";
+			sourceTree = "<group>";
+		};
+		79642FE34BC54379EC776AC3EB00FFFB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A4E74BE0A9DE69C5155B446D86AD02C2 /* CoreGraphics.framework */,
+				16D447CE0005BCB43FA3375EAAB91831 /* CoreText.framework */,
+				FCFDA1EE62ECA78AE50733CF59D8005F /* Foundation.framework */,
+				17498F02E1D35B000C5398C75A97118E /* SafariServices.framework */,
+				14B6DEC013D0FC2D95C1174CBFEDDF82 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				ECB226B7EA77EB59E2ACF5727BD2E759 /* Frameworks */,
+				E6711442B09F4F0B39FCF947D1A0D4F6 /* Pods */,
+				B843D6032F00ABAB6694E14AB7D0BE15 /* Products */,
+				3320B79D6257105B765781EAEEC6DD5D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8D07CAAB72B0113DE01C51EDF7631822 /* Pods-AccessWatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7371246C259B70F6B5BE085C4DAC5CCC /* Info.plist */,
+				609D9AF7BF0A1F1F7C5FF5923D979428 /* Pods-AccessWatchKit Extension.modulemap */,
+				E0E35CC9654EDC2378DF754715D6667E /* Pods-AccessWatchKit Extension-acknowledgements.markdown */,
+				DAFBE01D12A47B8FF3477A37810C37F0 /* Pods-AccessWatchKit Extension-acknowledgements.plist */,
+				6E81BF03D511D520B07327FD388F8CFC /* Pods-AccessWatchKit Extension-dummy.m */,
+				62E4077E65221E66A5E7B22539EE04AD /* Pods-AccessWatchKit Extension-frameworks.sh */,
+				411DBB5DE998C358E2151F25611F48D8 /* Pods-AccessWatchKit Extension-resources.sh */,
+				E771597EF5FA01C4AE4F4C97B4DC51B5 /* Pods-AccessWatchKit Extension-umbrella.h */,
+				63F3A2D7413DBBDD2B1244E59C0C3A1D /* Pods-AccessWatchKit Extension.debug.xcconfig */,
+				9C353236E695A4BECEB201863F29DA18 /* Pods-AccessWatchKit Extension.release.xcconfig */,
+			);
+			name = "Pods-AccessWatchKit Extension";
+			path = "Target Support Files/Pods-AccessWatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B1878C9D409E37E15BDE517CB300C7FC /* Pods-Access */ = {
+			isa = PBXGroup;
+			children = (
+				8474DF421A62ADDCB4F105CA650DA64C /* Info.plist */,
+				0FF716F6DB86E42CE9F74C687DE3DC70 /* Pods-Access.modulemap */,
+				EA567987BFF04F830A4EC917D8DE03B3 /* Pods-Access-acknowledgements.markdown */,
+				A56B4C0DF638ED517D6A6454CC623197 /* Pods-Access-acknowledgements.plist */,
+				DA23218EF0920444C5F9D711C2CB0E64 /* Pods-Access-dummy.m */,
+				833F6325B9B0731732148C8FB8111ACF /* Pods-Access-frameworks.sh */,
+				718775620E6531E48003DF83A6C83AAA /* Pods-Access-resources.sh */,
+				766DAA4EF7C83C592A5A2A3F38BE9677 /* Pods-Access-umbrella.h */,
+				34DD1F5FB6DDD7C8B80F3FB405BD3B2F /* Pods-Access.debug.xcconfig */,
+				2ED83A90AF79B4413FE9EB6CEC6B7FA7 /* Pods-Access.release.xcconfig */,
+			);
+			name = "Pods-Access";
+			path = "Target Support Files/Pods-Access";
+			sourceTree = "<group>";
+		};
+		B4ED20FDBAAEA4619DF032E05305BC39 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E2CC24E0428E823AC862C460C60CB28 /* Auth0.modulemap */,
+				04928544D445B510AE227D25ADF49754 /* Auth0.xcconfig */,
+				8B26BD406833E5DC034C8DE4396A945A /* Auth0-dummy.m */,
+				4B0AC6B02F7DE6FB89B1D7B7A296260D /* Auth0-prefix.pch */,
+				DB8F51059196729D6F4B624CD420EAD8 /* Auth0-umbrella.h */,
+				FED88C6FE58E2B9AE79AAE61E28F297F /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Auth0";
+			sourceTree = "<group>";
+		};
+		B843D6032F00ABAB6694E14AB7D0BE15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49AB7A54C1A5BC7B902CDD31D8B0C7DE /* Auth0.framework */,
+				B679CBBFA6D622B992743CB220FB0C0C /* FontAwesomeIconFactory.framework */,
+				2ACF29469C7AD2E1BFB3A40EFC1853DF /* Pods_Access.framework */,
+				6BADC92BA7F8351DE9573E132666D94A /* Pods_AccessWatchKit.framework */,
+				B3132BB9E31271C0BF7DC1CEB946A46A /* Pods_AccessWatchKit_Extension.framework */,
+				2BD3BAB0ED73D6BD64A56E75A6E8048B /* SimpleKeychain.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6AB2962131F7E82FD4189F16C10E86E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED84A4C1E1711F5D6FEC4A4942520A37 /* FontAwesome.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D59A42A254E2336E81524C0EB06F9A4C /* Pods-AccessWatchKit */ = {
+			isa = PBXGroup;
+			children = (
+				7957B076BD664EC2EEBEA7F62C0AAB59 /* Info.plist */,
+				141BFD30B80B26252E6BF8FA726EAFE1 /* Pods-AccessWatchKit.modulemap */,
+				6F232E85BFDB20B493E5FA24727FCDA6 /* Pods-AccessWatchKit-acknowledgements.markdown */,
+				E8071C9C8ED4D06E46A2EC7A91244FF1 /* Pods-AccessWatchKit-acknowledgements.plist */,
+				7D676E68D2CC143B99CB52D759CD5CA9 /* Pods-AccessWatchKit-dummy.m */,
+				18B730B2BF3EDB116881ED80EC25A91F /* Pods-AccessWatchKit-frameworks.sh */,
+				2652C4044A7FDADA74D4F91CD248C51D /* Pods-AccessWatchKit-resources.sh */,
+				25D1EA27CA1AC4648A03981E67F9DDC6 /* Pods-AccessWatchKit-umbrella.h */,
+				A28DA35AA3A67C0E5BE682B0C97473EF /* Pods-AccessWatchKit.debug.xcconfig */,
+				AF647C52E6B3D7D3A6D9318C1AC04856 /* Pods-AccessWatchKit.release.xcconfig */,
+			);
+			name = "Pods-AccessWatchKit";
+			path = "Target Support Files/Pods-AccessWatchKit";
+			sourceTree = "<group>";
+		};
+		E6711442B09F4F0B39FCF947D1A0D4F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFEEB37F36183C7523DBDD8159CD0A7F /* Auth0 */,
+				0DA7BD4BE06CCDFCE144AEBB4A57D59E /* FontAwesomeIconFactory */,
+				6778228A511082BFBF67266B41D3AB24 /* SimpleKeychain */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ECB226B7EA77EB59E2ACF5727BD2E759 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79642FE34BC54379EC776AC3EB00FFFB /* iOS */,
+				58D20026B8ED0C64DF88C4ACF631B9F0 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFEEB37F36183C7523DBDD8159CD0A7F /* Auth0 */ = {
+			isa = PBXGroup;
+			children = (
+				45CACA329EF516FC291E5FFE2A69BF12 /* _ObjectiveAuthenticationAPI.swift */,
+				D716F986D84773F1F78A4FE5A9CA5A30 /* _ObjectiveManagementAPI.swift */,
+				350DC966CB12ADB90E2A7706BDD8DD10 /* _ObjectiveWebAuth.swift */,
+				E4A739DF7C6F0B67BFB426D08379B747 /* A0ChallengeGenerator.h */,
+				72BAA11CFFF5486516629EF85942F228 /* A0ChallengeGenerator.m */,
+				10425D447E1E563332014873C689F45C /* Auth0.h */,
+				61A16F190BA516ABFABB4A85FBB44DCF /* Auth0.swift */,
+				C3E415D1C1AC64A011124934C77B9E1D /* Auth0Authentication.swift */,
+				7B0F2AAFBF13ACA9018DC734A2B33843 /* Auth0Error.swift */,
+				A1986B517067E263F37B71BBB4FC27C8 /* Authentication.swift */,
+				9501D674BD806BC5A1F02CBB1779D8FE /* AuthenticationError.swift */,
+				951745AE1F4A2DAEC3B25FA3F054B9EF /* ControllerModalPresenter.swift */,
+				751A40A1E00FD444D48462EF212073BA /* Credentials.swift */,
+				A542C88CADF1A9D75F24694964F6350E /* Handlers.swift */,
+				52526B0F10A3B2EA63671B32A6D93458 /* Identity.swift */,
+				4F74CED722E5AB9BCBB44137BE1BB895 /* JSONObjectPayload.swift */,
+				FBCABE60801BCE4002B0B7BC29B6EEA3 /* Loggable.swift */,
+				535AABF262172B52B9D46D371EB0677C /* Logger.swift */,
+				0949A0FC174DD07585D4B8A6ADC7A0FA /* Management.swift */,
+				21A4B90FD8E48E017E5DBD94C636093F /* ManagementError.swift */,
+				27ACF0B5BA34A80A63E6988CE963EAAC /* NSData+URLSafe.swift */,
+				381D1E8D7E4B8E62B28000643403C681 /* NSError+Helper.swift */,
+				A53F27F670725FCD60AACD94E59ECACB /* NSURL+Auth0.swift */,
+				A29BD5992648A4668BD4F3FA20DA3E87 /* NSURLComponents+OAuth2.swift */,
+				9ADDD2210BD9932F4D20CD764BAC5DE4 /* OAuth2Grant.swift */,
+				7419631F1A594FDA9B8DFA2BAE20BBDE /* OAuth2Session.swift */,
+				01D7D68C6A83C67E1673ADD8CC36EE3D /* Profile.swift */,
+				229F530E9350828066B5707966A74BEE /* Request.swift */,
+				921DE0B6EAAEF2974B7470559F762700 /* Requestable.swift */,
+				C0012CA4257A9FF3042294BB90DBA184 /* Response.swift */,
+				7C94ABE0C9B5DB4CF41F5AE457D377CD /* Result.swift */,
+				9E1E26BB3814C780BB544607ED287E77 /* SafariWebAuth.swift */,
+				FE888EE1ECFC301D46EF870E335C6E93 /* SessionStorage.swift */,
+				D36C58CE31140ABC876E561472F50AA5 /* Telemetry.swift */,
+				B4A248B35C329A14398151DF606F2193 /* UserPatchAttributes.swift */,
+				96F84FE7997BF6968951043AC33575E1 /* Users.swift */,
+				65E1F154311282D48FA15D8244477517 /* WebAuth.swift */,
+				4DC062C2F06131B7E782B2FA0C1DD42C /* WebAuthError.swift */,
+				B4ED20FDBAAEA4619DF032E05305BC39 /* Support Files */,
+			);
+			path = Auth0;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3676FFA35FD77F1B9AF11CFB3E3CD6C9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A06E6309E542387A93CF0A6A200F7EE4 /* A0SimpleKeychain+KeyPair.h in Headers */,
+				13CA1B514D0BED4F91285554371C25F2 /* A0SimpleKeychain.h in Headers */,
+				993B108A778E801367FA4922D4BA511E /* SimpleKeychain-umbrella.h in Headers */,
+				8D1E085C7FE25676FDBFEA5196BCB3AD /* SimpleKeychain.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D824D1437B6DD427A3270A03B15591F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C010484A2D4CCC972FE6D69D3DCC3775 /* FontAwesomeIconFactory-umbrella.h in Headers */,
+				F36244D7BF024A8AE959380EC783ABD0 /* FontAwesomeIconFactory.h in Headers */,
+				9E5EB67C62C652CF27E85B6C0A4395A1 /* NIKFontAwesomeButton.h in Headers */,
+				D237F1ABE076691D5D79751C2A7BB1F5 /* NIKFontAwesomeIcon.h in Headers */,
+				B3F4E355F0597EBDFA1B460F74C95643 /* NIKFontAwesomeIconFactory+iOS.h in Headers */,
+				F935A078D5D45E0C4C678154ABBA4796 /* NIKFontAwesomeIconFactory+OSX.h in Headers */,
+				71F25F23570741D032394BE3377D125C /* NIKFontAwesomeIconFactory.h in Headers */,
+				BCB21E4F2D87C6A8432F1D9F28B40749 /* NIKFontAwesomeIconTraits.h in Headers */,
+				BC471409A05A3CF81F68F038705DF92B /* NIKFontAwesomeIconTypes.h in Headers */,
+				7341FAC6279FC043B2569701183647D9 /* NIKFontAwesomeImageView.h in Headers */,
+				AFCC69B94CDBA344371A1CE3B178EBA5 /* NIKFontAwesomePathFactory.h in Headers */,
+				17AAD6DFAA142121C81AF913C2121663 /* NIKFontAwesomePathRenderer.h in Headers */,
+				FC2A20FD29E4D3A751E9B8A180459FA8 /* NIKFontAwesomeTabBarItem.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96C2C05A3BC102DE7D2093EE16A956CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDF98C2A7152DC856DDB7D0933811D5 /* Pods-AccessWatchKit Extension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ADFF49C70E85BC18712723BC9A70F13 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5131A5AFC4C82FA150E657DFF30047E1 /* Pods-Access-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D670543CB06F7FE900AA86190F72A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF548DCB2156116A186DD7A68D8C257A /* Pods-AccessWatchKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4594EF452A5F0170FD02B0A34AE3869 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D98ADFE2BCE075610D0BA4EBFCB9203 /* A0ChallengeGenerator.h in Headers */,
+				C822578B9685E4C42A222B3E82D224B1 /* Auth0-umbrella.h in Headers */,
+				249CB13A80605D93CADA3994EA14A2BF /* Auth0.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		27D48E4C192B91CF6ED2553CD4DA4766 /* Pods-AccessWatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339CF6F8E66041C40A4DD5F0C9C4FE6E /* Build configuration list for PBXNativeTarget "Pods-AccessWatchKit Extension" */;
+			buildPhases = (
+				B06A1484443FD5F6F62DDE4E4DC87623 /* Sources */,
+				25DFE5526830E4BFAB0D1BFA1F25D9CA /* Frameworks */,
+				96C2C05A3BC102DE7D2093EE16A956CD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AccessWatchKit Extension";
+			productName = "Pods-AccessWatchKit Extension";
+			productReference = B3132BB9E31271C0BF7DC1CEB946A46A /* Pods_AccessWatchKit_Extension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		421EAF559BFBA0FE171B0BEE6FA57869 /* Pods-Access */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C305EB7E3E3DB3CF246D6ABD1B7E4BB /* Build configuration list for PBXNativeTarget "Pods-Access" */;
+			buildPhases = (
+				BB2E3F48C17BAD6C127C8EF7E9666932 /* Sources */,
+				0D33742DB6372C7410D444CCBC03A9A4 /* Frameworks */,
+				9ADFF49C70E85BC18712723BC9A70F13 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFAA0EA9D0DA79DA52328A0E8FC07A95 /* PBXTargetDependency */,
+				F02E3E14940FCF5C67D2C686ED3698D2 /* PBXTargetDependency */,
+				DE9E082896A3F06C583D40BE7E8C2DFF /* PBXTargetDependency */,
+			);
+			name = "Pods-Access";
+			productName = "Pods-Access";
+			productReference = 2ACF29469C7AD2E1BFB3A40EFC1853DF /* Pods_Access.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9CE1BA409A44BF1DC98ABCE49F45C1B9 /* Auth0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D357FDAC11EA50AD8886C0181C705BFD /* Build configuration list for PBXNativeTarget "Auth0" */;
+			buildPhases = (
+				3D7A5F0111B1FF4737D4D736933C233C /* Sources */,
+				18CB84D2B33764702C5AEFE98F282F5D /* Frameworks */,
+				E4594EF452A5F0170FD02B0A34AE3869 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Auth0;
+			productName = Auth0;
+			productReference = 49AB7A54C1A5BC7B902CDD31D8B0C7DE /* Auth0.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1967A1B7BD24B96811D1E776757119B /* FontAwesomeIconFactory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C62484F7174391294D2AE8AA647D729A /* Build configuration list for PBXNativeTarget "FontAwesomeIconFactory" */;
+			buildPhases = (
+				315B60E2ADBD0787CB2B2C6F2195822E /* Sources */,
+				C1D6AFDA3C4D7B62F99B163B3B9BDDF2 /* Frameworks */,
+				8D824D1437B6DD427A3270A03B15591F /* Headers */,
+				CC2A68C20F22AFBC4BF7A50D8EA2E643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FontAwesomeIconFactory;
+			productName = FontAwesomeIconFactory;
+			productReference = B679CBBFA6D622B992743CB220FB0C0C /* FontAwesomeIconFactory.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC9F93AEC8D05D301C8ADEDF08B5AB83 /* SimpleKeychain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8333B9DDDB6D2ED84EF6B6B6E950B5A /* Build configuration list for PBXNativeTarget "SimpleKeychain" */;
+			buildPhases = (
+				F4102925B746981745FCE60DE8068CC5 /* Sources */,
+				0A25B3415C5CA9049372E2B7EFFFFCC4 /* Frameworks */,
+				3676FFA35FD77F1B9AF11CFB3E3CD6C9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleKeychain;
+			productName = SimpleKeychain;
+			productReference = 2BD3BAB0ED73D6BD64A56E75A6E8048B /* SimpleKeychain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED200CD04C741E160FC4F16CA3FDAEF8 /* Pods-AccessWatchKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 704B969307AAC5E4B5E149250DAA4C4D /* Build configuration list for PBXNativeTarget "Pods-AccessWatchKit" */;
+			buildPhases = (
+				296BA2A4B8CA108ED60507C165C8E84B /* Sources */,
+				742922E5E0DA4E94DA615A5DBF4F1EA1 /* Frameworks */,
+				A9D670543CB06F7FE900AA86190F72A7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AccessWatchKit";
+			productName = "Pods-AccessWatchKit";
+			productReference = 6BADC92BA7F8351DE9573E132666D94A /* Pods_AccessWatchKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B843D6032F00ABAB6694E14AB7D0BE15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CE1BA409A44BF1DC98ABCE49F45C1B9 /* Auth0 */,
+				C1967A1B7BD24B96811D1E776757119B /* FontAwesomeIconFactory */,
+				421EAF559BFBA0FE171B0BEE6FA57869 /* Pods-Access */,
+				ED200CD04C741E160FC4F16CA3FDAEF8 /* Pods-AccessWatchKit */,
+				27D48E4C192B91CF6ED2553CD4DA4766 /* Pods-AccessWatchKit Extension */,
+				DC9F93AEC8D05D301C8ADEDF08B5AB83 /* SimpleKeychain */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC2A68C20F22AFBC4BF7A50D8EA2E643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A41CC2B1186F23590F9045C34BB10FF /* FontAwesome.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		296BA2A4B8CA108ED60507C165C8E84B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				760E06C30200557762A0BB8EDC7540FB /* Pods-AccessWatchKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315B60E2ADBD0787CB2B2C6F2195822E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17E1E318776CB752042BE59D8E65BF56 /* FontAwesomeIconFactory-dummy.m in Sources */,
+				D08FA788CE05180C1815C249FAF8D58D /* NIKFontAwesomeButton.m in Sources */,
+				0F7C38BEA5AFA3A7E1FA70B0532CC4A5 /* NIKFontAwesomeIconFactory.m in Sources */,
+				50BD341A15ECC2B66B8FBA5184855688 /* NIKFontAwesomeImageView.m in Sources */,
+				BA4C7EC9A37D7172D8D230986DA4F9D2 /* NIKFontAwesomePathFactory.m in Sources */,
+				E5066FEC09C21B7A960B1F50F5454C58 /* NIKFontAwesomePathRenderer.m in Sources */,
+				C9FBB9F6A131EE623422E722E61EC81B /* NIKFontAwesomeTabBarItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D7A5F0111B1FF4737D4D736933C233C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8DDB534EAB64C553F99D2B12D611E3 /* _ObjectiveAuthenticationAPI.swift in Sources */,
+				2D4781C09EFA31C26793A3E84C658129 /* _ObjectiveManagementAPI.swift in Sources */,
+				8727F39AB965B2E32256B8FAED880FD9 /* _ObjectiveWebAuth.swift in Sources */,
+				FED2A75C0015A59B31E12352C9FA51DB /* A0ChallengeGenerator.m in Sources */,
+				ECB91B7C5E3B5EEF36C7A31B4BC10305 /* Auth0-dummy.m in Sources */,
+				F914817C7F0C9E143636665D5718579A /* Auth0.swift in Sources */,
+				FD3668F599190DDE65EE33A7869DE2A3 /* Auth0Authentication.swift in Sources */,
+				AFFC5C1DC06C2628537B9AB5848F5BC1 /* Auth0Error.swift in Sources */,
+				FB62D21D1DE20E689E50CD957FE574A7 /* Authentication.swift in Sources */,
+				1B613D717C5B15184A170245C84872AF /* AuthenticationError.swift in Sources */,
+				C6C6662F0EAAA6153180E388C920DC95 /* ControllerModalPresenter.swift in Sources */,
+				E78D85B9AF1C7E65F1D1AE7829C3B787 /* Credentials.swift in Sources */,
+				527CDB645FFB0E3093031346593D3651 /* Handlers.swift in Sources */,
+				8FD73493B9FB90CE4CDC17158B79B0ED /* Identity.swift in Sources */,
+				130E4EB1E49384AAD6288526844B8269 /* JSONObjectPayload.swift in Sources */,
+				196B612C43F6007F93016F67D5256B00 /* Loggable.swift in Sources */,
+				C03CAD29F95BDF678C4447D77A9C871A /* Logger.swift in Sources */,
+				381B0D09857369A3DFC62788C60CE32E /* Management.swift in Sources */,
+				5465727F16A49F31B3E705BABE9A0948 /* ManagementError.swift in Sources */,
+				1CBE7A25C84031867E56CD9171B09CEE /* NSData+URLSafe.swift in Sources */,
+				3F24CF0590BFB291161B3FCD3F77D657 /* NSError+Helper.swift in Sources */,
+				77BE26F0542244655035B35EF62E3E32 /* NSURL+Auth0.swift in Sources */,
+				E514227145BBC1B570367D7EEC6E5E16 /* NSURLComponents+OAuth2.swift in Sources */,
+				1EBE73A1A83DFFFCCC1747E170DDA12E /* OAuth2Grant.swift in Sources */,
+				8E75CCDC84531A1897A25FECFCFB3213 /* OAuth2Session.swift in Sources */,
+				C556B6EB9247D663E0E00CC541129495 /* Profile.swift in Sources */,
+				617661B7F93678C10BCFC4E4F67A527E /* Request.swift in Sources */,
+				F78BD15CB5EB5A92222B8F534795B152 /* Requestable.swift in Sources */,
+				150837B8AA3555176A7D918AE7BE5EE3 /* Response.swift in Sources */,
+				DB1C1497824EA22B053A6006FC331B40 /* Result.swift in Sources */,
+				D0CB72C18B8F8A373D13AD8713B4E424 /* SafariWebAuth.swift in Sources */,
+				E4401EA8679DB4FB40BE99630932BDC3 /* SessionStorage.swift in Sources */,
+				FB816F3C322361B2E938D3A86E8CC4B8 /* Telemetry.swift in Sources */,
+				2FC08535875D7277710BEBE59D3BF387 /* UserPatchAttributes.swift in Sources */,
+				A201B1B57786ADD35FACEE999A66DD18 /* Users.swift in Sources */,
+				088A343CDC793F7A3BCB6E55D1B5AEA1 /* WebAuth.swift in Sources */,
+				BDF9E262BF2989E7F9C9D5727C63EFBD /* WebAuthError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B06A1484443FD5F6F62DDE4E4DC87623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A3B58C421AC152B6EE3B706276DF5B3 /* Pods-AccessWatchKit Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E3F48C17BAD6C127C8EF7E9666932 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD46F29A008ADBF886CE4405446A14AB /* Pods-Access-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4102925B746981745FCE60DE8068CC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4703FB271274BCDD8E43AAF98D6FB68B /* A0SimpleKeychain+KeyPair.m in Sources */,
+				EA13001CB8F8B0C984C0A99E8256A54A /* A0SimpleKeychain.m in Sources */,
+				1EFD541DE6BE2480DCFB943DC21A9CF0 /* SimpleKeychain-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE9E082896A3F06C583D40BE7E8C2DFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SimpleKeychain;
+			target = DC9F93AEC8D05D301C8ADEDF08B5AB83 /* SimpleKeychain */;
+			targetProxy = 0F41049BD9430F7B274B6D2C6FBA4187 /* PBXContainerItemProxy */;
+		};
+		EFAA0EA9D0DA79DA52328A0E8FC07A95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Auth0;
+			target = 9CE1BA409A44BF1DC98ABCE49F45C1B9 /* Auth0 */;
+			targetProxy = 5B4F6C17D128A2798CBB416E995F9C3F /* PBXContainerItemProxy */;
+		};
+		F02E3E14940FCF5C67D2C686ED3698D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FontAwesomeIconFactory;
+			target = C1967A1B7BD24B96811D1E776757119B /* FontAwesomeIconFactory */;
+			targetProxy = FA52A707F3A44AB32579A3DF167A6F12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05AE85012F73ECC231FE2303EA196088 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ED83A90AF79B4413FE9EB6CEC6B7FA7 /* Pods-Access.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Access/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Access/Pods-Access.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Access;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1687AE548ECCA3E4B53B9AE75F881FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 330932859DA081AEFE49C94B65E53D2B /* FontAwesomeIconFactory.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FontAwesomeIconFactory/FontAwesomeIconFactory-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FontAwesomeIconFactory/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FontAwesomeIconFactory/FontAwesomeIconFactory.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FontAwesomeIconFactory;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F547C72181E2537B7B826035CAB47BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04928544D445B510AE227D25ADF49754 /* Auth0.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Auth0;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2C7C920A2CE4BDB901253C7761AD42F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		442497C3CC60345B3A3923CD7B7872B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 330932859DA081AEFE49C94B65E53D2B /* FontAwesomeIconFactory.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FontAwesomeIconFactory/FontAwesomeIconFactory-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FontAwesomeIconFactory/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FontAwesomeIconFactory/FontAwesomeIconFactory.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FontAwesomeIconFactory;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E14A9330EF5882B6EBBA93859835EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF647C52E6B3D7D3A6D9318C1AC04856 /* Pods-AccessWatchKit.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AccessWatchKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AccessWatchKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		67831739D737557C5B0223DF15CF0A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A28DA35AA3A67C0E5BE682B0C97473EF /* Pods-AccessWatchKit.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AccessWatchKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AccessWatchKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		7329696C750C71EA6C49D7F8A0D82840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		79195839A289D627C655CEB3A7312172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEFC8BB34719FE98032F785B98BAFAE /* SimpleKeychain.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7B1706414A40FD38901D5F51443F0467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34DD1F5FB6DDD7C8B80F3FB405BD3B2F /* Pods-Access.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Access/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Access/Pods-Access.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Access;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B8487B3BB544A75A54FC14DE0721470 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C353236E695A4BECEB201863F29DA18 /* Pods-AccessWatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AccessWatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AccessWatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		9669A57309EC91144061A8331606001F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEFC8BB34719FE98032F785B98BAFAE /* SimpleKeychain.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9FE541A1F7390A38A58561CDA552B81C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04928544D445B510AE227D25ADF49754 /* Auth0.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Auth0;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F68B86370349CFAE5702A962364A9652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63F3A2D7413DBBDD2B1244E59C0C3A1D /* Pods-AccessWatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AccessWatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AccessWatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C305EB7E3E3DB3CF246D6ABD1B7E4BB /* Build configuration list for PBXNativeTarget "Pods-Access" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B1706414A40FD38901D5F51443F0467 /* Debug */,
+				05AE85012F73ECC231FE2303EA196088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C7C920A2CE4BDB901253C7761AD42F4 /* Debug */,
+				7329696C750C71EA6C49D7F8A0D82840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		339CF6F8E66041C40A4DD5F0C9C4FE6E /* Build configuration list for PBXNativeTarget "Pods-AccessWatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68B86370349CFAE5702A962364A9652 /* Debug */,
+				8B8487B3BB544A75A54FC14DE0721470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		704B969307AAC5E4B5E149250DAA4C4D /* Build configuration list for PBXNativeTarget "Pods-AccessWatchKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67831739D737557C5B0223DF15CF0A4C /* Debug */,
+				5E14A9330EF5882B6EBBA93859835EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8333B9DDDB6D2ED84EF6B6B6E950B5A /* Build configuration list for PBXNativeTarget "SimpleKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79195839A289D627C655CEB3A7312172 /* Debug */,
+				9669A57309EC91144061A8331606001F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C62484F7174391294D2AE8AA647D729A /* Build configuration list for PBXNativeTarget "FontAwesomeIconFactory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442497C3CC60345B3A3923CD7B7872B9 /* Debug */,
+				1687AE548ECCA3E4B53B9AE75F881FDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D357FDAC11EA50AD8886C0181C705BFD /* Build configuration list for PBXNativeTarget "Auth0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F547C72181E2537B7B826035CAB47BC /* Debug */,
+				9FE541A1F7390A38A58561CDA552B81C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

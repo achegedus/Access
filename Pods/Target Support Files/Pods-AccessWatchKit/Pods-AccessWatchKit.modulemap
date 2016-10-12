@@ -1,0 +1,6 @@
+framework module Pods_AccessWatchKit {
+  umbrella header "Pods-AccessWatchKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

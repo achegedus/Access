@@ -11,9 +11,63 @@
 		16703DDF1DAECB8600207138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDE1DAECB8600207138 /* ViewController.swift */; };
 		16703DE21DAECB8600207138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE01DAECB8600207138 /* Main.storyboard */; };
 		16703DE51DAECB8600207138 /* Access.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16703DE31DAECB8600207138 /* Access.xcdatamodeld */; };
-		16703DE71DAECB8600207138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE61DAECB8600207138 /* Assets.xcassets */; };
 		16703DEA1DAECB8600207138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE81DAECB8600207138 /* LaunchScreen.storyboard */; };
+		16703DF71DAECBB900207138 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DF51DAECBB900207138 /* Interface.storyboard */; };
+		16703DF91DAECBB900207138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16703DF81DAECBB900207138 /* Assets.xcassets */; };
+		16703E001DAECBB900207138 /* AccessWatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16703DFF1DAECBB900207138 /* AccessWatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16703E071DAECBB900207138 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E061DAECBB900207138 /* InterfaceController.swift */; };
+		16703E091DAECBB900207138 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E081DAECBB900207138 /* ExtensionDelegate.swift */; };
+		16703E0B1DAECBB900207138 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E0A1DAECBB900207138 /* NotificationController.swift */; };
+		16703E0D1DAECBB900207138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16703E0C1DAECBB900207138 /* Assets.xcassets */; };
+		16703E111DAECBB900207138 /* AccessWatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 16703DF31DAECBB900207138 /* AccessWatchKit.app */; };
+		16703E1D1DAECC0E00207138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16703E1C1DAECC0E00207138 /* Assets.xcassets */; };
+		16703E1F1DAECC1600207138 /* JeffPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16703E1E1DAECC1600207138 /* JeffPhoto.jpg */; };
+		6295FEBD36762E412EC25CDC /* Pods_Access.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D270C46DD94527B5EF45E33 /* Pods_Access.framework */; };
+		7143FCC7257419D74C21EB81 /* Pods_AccessWatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */; };
+		C233F0878B023F09B16AB84B /* Pods_AccessWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16703E011DAECBB900207138 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16703DD11DAECB8600207138 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16703DFE1DAECBB900207138;
+			remoteInfo = "AccessWatchKit Extension";
+		};
+		16703E0F1DAECBB900207138 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16703DD11DAECB8600207138 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16703DF21DAECBB900207138;
+			remoteInfo = AccessWatchKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16703E151DAECBB900207138 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				16703E001DAECBB900207138 /* AccessWatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16703E191DAECBB900207138 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				16703E111DAECBB900207138 /* AccessWatchKit.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		16703DD91DAECB8600207138 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,9 +75,30 @@
 		16703DDE1DAECB8600207138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		16703DE11DAECB8600207138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16703DE41DAECB8600207138 /* Access.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Access.xcdatamodel; sourceTree = "<group>"; };
-		16703DE61DAECB8600207138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16703DE91DAECB8600207138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16703DEB1DAECB8600207138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16703DF31DAECBB900207138 /* AccessWatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessWatchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16703DF61DAECBB900207138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		16703DF81DAECBB900207138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16703DFA1DAECBB900207138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16703DFF1DAECBB900207138 /* AccessWatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AccessWatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16703E051DAECBB900207138 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		16703E061DAECBB900207138 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		16703E081DAECBB900207138 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		16703E0A1DAECBB900207138 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		16703E0C1DAECBB900207138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16703E0E1DAECBB900207138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16703E1C1DAECC0E00207138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16703E1E1DAECC1600207138 /* JeffPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = JeffPhoto.jpg; sourceTree = "<group>"; };
+		226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		6D270C46DD94527B5EF45E33 /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7E0A276D4B691A3FD76513D /* Pods-AccessWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.release.xcconfig"; sourceTree = "<group>"; };
+		F41719818CEA95412425D0E2 /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Access/Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
+		FA41539A4E6D5FC8CB6FCDB3 /* Pods-Access.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.release.xcconfig"; path = "Pods/Target Support Files/Pods-Access/Pods-Access.release.xcconfig"; sourceTree = "<group>"; };
+		FDFCA31C1E1E3F66A0159C22 /* Pods-AccessWatchKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +106,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6295FEBD36762E412EC25CDC /* Pods_Access.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16703DFC1DAECBB900207138 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7143FCC7257419D74C21EB81 /* Pods_AccessWatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA4EB16C0C1929AFA0639FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C233F0878B023F09B16AB84B /* Pods_AccessWatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				16703DDB1DAECB8600207138 /* Access */,
+				16703DF41DAECBB900207138 /* AccessWatchKit */,
+				16703E031DAECBB900207138 /* AccessWatchKit Extension */,
 				16703DDA1DAECB8600207138 /* Products */,
+				96FA506C3F2401F03EFD3AF4 /* Pods */,
+				DB98E4CCA6FCB4B397C608D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				16703DD91DAECB8600207138 /* Access.app */,
+				16703DF31DAECBB900207138 /* AccessWatchKit.app */,
+				16703DFF1DAECBB900207138 /* AccessWatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +154,86 @@
 		16703DDB1DAECB8600207138 /* Access */ = {
 			isa = PBXGroup;
 			children = (
+				16703E1B1DAECBED00207138 /* Assets */,
+				16703E1A1DAECBC600207138 /* Modules */,
 				16703DDC1DAECB8600207138 /* AppDelegate.swift */,
 				16703DDE1DAECB8600207138 /* ViewController.swift */,
 				16703DE01DAECB8600207138 /* Main.storyboard */,
-				16703DE61DAECB8600207138 /* Assets.xcassets */,
 				16703DE81DAECB8600207138 /* LaunchScreen.storyboard */,
 				16703DEB1DAECB8600207138 /* Info.plist */,
 				16703DE31DAECB8600207138 /* Access.xcdatamodeld */,
 			);
 			path = Access;
+			sourceTree = "<group>";
+		};
+		16703DF41DAECBB900207138 /* AccessWatchKit */ = {
+			isa = PBXGroup;
+			children = (
+				16703DF51DAECBB900207138 /* Interface.storyboard */,
+				16703DF81DAECBB900207138 /* Assets.xcassets */,
+				16703DFA1DAECBB900207138 /* Info.plist */,
+			);
+			path = AccessWatchKit;
+			sourceTree = "<group>";
+		};
+		16703E031DAECBB900207138 /* AccessWatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16703E061DAECBB900207138 /* InterfaceController.swift */,
+				16703E081DAECBB900207138 /* ExtensionDelegate.swift */,
+				16703E0A1DAECBB900207138 /* NotificationController.swift */,
+				16703E0C1DAECBB900207138 /* Assets.xcassets */,
+				16703E0E1DAECBB900207138 /* Info.plist */,
+				16703E041DAECBB900207138 /* Supporting Files */,
+			);
+			path = "AccessWatchKit Extension";
+			sourceTree = "<group>";
+		};
+		16703E041DAECBB900207138 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16703E051DAECBB900207138 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16703E1A1DAECBC600207138 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		16703E1B1DAECBED00207138 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				16703E1E1DAECC1600207138 /* JeffPhoto.jpg */,
+				16703E1C1DAECC0E00207138 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		96FA506C3F2401F03EFD3AF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F41719818CEA95412425D0E2 /* Pods-Access.debug.xcconfig */,
+				FA41539A4E6D5FC8CB6FCDB3 /* Pods-Access.release.xcconfig */,
+				FDFCA31C1E1E3F66A0159C22 /* Pods-AccessWatchKit.debug.xcconfig */,
+				B7E0A276D4B691A3FD76513D /* Pods-AccessWatchKit.release.xcconfig */,
+				4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */,
+				2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB98E4CCA6FCB4B397C608D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D270C46DD94527B5EF45E33 /* Pods_Access.framework */,
+				80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */,
+				226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,18 +243,63 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16703DEE1DAECB8600207138 /* Build configuration list for PBXNativeTarget "Access" */;
 			buildPhases = (
+				F40BC4FF97327C5A3D18E1B3 /* [CP] Check Pods Manifest.lock */,
 				16703DD51DAECB8600207138 /* Sources */,
 				16703DD61DAECB8600207138 /* Frameworks */,
 				16703DD71DAECB8600207138 /* Resources */,
+				16703E191DAECBB900207138 /* Embed Watch Content */,
+				62020A7A00CDC129309FBE79 /* [CP] Embed Pods Frameworks */,
+				DC85AE154FFE30D44771A267 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				16703E101DAECBB900207138 /* PBXTargetDependency */,
 			);
 			name = Access;
 			productName = Access;
 			productReference = 16703DD91DAECB8600207138 /* Access.app */;
 			productType = "com.apple.product-type.application";
+		};
+		16703DF21DAECBB900207138 /* AccessWatchKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16703E161DAECBB900207138 /* Build configuration list for PBXNativeTarget "AccessWatchKit" */;
+			buildPhases = (
+				30E884ADF44EDD1D79E61E83 /* [CP] Check Pods Manifest.lock */,
+				16703DF11DAECBB900207138 /* Resources */,
+				16703E151DAECBB900207138 /* Embed App Extensions */,
+				FAA4EB16C0C1929AFA0639FA /* Frameworks */,
+				D44965D98B1B3BA860DA9BE2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16703E021DAECBB900207138 /* PBXTargetDependency */,
+			);
+			name = AccessWatchKit;
+			productName = AccessWatchKit;
+			productReference = 16703DF31DAECBB900207138 /* AccessWatchKit.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		16703DFE1DAECBB900207138 /* AccessWatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16703E121DAECBB900207138 /* Build configuration list for PBXNativeTarget "AccessWatchKit Extension" */;
+			buildPhases = (
+				36516B3AD5D7D835C59C64C9 /* [CP] Check Pods Manifest.lock */,
+				16703DFB1DAECBB900207138 /* Sources */,
+				16703DFC1DAECBB900207138 /* Frameworks */,
+				16703DFD1DAECBB900207138 /* Resources */,
+				C770B4977D0A1E820685DF2C /* [CP] Embed Pods Frameworks */,
+				28E858AF5A0F563A91ABE7BF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AccessWatchKit Extension";
+			productName = "AccessWatchKit Extension";
+			productReference = 16703DFF1DAECBB900207138 /* AccessWatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +312,16 @@
 				ORGANIZATIONNAME = "EnergyCAP, Inc.";
 				TargetAttributes = {
 					16703DD81DAECB8600207138 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 773798U7P9;
+						ProvisioningStyle = Automatic;
+					};
+					16703DF21DAECBB900207138 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 773798U7P9;
+						ProvisioningStyle = Automatic;
+					};
+					16703DFE1DAECBB900207138 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 773798U7P9;
 						ProvisioningStyle = Automatic;
@@ -118,6 +342,8 @@
 			projectRoot = "";
 			targets = (
 				16703DD81DAECB8600207138 /* Access */,
+				16703DF21DAECBB900207138 /* AccessWatchKit */,
+				16703DFE1DAECBB900207138 /* AccessWatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -128,12 +354,153 @@
 			buildActionMask = 2147483647;
 			files = (
 				16703DEA1DAECB8600207138 /* LaunchScreen.storyboard in Resources */,
-				16703DE71DAECB8600207138 /* Assets.xcassets in Resources */,
+				16703E1F1DAECC1600207138 /* JeffPhoto.jpg in Resources */,
+				16703E1D1DAECC0E00207138 /* Assets.xcassets in Resources */,
 				16703DE21DAECB8600207138 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		16703DF11DAECBB900207138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16703DF91DAECBB900207138 /* Assets.xcassets in Resources */,
+				16703DF71DAECBB900207138 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16703DFD1DAECBB900207138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16703E0D1DAECBB900207138 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28E858AF5A0F563A91ABE7BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30E884ADF44EDD1D79E61E83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36516B3AD5D7D835C59C64C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		62020A7A00CDC129309FBE79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Access/Pods-Access-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C770B4977D0A1E820685DF2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D44965D98B1B3BA860DA9BE2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC85AE154FFE30D44771A267 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Access/Pods-Access-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F40BC4FF97327C5A3D18E1B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		16703DD51DAECB8600207138 /* Sources */ = {
@@ -146,7 +513,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		16703DFB1DAECBB900207138 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16703E0B1DAECBB900207138 /* NotificationController.swift in Sources */,
+				16703E091DAECBB900207138 /* ExtensionDelegate.swift in Sources */,
+				16703E071DAECBB900207138 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16703E021DAECBB900207138 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16703DFE1DAECBB900207138 /* AccessWatchKit Extension */;
+			targetProxy = 16703E011DAECBB900207138 /* PBXContainerItemProxy */;
+		};
+		16703E101DAECBB900207138 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16703DF21DAECBB900207138 /* AccessWatchKit */;
+			targetProxy = 16703E0F1DAECBB900207138 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		16703DE01DAECB8600207138 /* Main.storyboard */ = {
@@ -163,6 +553,14 @@
 				16703DE91DAECB8600207138 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		16703DF51DAECBB900207138 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16703DF61DAECBB900207138 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,7 +661,9 @@
 		};
 		16703DEF1DAECB8600207138 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41719818CEA95412425D0E2 /* Pods-Access.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 773798U7P9;
 				INFOPLIST_FILE = Access/Info.plist;
@@ -276,7 +676,9 @@
 		};
 		16703DF01DAECB8600207138 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA41539A4E6D5FC8CB6FCDB3 /* Pods-Access.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 773798U7P9;
 				INFOPLIST_FILE = Access/Info.plist;
@@ -284,6 +686,80 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		16703E131DAECBB900207138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 773798U7P9;
+				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		16703E141DAECBB900207138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 773798U7P9;
+				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		16703E171DAECBB900207138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDFCA31C1E1E3F66A0159C22 /* Pods-AccessWatchKit.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 773798U7P9;
+				IBSC_MODULE = AccessWatchKit_Extension;
+				INFOPLIST_FILE = AccessWatchKit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		16703E181DAECBB900207138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7E0A276D4B691A3FD76513D /* Pods-AccessWatchKit.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 773798U7P9;
+				IBSC_MODULE = AccessWatchKit_Extension;
+				INFOPLIST_FILE = AccessWatchKit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -306,6 +782,25 @@
 				16703DF01DAECB8600207138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16703E121DAECBB900207138 /* Build configuration list for PBXNativeTarget "AccessWatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16703E131DAECBB900207138 /* Debug */,
+				16703E141DAECBB900207138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16703E161DAECBB900207138 /* Build configuration list for PBXNativeTarget "AccessWatchKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16703E171DAECBB900207138 /* Debug */,
+				16703E181DAECBB900207138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
