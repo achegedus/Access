@@ -7,6 +7,7 @@ target 'Access' do
 
   # Pods for Access
   pod "FontAwesomeIconFactory"
+  pod "Lock", "~> 1.27"
   pod "Auth0", "1.0"
   pod "SimpleKeychain"
   pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"

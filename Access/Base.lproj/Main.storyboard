@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,21 +19,197 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JeffPhoto.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DM6-bU-zC8"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq4-rB-cx4" customClass="DesignableView" customModule="Spring">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-2p-bkY" customClass="DesignableTextField" customModule="Spring">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="EKI-c8-lxt"/>
+                                            <constraint firstAttribute="width" constant="251" id="KKs-0R-Jg1"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9g1-Oc-vZ3" customClass="DesignableButton" customModule="Spring">
+                                        <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="5BD-t9-hIc"/>
+                                            <constraint firstAttribute="width" constant="251" id="6Hr-PI-QU6"/>
+                                        </constraints>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="teU-Pw-lAN"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lt-cF-ocb" customClass="DesignableTextField" customModule="Spring">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="251" id="JIp-BW-3Br"/>
+                                            <constraint firstAttribute="height" constant="43" id="drZ-Q0-dST"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="energycap_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="S4M-EB-YNS">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="7p1-0U-H5K"/>
+                                            <constraint firstAttribute="width" constant="141" id="uVn-EA-ljt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_username_login" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-6S-0YY">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="8PL-sl-vVm"/>
+                                            <constraint firstAttribute="height" constant="36" id="Hui-cF-GYL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_password_login" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-gx-5qz">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="QQw-pR-Enw"/>
+                                            <constraint firstAttribute="width" constant="36" id="z2c-Li-bcb"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="IEO-2p-bkY" firstAttribute="top" secondItem="S4M-EB-YNS" secondAttribute="bottom" constant="35" id="0Dm-6b-fr9"/>
+                                    <constraint firstAttribute="bottom" secondItem="9g1-Oc-vZ3" secondAttribute="bottom" constant="15" id="69O-YR-zfl"/>
+                                    <constraint firstItem="3lt-cF-ocb" firstAttribute="top" secondItem="IEO-2p-bkY" secondAttribute="bottom" constant="15" id="QrR-es-eBh"/>
+                                    <constraint firstItem="9g1-Oc-vZ3" firstAttribute="centerX" secondItem="Lq4-rB-cx4" secondAttribute="centerX" id="SRj-mj-bR4"/>
+                                    <constraint firstItem="3lt-cF-ocb" firstAttribute="centerX" secondItem="Lq4-rB-cx4" secondAttribute="centerX" id="SoX-hX-Fge"/>
+                                    <constraint firstItem="dBx-6S-0YY" firstAttribute="centerY" secondItem="IEO-2p-bkY" secondAttribute="centerY" id="XkN-yc-ErX"/>
+                                    <constraint firstItem="IEO-2p-bkY" firstAttribute="leading" secondItem="dBx-6S-0YY" secondAttribute="trailing" constant="-43" id="YPG-Yy-OGV"/>
+                                    <constraint firstItem="VKu-gx-5qz" firstAttribute="centerY" secondItem="3lt-cF-ocb" secondAttribute="centerY" id="beM-iL-yTQ"/>
+                                    <constraint firstAttribute="width" constant="281" id="eB9-oR-iwJ"/>
+                                    <constraint firstItem="IEO-2p-bkY" firstAttribute="centerX" secondItem="Lq4-rB-cx4" secondAttribute="centerX" id="eTm-mq-gf5"/>
+                                    <constraint firstItem="3lt-cF-ocb" firstAttribute="leading" secondItem="VKu-gx-5qz" secondAttribute="trailing" constant="-43" id="gNt-Py-wQU"/>
+                                    <constraint firstItem="S4M-EB-YNS" firstAttribute="centerX" secondItem="Lq4-rB-cx4" secondAttribute="centerX" id="gZr-dD-xTR"/>
+                                    <constraint firstItem="9g1-Oc-vZ3" firstAttribute="top" secondItem="3lt-cF-ocb" secondAttribute="bottom" constant="15" id="oxL-Aq-Fhb"/>
+                                    <constraint firstAttribute="height" constant="281" id="vbb-fj-ZmT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 EnergyCAP, Inc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJE-nG-IUz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="cXh-9a-vQE"/>
+                                    <constraint firstAttribute="width" constant="200" id="x3w-u7-rGQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DM6-bU-zC8" secondAttribute="bottom" id="7Rf-W6-amA"/>
+                            <constraint firstItem="Lq4-rB-cx4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gmk-L0-Kcr"/>
                             <constraint firstItem="DM6-bU-zC8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LXb-OB-406"/>
-                            <constraint firstItem="DM6-bU-zC8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YwC-UN-rwF"/>
+                            <constraint firstItem="DM6-bU-zC8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="YwC-UN-rwF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NJE-nG-IUz" secondAttribute="bottom" constant="10" id="ZMr-64-p3k"/>
+                            <constraint firstItem="Lq4-rB-cx4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nT8-2g-n42"/>
                             <constraint firstAttribute="trailing" secondItem="DM6-bU-zC8" secondAttribute="trailing" id="p7F-Ln-qep"/>
+                            <constraint firstItem="NJE-nG-IUz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yIo-8v-ZoB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="3lt-cF-ocb" id="R0d-xy-yul"/>
+                        <outlet property="usernameTextField" destination="IEO-2p-bkY" id="CZG-fX-lT2"/>
+                        <segue destination="Hc7-Gb-Fa7" kind="show" identifier="loggedInSeque" id="ggG-Ti-ACf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Servers-->
+        <scene sceneID="McP-CS-TmH">
+            <objects>
+                <viewController id="CTy-Xi-lUj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yuy-Rj-PkQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rTq-Ak-zS3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n6G-DH-rYq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Servers" image="795-gauge" id="dmM-CE-W9E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgi-DG-OOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="162"/>
+        </scene>
+        <!--Alerts-->
+        <scene sceneID="qV0-Nd-gpX">
+            <objects>
+                <viewController id="cAq-fP-Yry" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dUx-6T-ziU"/>
+                        <viewControllerLayoutGuide type="bottom" id="5hZ-eG-Jdr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zvX-jw-zGH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alerts" image="734-chat" id="QHj-Mg-C5J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sdO-39-tLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="-512"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nxY-KZ-Iui">
+            <objects>
+                <tabBarController id="Hc7-Gb-Fa7" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9rb-8b-9AZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cAq-fP-Yry" kind="relationship" relationship="viewControllers" id="YFy-62-53n"/>
+                        <segue destination="CTy-Xi-lUj" kind="relationship" relationship="viewControllers" id="LBt-eC-MMB"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gOu-cd-af8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="38"/>
         </scene>
     </scenes>
     <resources>
+        <image name="734-chat" width="28" height="25"/>
+        <image name="795-gauge" width="28" height="28"/>
         <image name="JeffPhoto.jpg" width="5760" height="3840"/>
+        <image name="energycap_logo_white" width="141" height="38"/>
+        <image name="icon_password_login" width="36" height="36"/>
+        <image name="icon_username_login" width="36" height="36"/>
     </resources>
 </document>

@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Auth0ClientId</key>
+	<string>8tq5oi8oqMfFr9o4Mgz25ta1slAUd3Ua</string>
+	<key>Auth0Domain</key>
+	<string>energycap.auth0.com</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

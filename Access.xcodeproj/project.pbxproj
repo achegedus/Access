@@ -24,6 +24,7 @@
 		16703E1F1DAECC1600207138 /* JeffPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16703E1E1DAECC1600207138 /* JeffPhoto.jpg */; };
 		6295FEBD36762E412EC25CDC /* Pods_Access.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D270C46DD94527B5EF45E33 /* Pods_Access.framework */; };
 		7143FCC7257419D74C21EB81 /* Pods_AccessWatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */; };
+		76A266351DAF285500480E93 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A266341DAF285500480E93 /* LoginViewController.swift */; };
 		C233F0878B023F09B16AB84B /* Pods_AccessWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		6D270C46DD94527B5EF45E33 /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A266341DAF285500480E93 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E0A276D4B691A3FD76513D /* Pods-AccessWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.release.xcconfig"; sourceTree = "<group>"; };
 		F41719818CEA95412425D0E2 /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Access/Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		16703E1A1DAECBC600207138 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				76A266331DAF284300480E93 /* Login */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -211,6 +214,14 @@
 				16703E1C1DAECC0E00207138 /* Assets.xcassets */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		76A266331DAF284300480E93 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				76A266341DAF285500480E93 /* LoginViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		96FA506C3F2401F03EFD3AF4 /* Pods */ = {
@@ -507,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A266351DAF285500480E93 /* LoginViewController.swift in Sources */,
 				16703DE51DAECB8600207138 /* Access.xcdatamodeld in Sources */,
 				16703DDF1DAECB8600207138 /* ViewController.swift in Sources */,
 				16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */,
