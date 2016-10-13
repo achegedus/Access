@@ -200,11 +200,14 @@
                                     <action selector="logoutButtonPressed:" destination="LAu-HN-dk2" eventType="touchUpInside" id="OV1-Qc-Vun"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ECIOPS_logo" translatesAutoresizingMaskIntoConstraints="NO" id="93q-xy-fNf"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="93q-xy-fNf" firstAttribute="top" secondItem="2Qg-CF-Anb" secondAttribute="bottom" constant="30" id="3AM-kI-VxH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Jq-pS-8Rb" secondAttribute="trailing" constant="20" id="9kF-Zk-h2b"/>
                             <constraint firstItem="7Jq-pS-8Rb" firstAttribute="leading" secondItem="Q1G-yh-62w" secondAttribute="leadingMargin" constant="20" id="Oit-6B-Xvi"/>
+                            <constraint firstItem="93q-xy-fNf" firstAttribute="leading" secondItem="Q1G-yh-62w" secondAttribute="leading" constant="20" id="QOU-Bf-f3F"/>
                             <constraint firstItem="7Jq-pS-8Rb" firstAttribute="centerX" secondItem="Q1G-yh-62w" secondAttribute="centerX" id="b24-cc-a9S"/>
                             <constraint firstItem="e62-AY-SXP" firstAttribute="top" secondItem="7Jq-pS-8Rb" secondAttribute="bottom" constant="75" id="wfb-Y6-wMg"/>
                         </constraints>
@@ -230,7 +233,18 @@
                     <view key="view" contentMode="scaleToFill" id="zvX-jw-zGH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4T-Lg-alk">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f4T-Lg-alk" firstAttribute="top" secondItem="dUx-6T-ziU" secondAttribute="bottom" id="BQ1-g4-lGP"/>
+                            <constraint firstAttribute="trailing" secondItem="f4T-Lg-alk" secondAttribute="trailing" id="TBM-JW-KQE"/>
+                            <constraint firstItem="f4T-Lg-alk" firstAttribute="leading" secondItem="zvX-jw-zGH" secondAttribute="leading" id="TSc-qd-iaG"/>
+                            <constraint firstItem="5hZ-eG-Jdr" firstAttribute="top" secondItem="f4T-Lg-alk" secondAttribute="bottom" id="fKZ-uT-lkP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Alerts" id="ba2-aL-cTi"/>
                 </viewController>
@@ -331,6 +345,7 @@
         <image name="734-chat" width="28" height="25"/>
         <image name="740-gear" width="28" height="28"/>
         <image name="795-gauge" width="28" height="28"/>
+        <image name="ECIOPS_logo" width="60" height="60"/>
         <image name="JeffPhoto.jpg" width="5760" height="3840"/>
         <image name="energycap_logo_white" width="141" height="38"/>
         <image name="icon_password_login" width="36" height="36"/>
