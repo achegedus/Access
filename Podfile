@@ -9,7 +9,9 @@ target 'Access' do
   pod "FontAwesomeIconFactory"
   pod "Auth0", "1.0"
   pod "SimpleKeychain"
-
+  pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"
+  
+  
 end
 
 target 'AccessWatchKit' do

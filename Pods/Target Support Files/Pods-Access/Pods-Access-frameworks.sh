@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Auth0/Auth0.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FontAwesomeIconFactory/FontAwesomeIconFactory.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SimpleKeychain/SimpleKeychain.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Spring/Spring.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Auth0/Auth0.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FontAwesomeIconFactory/FontAwesomeIconFactory.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SimpleKeychain/SimpleKeychain.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Spring/Spring.framework"
 fi
