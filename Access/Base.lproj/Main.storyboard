@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -113,6 +114,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 EnergyCAP, Inc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJE-nG-IUz">
@@ -138,6 +142,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginFormView" destination="Lq4-rB-cx4" id="4Ig-YI-12s"/>
                         <outlet property="passwordTextField" destination="3lt-cF-ocb" id="R0d-xy-yul"/>
                         <outlet property="usernameTextField" destination="IEO-2p-bkY" id="CZG-fX-lT2"/>
                         <segue destination="Hc7-Gb-Fa7" kind="show" identifier="loggedInSeque" id="ggG-Ti-ACf"/>
@@ -160,11 +165,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Servers" image="795-gauge" id="dmM-CE-W9E"/>
+                    <navigationItem key="navigationItem" title="Servers" id="HKi-Se-UTo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgi-DG-OOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="162"/>
+            <point key="canvasLocation" x="2724" y="161.46926536731635"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="I6U-nO-qwV">
+            <objects>
+                <viewController id="LAu-HN-dk2" userLabel="Settings" customClass="SettingsViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Qg-CF-Anb"/>
+                        <viewControllerLayoutGuide type="bottom" id="e62-AY-SXP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q1G-yh-62w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jq-pS-8Rb" customClass="DesignableButton" customModule="Spring">
+                                <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="bsv-cc-fDR"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="LAu-HN-dk2" eventType="touchUpInside" id="OV1-Qc-Vun"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Jq-pS-8Rb" secondAttribute="trailing" constant="20" id="9kF-Zk-h2b"/>
+                            <constraint firstItem="7Jq-pS-8Rb" firstAttribute="leading" secondItem="Q1G-yh-62w" secondAttribute="leadingMargin" constant="20" id="Oit-6B-Xvi"/>
+                            <constraint firstItem="7Jq-pS-8Rb" firstAttribute="centerX" secondItem="Q1G-yh-62w" secondAttribute="centerX" id="b24-cc-a9S"/>
+                            <constraint firstItem="e62-AY-SXP" firstAttribute="top" secondItem="7Jq-pS-8Rb" secondAttribute="bottom" constant="75" id="wfb-Y6-wMg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="Cr5-1h-ANP"/>
+                    <connections>
+                        <segue destination="KuI-8P-FXg" kind="unwind" identifier="unwindToLogout" unwindAction="LogoutFromSettingsUnwindWithSegue:" id="xbD-t5-Yea"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Nh-KB-OSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KuI-8P-FXg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2717.5999999999999" y="842.42878560719646"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="qV0-Nd-gpX">
@@ -179,11 +232,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alerts" image="734-chat" id="QHj-Mg-C5J"/>
+                    <navigationItem key="navigationItem" title="Alerts" id="ba2-aL-cTi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdO-39-tLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="-512"/>
+            <point key="canvasLocation" x="2724" y="-512.29385307346331"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nxY-KZ-Iui">
@@ -195,17 +248,88 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cAq-fP-Yry" kind="relationship" relationship="viewControllers" id="YFy-62-53n"/>
-                        <segue destination="CTy-Xi-lUj" kind="relationship" relationship="viewControllers" id="LBt-eC-MMB"/>
+                        <segue destination="TqO-k3-6on" kind="relationship" relationship="viewControllers" id="YFy-62-53n"/>
+                        <segue destination="8Tu-5z-Fgz" kind="relationship" relationship="viewControllers" id="LBt-eC-MMB"/>
+                        <segue destination="DxB-TS-9Jz" kind="relationship" relationship="viewControllers" id="5Ka-ph-1vb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOu-cd-af8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="806" y="38"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="8GJ-yE-001">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DxB-TS-9Jz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="740-gear" id="fYG-MA-01K"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9Sp-qb-Htw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LAu-HN-dk2" kind="relationship" relationship="rootViewController" id="b25-6v-SNE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMV-vQ-WuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1778.4000000000001" y="842.42878560719646"/>
+        </scene>
+        <!--Servers-->
+        <scene sceneID="cZ9-BE-op0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Tu-5z-Fgz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Servers" image="795-gauge" id="dmM-CE-W9E"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ii6-0b-2yY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CTy-Xi-lUj" kind="relationship" relationship="rootViewController" id="1JH-tT-Ad9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZ5-av-xBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="161.46926536731635"/>
+        </scene>
+        <!--Alerts-->
+        <scene sceneID="mjX-vC-LvM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TqO-k3-6on" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alerts" image="734-chat" id="QHj-Mg-C5J"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RLJ-Z9-o1s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cAq-fP-Yry" kind="relationship" relationship="rootViewController" id="VB8-7l-2ug"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQg-Lx-yeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="-512.29385307346331"/>
+        </scene>
     </scenes>
     <resources>
         <image name="734-chat" width="28" height="25"/>
+        <image name="740-gear" width="28" height="28"/>
         <image name="795-gauge" width="28" height="28"/>
         <image name="JeffPhoto.jpg" width="5760" height="3840"/>
         <image name="energycap_logo_white" width="141" height="38"/>

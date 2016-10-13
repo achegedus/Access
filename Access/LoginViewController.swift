@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
     
+    @IBOutlet weak var loginFormView: DesignableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,10 @@ class LoginViewController: UIViewController {
                 keychain.clearAll() //Cleaning stored values since they are no longer valid
                 //id_token is no longer valid.
                 //You should ask the user to login again!.
+                self.loginFormView.animate()
             })
         } else {
+            self.loginFormView.animate()
             print("No id_token FOUND")
         }
     }
@@ -77,6 +80,9 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loggedInSeque", sender: sender)
         }) { (Error) in
             print("Oops something went wrong: \(Error)")
+            self.loginFormView.animation.removeAll()
+            self.loginFormView.animation = "shake"
+            self.loginFormView.animate()
         }
     }
 
@@ -89,5 +95,10 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBAction func LogoutFromSettingsUnwind(segue:UIStoryboardSegue) {
+        
+    }
 
 }

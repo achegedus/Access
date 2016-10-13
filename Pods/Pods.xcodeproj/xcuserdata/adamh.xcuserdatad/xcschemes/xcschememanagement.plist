@@ -4,12 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Auth0.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>FontAwesomeIconFactory.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Lock-Auth0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Lock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,15 +54,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>27D48E4C192B91CF6ED2553CD4DA4766</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>421EAF559BFBA0FE171B0BEE6FA57869</key>
+		<key>44B3CA99551FC9164EA9B849FC81C824</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D60D8693840C863333D47C152E7FD7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>991C2CA17766B01D3CE7913DC8ECD6BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9C7CB5EE303F5ADE2FA9300A4EB19D2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BEA8D3C05D666956E8287B5AB6868BBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C1967A1B7BD24B96811D1E776757119B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC9F93AEC8D05D301C8ADEDF08B5AB83</key>
+		<key>CEC1D3CD7C4B2E3C4E18311F1A67892A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
