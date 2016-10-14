@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
                 keychain.setString(token.idToken, forKey: "id_token")
                 //Just got a new id_token!
                 print("You're still logged in!");
+                print("TOKEN \(token)")
                 self.performSegue(withIdentifier: "loggedInSeque", sender: self)
             }, failure: { (error) in
                 print("NOT LOGGED IN")
@@ -98,7 +99,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func LogoutFromSettingsUnwind(segue:UIStoryboardSegue) {
-        
+        self.loginFormView.animation.removeAll()
+        self.loginFormView.animation = "fadeInUp"
+        self.loginFormView.animate()
     }
 
 }

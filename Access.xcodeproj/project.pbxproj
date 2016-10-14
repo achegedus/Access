@@ -23,6 +23,8 @@
 		16703E1D1DAECC0E00207138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16703E1C1DAECC0E00207138 /* Assets.xcassets */; };
 		16703E1F1DAECC1600207138 /* JeffPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16703E1E1DAECC1600207138 /* JeffPhoto.jpg */; };
 		16703E261DB0112100207138 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E251DB0112100207138 /* SettingsViewController.swift */; };
+		16703E291DB16A5200207138 /* AlertsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E281DB16A5200207138 /* AlertsTableViewController.swift */; };
+		16703E2C1DB16F0E00207138 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703E2B1DB16F0E00207138 /* ChatViewController.swift */; };
 		6295FEBD36762E412EC25CDC /* Pods_Access.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D270C46DD94527B5EF45E33 /* Pods_Access.framework */; };
 		7143FCC7257419D74C21EB81 /* Pods_AccessWatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */; };
 		76A266351DAF285500480E93 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A266341DAF285500480E93 /* LoginViewController.swift */; };
@@ -94,6 +96,8 @@
 		16703E1E1DAECC1600207138 /* JeffPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = JeffPhoto.jpg; sourceTree = "<group>"; };
 		16703E231DAFE08B00207138 /* Access.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Access.entitlements; sourceTree = "<group>"; };
 		16703E251DB0112100207138 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		16703E281DB16A5200207138 /* AlertsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewController.swift; sourceTree = "<group>"; };
+		16703E2B1DB16F0E00207138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		16703E1A1DAECBC600207138 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				16703E2A1DB16EFE00207138 /* Chat */,
+				16703E271DB16A3400207138 /* Alerts */,
 				16703E241DB0110D00207138 /* Settings */,
 				76A266331DAF284300480E93 /* Login */,
 			);
@@ -227,6 +233,22 @@
 				16703E251DB0112100207138 /* SettingsViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		16703E271DB16A3400207138 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				16703E281DB16A5200207138 /* AlertsTableViewController.swift */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
+		16703E2A1DB16EFE00207138 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				16703E2B1DB16F0E00207138 /* ChatViewController.swift */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		76A266331DAF284300480E93 /* Login */ = {
@@ -538,6 +560,8 @@
 			files = (
 				76A266351DAF285500480E93 /* LoginViewController.swift in Sources */,
 				16703DE51DAECB8600207138 /* Access.xcdatamodeld in Sources */,
+				16703E291DB16A5200207138 /* AlertsTableViewController.swift in Sources */,
+				16703E2C1DB16F0E00207138 /* ChatViewController.swift in Sources */,
 				16703DDF1DAECB8600207138 /* ViewController.swift in Sources */,
 				16703E261DB0112100207138 /* SettingsViewController.swift in Sources */,
 				16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */,

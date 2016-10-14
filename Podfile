@@ -11,7 +11,8 @@ target 'Access' do
   pod "Auth0", "1.0"
   pod "SimpleKeychain"
   pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"
-  
+  pod "JSQMessagesViewController", :git => "https://github.com/jessesquires/JSQMessagesViewController.git", :branch => "develop"
+  pod "Firebase"
   
 end
 

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Lock-Auth0.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D60D8693840C863333D47C152E7FD7F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>991C2CA17766B01D3CE7913DC8ECD6BD</key>
+		<key>492EC4CAF698CB819D9B8E40E6FECEEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,11 +97,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BEA8D3C05D666956E8287B5AB6868BBE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C1967A1B7BD24B96811D1E776757119B</key>
 		<dict>
 			<key>primary</key>
@@ -112,7 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D1E830499DFA8E83D22375F5600841B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E722C2EE0FBB688D114BF9CC4C26D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>ED200CD04C741E160FC4F16CA3FDAEF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4652DD49CBC129355726E669F81872C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

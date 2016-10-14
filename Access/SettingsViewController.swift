@@ -12,11 +12,29 @@ import SimpleKeychain
 
 
 class SettingsViewController: UIViewController {
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let releaseVersionNumber = Bundle.main.infoDictionary!["CFBundleShortVersionString"];
+        
+        let buildVersionNumber = Bundle.main.infoDictionary!["CFBundleVersion"];
+        
+        self.versionLabel.text = "Version \(releaseVersionNumber!), Build \(buildVersionNumber!)";
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        if let data = keychain.data(forKey: "profile"), let profile = NSKeyedUnarchiver.unarchiveObject(with: data) {
+            self.usernameLabel.text = (profile as AnyObject).name
+            self.emailLabel.text = (profile as AnyObject).email
+        }
+
+        
     }
 
     override func didReceiveMemoryWarning() {
