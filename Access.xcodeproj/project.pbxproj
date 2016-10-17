@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162A8E381DB52F9D00471C57 /* NewAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E371DB52F9D00471C57 /* NewAlertViewController.swift */; };
+		162A8E3B1DB54A1500471C57 /* ServersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E3A1DB54A1500471C57 /* ServersTableViewController.swift */; };
+		162A8E3D1DB54A2900471C57 /* ServerDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E3C1DB54A2900471C57 /* ServerDetailsTableViewCell.swift */; };
+		162A8E3F1DB54A4000471C57 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E3E1DB54A4000471C57 /* ChatTableViewCell.swift */; };
+		162A8E411DB54A5100471C57 /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E401DB54A5100471C57 /* AlertsTableViewCell.swift */; };
+		162A8E441DB54A6D00471C57 /* TicketsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E431DB54A6D00471C57 /* TicketsTableViewCell.swift */; };
+		162A8E461DB54A7900471C57 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E451DB54A7900471C57 /* TicketsTableViewController.swift */; };
+		162A8E481DB54A8900471C57 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E471DB54A8900471C57 /* TicketDetailViewController.swift */; };
 		16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDC1DAECB8600207138 /* AppDelegate.swift */; };
 		16703DDF1DAECB8600207138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDE1DAECB8600207138 /* ViewController.swift */; };
 		16703DE21DAECB8600207138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE01DAECB8600207138 /* Main.storyboard */; };
@@ -74,6 +82,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		162A8E371DB52F9D00471C57 /* NewAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlertViewController.swift; sourceTree = "<group>"; };
+		162A8E3A1DB54A1500471C57 /* ServersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServersTableViewController.swift; sourceTree = "<group>"; };
+		162A8E3C1DB54A2900471C57 /* ServerDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		162A8E3E1DB54A4000471C57 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		162A8E401DB54A5100471C57 /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
+		162A8E431DB54A6D00471C57 /* TicketsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewCell.swift; sourceTree = "<group>"; };
+		162A8E451DB54A7900471C57 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
+		162A8E471DB54A8900471C57 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		16703DD91DAECB8600207138 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16703DDC1DAECB8600207138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16703DDE1DAECB8600207138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +154,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162A8E391DB549FA00471C57 /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				162A8E3A1DB54A1500471C57 /* ServersTableViewController.swift */,
+				162A8E3C1DB54A2900471C57 /* ServerDetailsTableViewCell.swift */,
+			);
+			name = Servers;
+			sourceTree = "<group>";
+		};
+		162A8E421DB54A6200471C57 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				162A8E431DB54A6D00471C57 /* TicketsTableViewCell.swift */,
+				162A8E451DB54A7900471C57 /* TicketsTableViewController.swift */,
+				162A8E471DB54A8900471C57 /* TicketDetailViewController.swift */,
+			);
+			name = Tickets;
+			sourceTree = "<group>";
+		};
 		16703DD01DAECB8600207138 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +245,8 @@
 		16703E1A1DAECBC600207138 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				162A8E421DB54A6200471C57 /* Tickets */,
+				162A8E391DB549FA00471C57 /* Servers */,
 				16703E2A1DB16EFE00207138 /* Chat */,
 				16703E271DB16A3400207138 /* Alerts */,
 				16703E241DB0110D00207138 /* Settings */,
@@ -239,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				16703E281DB16A5200207138 /* AlertsTableViewController.swift */,
+				162A8E371DB52F9D00471C57 /* NewAlertViewController.swift */,
+				162A8E401DB54A5100471C57 /* AlertsTableViewCell.swift */,
 			);
 			name = Alerts;
 			sourceTree = "<group>";
@@ -247,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				16703E2B1DB16F0E00207138 /* ChatViewController.swift */,
+				162A8E3E1DB54A4000471C57 /* ChatTableViewCell.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -558,12 +598,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162A8E381DB52F9D00471C57 /* NewAlertViewController.swift in Sources */,
 				76A266351DAF285500480E93 /* LoginViewController.swift in Sources */,
+				162A8E411DB54A5100471C57 /* AlertsTableViewCell.swift in Sources */,
+				162A8E3B1DB54A1500471C57 /* ServersTableViewController.swift in Sources */,
+				162A8E441DB54A6D00471C57 /* TicketsTableViewCell.swift in Sources */,
 				16703DE51DAECB8600207138 /* Access.xcdatamodeld in Sources */,
 				16703E291DB16A5200207138 /* AlertsTableViewController.swift in Sources */,
+				162A8E3F1DB54A4000471C57 /* ChatTableViewCell.swift in Sources */,
+				162A8E461DB54A7900471C57 /* TicketsTableViewController.swift in Sources */,
 				16703E2C1DB16F0E00207138 /* ChatViewController.swift in Sources */,
 				16703DDF1DAECB8600207138 /* ViewController.swift in Sources */,
 				16703E261DB0112100207138 /* SettingsViewController.swift in Sources */,
+				162A8E3D1DB54A2900471C57 /* ServerDetailsTableViewCell.swift in Sources */,
+				162A8E481DB54A8900471C57 /* TicketDetailViewController.swift in Sources */,
 				16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
