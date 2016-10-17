@@ -10,6 +10,8 @@ import UIKit
 import Spring
 import Lock
 import SimpleKeychain
+import FirebaseDatabase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -32,6 +34,12 @@ class LoginViewController: UIViewController {
                 print("You're still logged in!");
                 print("TOKEN \(token)")
                 self.performSegue(withIdentifier: "loggedInSeque", sender: self)
+                
+                // login to firebase
+                FIRAuth.auth()?.signIn(withCustomToken: token.idToken, completion: { (user, error) in
+                    print("You're logged into firebase")
+                })
+                
             }, failure: { (error) in
                 print("NOT LOGGED IN")
                 keychain.clearAll() //Cleaning stored values since they are no longer valid
