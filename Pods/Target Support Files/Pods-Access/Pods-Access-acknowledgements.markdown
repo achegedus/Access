@@ -58,7 +58,15 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## FirebaseAuth
+
+Copyright 2016 Google
+
 ## FirebaseCore
+
+Copyright 2016 Google
+
+## FirebaseDatabase
 
 Copyright 2016 Google
 
@@ -100,6 +108,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ## GoogleInterchangeUtilities
+
+Copyright 2016 Google
+
+## GoogleNetworkingUtilities
 
 Copyright 2016 Google
 

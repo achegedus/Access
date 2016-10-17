@@ -13,6 +13,7 @@
 #import "JSQMessagesMediaViewBubbleImageMasker.h"
 #import "JSQMessagesTimestampFormatter.h"
 #import "JSQMessagesToolbarButtonFactory.h"
+#import "JSQMessagesVideoThumbnailFactory.h"
 #import "JSQMessages.h"
 #import "JSQAudioMediaViewAttributes.h"
 #import "JSQMessagesBubbleSizeCalculating.h"

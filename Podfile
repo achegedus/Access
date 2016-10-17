@@ -12,7 +12,9 @@ target 'Access' do
   pod "SimpleKeychain"
   pod "Spring", :git => "https://github.com/MengTo/Spring.git", :branch => "swift3"
   pod "JSQMessagesViewController", :git => "https://github.com/jessesquires/JSQMessagesViewController.git", :branch => "develop"
-  pod "Firebase"
+  pod "Firebase/Core"
+  pod "Firebase/Database"
+  pod "Firebase/Auth"
   
 end
 

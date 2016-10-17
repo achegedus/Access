@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Lock
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         A0Lock.shared().applicationLaunched(options: launchOptions)
-        
+        FIRApp.configure()
         return true
     }
 
@@ -46,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+
 
     
     // MARK: - Core Data stack

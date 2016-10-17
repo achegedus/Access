@@ -155,22 +155,28 @@
         <!--Ops Chat-->
         <scene sceneID="vhH-Ln-lUa">
             <objects>
-                <tableViewController id="46X-CF-KRV" sceneMemberID="viewController">
+                <tableViewController id="46X-CF-KRV" customClass="ChatTableViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="u2F-al-eMq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tgq-YU-SBe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChatCell" textLabel="frg-fK-v8S" style="IBUITableViewCellStyleDefault" id="tgq-YU-SBe" customClass="ChatTableViewCell" customModule="Access" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgq-YU-SBe" id="4Ju-wq-sj6">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="frg-fK-v8S">
+                                            <frame key="frameInset" minX="15" width="325" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="eMf-kA-CrR" kind="show" id="7xo-Xw-WEZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -179,6 +185,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ops Chat" id="BYF-c1-PU6"/>
+                    <connections>
+                        <segue destination="eMf-kA-CrR" kind="show" identifier="ChatWindowSeque" id="iMc-Kn-tao"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUP-9r-Ze7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,13 +358,13 @@
         <!--EnergyCAP Server Status-->
         <scene sceneID="2I2-8g-W90">
             <objects>
-                <tableViewController id="5B3-sf-EeX" sceneMemberID="viewController">
+                <tableViewController id="5B3-sf-EeX" customClass="ServersTableViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8xU-6T-pbP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0Cu-32-Gk2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0Cu-32-Gk2" customClass="ServersTableViewCell" customModule="Access" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Cu-32-Gk2" id="Ot2-qA-IAb">
@@ -378,10 +387,10 @@
             </objects>
             <point key="canvasLocation" x="2710" y="117"/>
         </scene>
-        <!--View Controller-->
+        <!--Server Details View Controller-->
         <scene sceneID="nHX-c6-bEi">
             <objects>
-                <viewController id="BwL-eF-szj" sceneMemberID="viewController">
+                <viewController id="BwL-eF-szj" customClass="ServerDetailsViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1Q-Ma-AhC"/>
                         <viewControllerLayoutGuide type="bottom" id="V6u-jf-ObR"/>
@@ -405,7 +414,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="8lp-7m-yMF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="8lp-7m-yMF" customClass="AlertsTableViewCell" customModule="Access" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8lp-7m-yMF" id="eiB-jU-lnr">
@@ -684,13 +693,13 @@
         <!--Operations Tickets-->
         <scene sceneID="rlv-X4-ABk">
             <objects>
-                <tableViewController id="fXU-yu-AuN" sceneMemberID="viewController">
+                <tableViewController id="fXU-yu-AuN" customClass="TicketsTableViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EPz-Ex-pzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dh6-sy-Psj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dh6-sy-Psj" customClass="TicketsTableViewCell" customModule="Access" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dh6-sy-Psj" id="UIm-IZ-ehe">
