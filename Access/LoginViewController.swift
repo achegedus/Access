@@ -35,9 +35,23 @@ class LoginViewController: UIViewController {
                 print("TOKEN \(token)")
                 self.performSegue(withIdentifier: "loggedInSeque", sender: self)
                 
+                
+                let client = A0Lock.shared().apiClient()
+                let parameters = A0AuthParameters.new(with: [
+                    "id_token": token.idToken,
+                    A0ParameterAPIType: "firebase"
+                ])
+                
+                client.fetchDelegationToken(with: parameters, success: { (payload) in
+                        print ("DELEGATE TOKEN: \(payload) ")
+                    }, failure: { (error) in
+                        //something failed
+                })
+            
+                
                 // login to firebase
                 FIRAuth.auth()?.signIn(withCustomToken: token.idToken, completion: { (user, error) in
-                    print("You're logged into firebase")
+                    print("You're logged into firebase \(token.idToken) : \(error)")
                 })
                 
             }, failure: { (error) in

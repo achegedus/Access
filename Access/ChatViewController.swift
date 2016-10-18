@@ -22,6 +22,7 @@ class ChatViewController: JSQMessagesViewController {
     var userIsTypingRef: FIRDatabaseReference!
     var usersTypingQuery: FIRDatabaseQuery!
     private var localTyping = false
+    
     var isTyping: Bool {
         get {
             return localTyping
@@ -86,7 +87,7 @@ class ChatViewController: JSQMessagesViewController {
     
     
     override func senderId() -> String {
-        return "THIS IS A TEST"
+        return "1234"
     }
     
     override func senderDisplayName() -> String {
