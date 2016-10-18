@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SimpleKeychain
 
 class TicketsTableViewController: UITableViewController {
 
@@ -36,6 +37,18 @@ class TicketsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserChatSegue"
+        {
+            let keychain = A0SimpleKeychain(service: "Auth0")
+            
+            if let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.username = (keychain.string(forKey: "fullname")?.replacingOccurrences(of: " ", with: "_"))!
+            }
+        }
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

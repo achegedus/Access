@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class ChatTableViewController: UITableViewController {
 
+    let ref = FIRDatabase.database().reference(fromURL: "https://energycap-access.firebaseio.com/")
+    
+    var chats:[FIRDataSnapshot] = []
+    var selectedUser:FIRDataSnapshot? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +25,17 @@ class ChatTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+            self.chats.append(snapshot)
+            self.tableView.insertRows(at: [IndexPath(row: self.chats.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
+        })
+        
+        ref.observe(.childRemoved, with: { (snapshot) -> Void in
+            let index = self.index(ofAccessibilityElement: snapshot)
+            self.chats.remove(at: index)
+            self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,54 +52,40 @@ class ChatTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return chats.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ChatWindowSeque", sender: self)
+        
+        guard tableView.cellForRow(at: indexPath) != nil else { return }
+        selectedUser = chats[indexPath.row]
+        
+        performSegue(withIdentifier: "ChatWindowSegue", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ChatWindowSegue"
+        {
+            print("YYYYYY - selectedUser: \(selectedUser?.key)")
+            
+            if let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.username = (selectedUser?.key)!
+            }
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as! ChatTableViewCell
         
+        let user:String = chats[indexPath.row].key
+        
+        cell.chatLabel?.text = user.replacingOccurrences(of: "_", with: " ")
+        
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

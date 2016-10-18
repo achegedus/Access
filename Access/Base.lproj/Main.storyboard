@@ -177,6 +177,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="chatLabel" destination="frg-fK-v8S" id="dQe-eb-tlU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -186,18 +189,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ops Chat" id="BYF-c1-PU6"/>
                     <connections>
-                        <segue destination="eMf-kA-CrR" kind="show" identifier="ChatWindowSeque" id="iMc-Kn-tao"/>
+                        <segue destination="eMf-kA-CrR" kind="show" identifier="ChatWindowSegue" id="iMc-Kn-tao"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUP-9r-Ze7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2710" y="1570"/>
         </scene>
-        <!--Support-->
+        <!--Ops Chat-->
         <scene sceneID="IWJ-cX-Zua">
             <objects>
                 <navigationController id="RoV-T5-iZE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Support" image="734-chat" id="K6b-DY-tzC"/>
+                    <tabBarItem key="tabBarItem" title="Ops Chat" image="734-chat" id="K6b-DY-tzC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mrh-1n-RHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -333,10 +336,10 @@
             </objects>
             <point key="canvasLocation" x="2710" y="2326"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="nxY-KZ-Iui">
             <objects>
-                <tabBarController id="Hc7-Gb-Fa7" sceneMemberID="viewController">
+                <tabBarController id="Hc7-Gb-Fa7" customClass="MainTabBarController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="9rb-8b-9AZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -353,7 +356,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOu-cd-af8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="38"/>
+            <point key="canvasLocation" x="873" y="38"/>
         </scene>
         <!--EnergyCAP Server Status-->
         <scene sceneID="2I2-8g-W90">
@@ -625,7 +628,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="2325"/>
         </scene>
-        <!--Ops Chat-->
+        <!--Ops Admin Chat-->
         <scene sceneID="htP-Cp-PPH">
             <objects>
                 <viewController id="eMf-kA-CrR" customClass="ChatViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
@@ -638,7 +641,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Ops Chat" id="AZX-CH-DNu"/>
+                    <navigationItem key="navigationItem" title="Ops Admin Chat" id="AZX-CH-DNu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMJ-vQ-5Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -716,7 +719,14 @@
                             <outlet property="delegate" destination="fXU-yu-AuN" id="SgU-Kc-xAg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Operations Tickets" id="29f-zT-iEx"/>
+                    <navigationItem key="navigationItem" title="Operations Tickets" id="29f-zT-iEx">
+                        <barButtonItem key="rightBarButtonItem" image="734-chat" id="I7r-re-5hC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="dUM-bd-1T9" kind="show" identifier="UserChatSegue" id="Vj1-u2-KBb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9G-Jt-pFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -740,11 +750,11 @@
             </objects>
             <point key="canvasLocation" x="3614" y="833"/>
         </scene>
-        <!--Tickets-->
+        <!--Support-->
         <scene sceneID="ppz-yC-ukh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stt-un-fMM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tickets" image="747-tag" id="Wzw-gA-dub"/>
+                    <tabBarItem key="tabBarItem" title="Support" image="747-tag" id="Wzw-gA-dub"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X2E-F3-vTq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -762,6 +772,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vm7-hr-TFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1784.8" y="832.53373313343332"/>
+        </scene>
+        <!--Ops Chat-->
+        <scene sceneID="Yct-GX-Lyk">
+            <objects>
+                <viewController id="dUM-bd-1T9" customClass="ChatViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kBj-ov-nNX"/>
+                        <viewControllerLayoutGuide type="bottom" id="PpT-Hq-2Or"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vrb-k9-R9g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ops Chat" id="wWN-VC-o6U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04S-Vl-CnX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4458" y="833"/>
         </scene>
     </scenes>
     <resources>

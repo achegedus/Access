@@ -28,31 +28,38 @@ class LoginViewController: UIViewController {
         let keychain = A0SimpleKeychain(service: "Auth0")
         if let token = keychain.string(forKey: "id_token") {
             let client = A0Lock.shared().apiClient()
-            client.fetchNewIdToken(withIdToken: token, parameters: nil, success: { (token) in
-                keychain.setString(token.idToken, forKey: "id_token")
+            client.fetchNewIdToken(withIdToken: token, parameters: nil, success: { (newToken) in
+                // save the token
+                keychain.setString(newToken.idToken, forKey: "id_token")
+                
                 //Just got a new id_token!
                 print("You're still logged in!");
-                print("TOKEN \(token)")
+                print("TOKEN \(newToken.idToken)")
                 self.performSegue(withIdentifier: "loggedInSeque", sender: self)
                 
-                
-                let client = A0Lock.shared().apiClient()
                 let parameters = A0AuthParameters.new(with: [
-                    "id_token": token.idToken,
+                    "id_token": newToken.idToken,
                     A0ParameterAPIType: "firebase"
                 ])
                 
+                
                 client.fetchDelegationToken(with: parameters, success: { (payload) in
-                        print ("DELEGATE TOKEN: \(payload) ")
-                    }, failure: { (error) in
-                        //something failed
+                    print ("DELEGATE TOKEN: \(payload) ")
+                    let delegateToken = payload
+                    keychain.setString(delegateToken["id_token"] as! String, forKey: "delegate_token")
+                    
+                    // login to firebase
+                    FIRAuth.auth()?.signIn(withCustomToken: delegateToken["id_token"] as! String, completion: { (user, error) in
+                        print("You're logged into firebase \(newToken.idToken) : \(error)")
+                    })
+                    
+                }, failure: { (error) in
+                    //something failed
+                    print ("NO DELEGATE TOKEN: \(error) ")
                 })
             
                 
-                // login to firebase
-                FIRAuth.auth()?.signIn(withCustomToken: token.idToken, completion: { (user, error) in
-                    print("You're logged into firebase \(token.idToken) : \(error)")
-                })
+                
                 
             }, failure: { (error) in
                 print("NOT LOGGED IN")
@@ -88,9 +95,18 @@ class LoginViewController: UIViewController {
         
         client.login(withEmail: email, passcode: password!, parameters: parameters, success: { (profile, token) in
             
-            print("We did it!. Logged in with Auth0. \(profile.name)")
+            print("We did it!. Logged in with Auth0. \(profile.userMetadata)")
             let keychain = A0SimpleKeychain(service: "Auth0")
             keychain.setString(token.idToken, forKey: "id_token")
+            keychain.setString(profile.userId, forKey: "user_id")
+            keychain.setString(profile.name, forKey: "fullname")
+            keychain.setString(profile.email!, forKey: "email")
+            
+            var userData = profile.userMetadata as NSDictionary? as? [AnyHashable: Any] ?? [:]
+            let isAdmin = (userData.isAdmin)! as Bool
+//            keychain.setValue(profile.userMetadata.isAdmin, forKey: "isAdmin")
+            
+            // set keychain values
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
             }

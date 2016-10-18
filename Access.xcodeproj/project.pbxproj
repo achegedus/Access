@@ -18,6 +18,7 @@
 		162A8E4A1DB54B3400471C57 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E491DB54B3400471C57 /* ChatTableViewController.swift */; };
 		162A8E4C1DB54B7900471C57 /* ServerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E4B1DB54B7900471C57 /* ServerDetailsViewController.swift */; };
 		162A8E4E1DB55F9500471C57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162A8E4D1DB55F9500471C57 /* GoogleService-Info.plist */; };
+		162A8E501DB69E9300471C57 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E4F1DB69E9300471C57 /* MainTabBarController.swift */; };
 		16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDC1DAECB8600207138 /* AppDelegate.swift */; };
 		16703DDF1DAECB8600207138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDE1DAECB8600207138 /* ViewController.swift */; };
 		16703DE21DAECB8600207138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE01DAECB8600207138 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		162A8E491DB54B3400471C57 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		162A8E4B1DB54B7900471C57 /* ServerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDetailsViewController.swift; sourceTree = "<group>"; };
 		162A8E4D1DB55F9500471C57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		162A8E4F1DB69E9300471C57 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		16703DD91DAECB8600207138 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16703DDC1DAECB8600207138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16703DDE1DAECB8600207138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				16703E271DB16A3400207138 /* Alerts */,
 				16703E241DB0110D00207138 /* Settings */,
 				76A266331DAF284300480E93 /* Login */,
+				162A8E4F1DB69E9300471C57 /* MainTabBarController.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 			files = (
 				162A8E381DB52F9D00471C57 /* NewAlertViewController.swift in Sources */,
 				76A266351DAF285500480E93 /* LoginViewController.swift in Sources */,
+				162A8E501DB69E9300471C57 /* MainTabBarController.swift in Sources */,
 				162A8E411DB54A5100471C57 /* AlertsTableViewCell.swift in Sources */,
 				162A8E4C1DB54B7900471C57 /* ServerDetailsViewController.swift in Sources */,
 				162A8E3B1DB54A1500471C57 /* ServersTableViewController.swift in Sources */,
