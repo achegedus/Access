@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let userDefaults = UserDefaults.standard
+        
         // Do any additional setup after loading the view.
         let releaseVersionNumber = Bundle.main.infoDictionary!["CFBundleShortVersionString"];
         
@@ -27,14 +29,8 @@ class SettingsViewController: UIViewController {
         
         self.versionLabel.text = "Version \(releaseVersionNumber!), Build \(buildVersionNumber!)";
         
-        let keychain = A0SimpleKeychain(service: "Auth0")
-        
-        if let data = keychain.data(forKey: "profile"), let profile = NSKeyedUnarchiver.unarchiveObject(with: data) {
-            self.usernameLabel.text = (profile as AnyObject).name
-            self.emailLabel.text = (profile as AnyObject).email
-        }
-
-        
+        self.usernameLabel.text = userDefaults.object(forKey: "fullname") as! String?
+        self.emailLabel.text = userDefaults.object(forKey: "email") as! String?
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +46,9 @@ class SettingsViewController: UIViewController {
             
             let keychain = A0SimpleKeychain(service: "Auth0");
             keychain.clearAll();
+            
+            let appDomain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
             
             self.performSegue(withIdentifier: "unwindToLogout", sender: sender)
         })

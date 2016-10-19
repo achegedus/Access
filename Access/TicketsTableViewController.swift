@@ -19,6 +19,13 @@ class TicketsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "isAdmin") == true {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,11 +48,16 @@ class TicketsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserChatSegue"
         {
-            let keychain = A0SimpleKeychain(service: "Auth0")
+            let userDefaults = UserDefaults.standard
             
             if let destinationVC = segue.destination as? ChatViewController {
-                destinationVC.username = (keychain.string(forKey: "fullname")?.replacingOccurrences(of: " ", with: "_"))!
+                destinationVC.username = ((userDefaults.object(forKey: "fullname") as! String).replacingOccurrences(of: " ", with: "_"))
             }
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
         }
     }
     

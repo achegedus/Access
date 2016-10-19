@@ -9,15 +9,14 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import SimpleKeychain
 import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
     // MARK: Properties
     var username:String = ""
-    let keychain = A0SimpleKeychain(service: "Auth0")
     var messages : [JSQMessage] = []
+    let userDefaults = UserDefaults.standard
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     let rootRef = FIRDatabase.database().reference(fromURL: "https://energycap-access.firebaseio.com/")
@@ -63,7 +62,8 @@ class ChatViewController: JSQMessagesViewController {
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImage(
-            with: UIColor.jsq_messageBubbleBlue())
+            with: UIColor.init(colorLiteralRed: 0.76, green: 0.80, blue: 0.16, alpha: 1.00))
+        
         incomingBubbleImageView = factory.incomingMessagesBubbleImage(
             with: UIColor.jsq_messageBubbleLightGray())
     }
@@ -115,8 +115,7 @@ class ChatViewController: JSQMessagesViewController {
         print("XXXXXX - senderID: \(senderId())")
         
         messageRef = rootRef.child(username).child("messages")
-        
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     
@@ -141,13 +140,14 @@ class ChatViewController: JSQMessagesViewController {
     
     
     override func senderId() -> String {
-        let userid = keychain.string(forKey: "fullname")!
+        
+        let userid = userDefaults.object(forKey: "fullname") as! String
         return userid.replacingOccurrences(of: " ", with: "_")
     }
     
     
     override func senderDisplayName() -> String {
-        return keychain.string(forKey: "fullname")!
+        return userDefaults.object(forKey: "fullname") as! String
     }
  
 

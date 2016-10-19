@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SimpleKeychain
 
 class MainTabBarController: UITabBarController {
 
@@ -15,8 +16,13 @@ class MainTabBarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        let index = 2
-        viewControllers?.remove(at: index)
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "isAdmin") != true {
+            let index = 2
+            viewControllers?.remove(at: index)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

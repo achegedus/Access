@@ -72,6 +72,11 @@ class ChatTableViewController: UITableViewController {
             if let destinationVC = segue.destination as? ChatViewController {
                 destinationVC.username = (selectedUser?.key)!
             }
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
         }
     }
 

@@ -57,9 +57,6 @@ class LoginViewController: UIViewController {
                     //something failed
                     print ("NO DELEGATE TOKEN: \(error) ")
                 })
-            
-                
-                
                 
             }, failure: { (error) in
                 print("NOT LOGGED IN")
@@ -81,6 +78,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonWasPressed(_ sender: AnyObject) {
         
+        let userDefaults = UserDefaults.standard
+        
         var email:String = usernameTextField.text!;
         
         if (!email.hasSuffix("@energycap.com")) {
@@ -92,26 +91,26 @@ class LoginViewController: UIViewController {
         let client = lock.apiClient()
         let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "EnergyCAP-ADFS"])
         
-        
         client.login(withEmail: email, passcode: password!, parameters: parameters, success: { (profile, token) in
             
-            print("We did it!. Logged in with Auth0. \(profile.userMetadata)")
+            // set keychain values
             let keychain = A0SimpleKeychain(service: "Auth0")
             keychain.setString(token.idToken, forKey: "id_token")
-            keychain.setString(profile.userId, forKey: "user_id")
-            keychain.setString(profile.name, forKey: "fullname")
-            keychain.setString(profile.email!, forKey: "email")
             
-            var userData = profile.userMetadata as NSDictionary? as? [AnyHashable: Any] ?? [:]
-            let isAdmin = (userData.isAdmin)! as Bool
-//            keychain.setValue(profile.userMetadata.isAdmin, forKey: "isAdmin")
-            
-            // set keychain values
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
             }
             
             keychain.setData(NSKeyedArchiver.archivedData(withRootObject: profile), forKey: "profile")
+            
+            var isAdmin = false
+            isAdmin = (profile.userMetadata["isAdmin"] != nil && (profile.userMetadata["isAdmin"] as? Bool)!)
+            userDefaults.set(isAdmin, forKey: "isAdmin")
+            userDefaults.set(profile.userId, forKey: "user_id")
+            userDefaults.set(profile.name, forKey: "fullname")
+            userDefaults.set(profile.email, forKey: "email")
+            userDefaults.set(profile.email, forKey: "user_id")
+            
             
             self.usernameTextField.text = "";
             self.passwordTextField.text = "";
