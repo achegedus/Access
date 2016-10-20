@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Alamofire (4.0.1)
   - Auth0 (1.0.0)
   - Firebase/Auth (3.7.1):
     - Firebase/Core
@@ -66,6 +67,7 @@ PODS:
   - Spring (1.0.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - Auth0 (= 1.0)
   - Firebase/Auth
   - Firebase/Core
@@ -94,6 +96,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Auth0: 3ff1a10fe8f6a323b171de883a8b9f08d29529b2
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
@@ -112,6 +115,6 @@ SPEC CHECKSUMS:
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 7a488695357dfa60c2fc7451f116e556e75afd65
+PODFILE CHECKSUM: cbf13f21cda8a5e0961447265da00907518085e7
 
 COCOAPODS: 1.1.0.rc.3

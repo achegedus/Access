@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SimpleKeychain
+import Auth0
+import Alamofire
 
 class AlertsTableViewController: UITableViewController {
 
@@ -18,7 +21,16 @@ class AlertsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+//        self.refreshControl?.addTarget(self, action: "refresh:", for: .valueChanged)
+        
+        self.getData()
     }
+    
+    func refresh() {
+        self.getData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,5 +106,28 @@ class AlertsTableViewController: UITableViewController {
 
     @IBAction func newAlertButtonPressed(_ sender: AnyObject) {
         print("HELLO NEW ALERT")
+    }
+    
+    
+    func getData() {
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        let token = keychain.string(forKey: "id_token")
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)"
+        ]
+        
+        Alamofire.request("https://accesstemp.energycap.com/api/v1/alerts", headers: headers).responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
     }
 }
