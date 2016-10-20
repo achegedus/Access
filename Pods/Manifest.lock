@@ -65,6 +65,7 @@ PODS:
   - Masonry (0.6.4)
   - SimpleKeychain (0.7.0)
   - Spring (1.0.3)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Lock (~> 1.27)
   - SimpleKeychain
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   JSQMessagesViewController:
@@ -88,7 +90,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   JSQMessagesViewController:
-    :commit: 7c9849bef7b402828fec76ee4567baa981da53b8
+    :commit: 7cd699828efe12a5a1e26eaa51da9ff8736efefa
     :git: https://github.com/jessesquires/JSQMessagesViewController.git
   Spring:
     :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
@@ -114,7 +116,8 @@ SPEC CHECKSUMS:
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: cbf13f21cda8a5e0961447265da00907518085e7
+PODFILE CHECKSUM: 90db0bbc71a30b5e110e146603974871dd143539
 
 COCOAPODS: 1.1.0.rc.3

@@ -10,9 +10,13 @@ import UIKit
 import SimpleKeychain
 import Auth0
 import Alamofire
+import SwiftyJSON
+
 
 class AlertsTableViewController: UITableViewController {
 
+    var arrRes = [[String:AnyObject]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,10 +28,8 @@ class AlertsTableViewController: UITableViewController {
         
 //        self.refreshControl?.addTarget(self, action: "refresh:", for: .valueChanged)
         
-        self.getData()
-    }
-    
-    func refresh() {
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150
         self.getData()
     }
     
@@ -41,23 +43,29 @@ class AlertsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.arrRes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alertTableCell") as! AlertsTableViewCell
+        
+        var dict = self.arrRes[indexPath.row]
+        
+        cell.alertLabel?.text = dict["alert_body"] as? String
+        cell.dateLabel?.text = dict["created_at"] as? String
+        
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -115,18 +123,26 @@ class AlertsTableViewController: UITableViewController {
         
         let token = keychain.string(forKey: "id_token")
         
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(token)"
+        let bearer = "Bearer \(token!)"
+        debugPrint(bearer)
+        
+        let authHeaders : HTTPHeaders = [
+            "Authorization": bearer
         ]
         
-        Alamofire.request("https://accesstemp.energycap.com/api/v1/alerts", headers: headers).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+        Alamofire.request("https://accesstemp.energycap.com/api/v1/alerts", headers: authHeaders).responseJSON { response in
+            if ((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                
+//                debugPrint(swiftyJsonVar)
+                
+                if let resData = swiftyJsonVar.arrayObject {
+                    self.arrRes = resData as! [[String:AnyObject]]
+                }
+                if self.arrRes.count > 0 {
+                    self.tableView.reloadData()
+                }
+                
             }
         }
     }
