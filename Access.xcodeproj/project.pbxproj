@@ -422,7 +422,7 @@
 				TargetAttributes = {
 					16703DD81DAECB8600207138 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 773798U7P9;
+						DevelopmentTeam = BK6A3NXZJC;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -432,12 +432,12 @@
 					};
 					16703DF21DAECBB900207138 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 773798U7P9;
+						DevelopmentTeam = BK6A3NXZJC;
 						ProvisioningStyle = Automatic;
 					};
 					16703DFE1DAECBB900207138 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 773798U7P9;
+						DevelopmentTeam = BK6A3NXZJC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -797,7 +797,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Access/Access.entitlements;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = Access/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access;
@@ -813,7 +813,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Access/Access.entitlements;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = Access/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access;
@@ -827,7 +827,7 @@
 			baseConfigurationReference = 4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
@@ -845,7 +845,7 @@
 			baseConfigurationReference = 2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
@@ -864,7 +864,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				IBSC_MODULE = AccessWatchKit_Extension;
 				INFOPLIST_FILE = AccessWatchKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
@@ -883,7 +883,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 773798U7P9;
+				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				IBSC_MODULE = AccessWatchKit_Extension;
 				INFOPLIST_FILE = AccessWatchKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
