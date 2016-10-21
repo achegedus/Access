@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ServersTableViewController: UITableViewController {
 
+    var arrRes = [[[String:AnyObject]]]()
+    let sections = ["Pittsburgh", "State College"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        arrRes = [[],[]]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,15 +40,15 @@ class ServersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (arrRes[section]).count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -45,7 +56,7 @@ class ServersTableViewController: UITableViewController {
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,4 +103,53 @@ class ServersTableViewController: UITableViewController {
     }
     */
 
+    
+    func getData() {
+        
+        
+        let authHeaders : HTTPHeaders = [
+            "App-Key": "45hgnn8m0zlib3het48gzp4a97oqaduh"
+        ]
+        
+        let user = "osc@energycap.com"
+        let password = "faser1217"
+        
+        var pittServers = [[String:AnyObject]]()
+        var StateCollegeServers = [[String:AnyObject]]()
+        
+        Alamofire.request("https://api.pingdom.com/api/2.0/checks?include_tags=true&tags=pittsburgh", headers: authHeaders)
+            .authenticate(user: user, password: password)
+            .responseJSON { response in
+                if ((response.result.value) != nil) {
+                    let swiftyJsonVar = JSON(response.result.value!)
+                    
+                    if let resData = swiftyJsonVar["checks"].arrayObject {
+                        pittServers = resData as! [[String:AnyObject]]
+                    }
+                    
+                    self.arrRes = [pittServers]
+                }
+                
+                Alamofire.request("https://api.pingdom.com/api/2.0/checks?include_tags=true&tags=state-college", headers: authHeaders)
+                    .authenticate(user: user, password: password)
+                    .responseJSON { response in
+                        if ((response.result.value) != nil) {
+                            let swiftyJsonVar = JSON(response.result.value!)
+                            
+                            
+                            if let resData = swiftyJsonVar["checks"].arrayObject {
+                                StateCollegeServers = resData as! [[String:AnyObject]]
+                            }
+                            
+                            self.arrRes.append(StateCollegeServers)
+                        }
+                        
+                        if (self.arrRes[0].count > 0 || self.arrRes[1].count > 0) {
+                            self.tableView.reloadData()
+                        }
+                }
+        }
+        
+        
+    }
 }
