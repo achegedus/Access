@@ -10,6 +10,11 @@ import UIKit
 
 class ServersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var serverNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var lastCheckLabel: UILabel!
+    @IBOutlet weak var responseTimeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
