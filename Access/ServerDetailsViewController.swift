@@ -10,10 +10,23 @@ import UIKit
 
 class ServerDetailsViewController: UIViewController {
 
+    var serverId : Int = 0
+    var serverName : String = ""
+    
+    @IBOutlet weak var thumbImage: UIImageView!
+    @IBOutlet weak var serverNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var lastCheckLabel: UILabel!
+    @IBOutlet weak var lastErrorLabel: UILabel!
+    @IBOutlet weak var downtimeLabel: UILabel!
+    @IBOutlet weak var uptimeLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = self.serverName
     }
 
     override func didReceiveMemoryWarning() {

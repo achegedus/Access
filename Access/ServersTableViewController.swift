@@ -53,15 +53,34 @@ class ServersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "serverTableCell") as! ServersTableViewCell
         
         var dict = self.arrRes[indexPath.section][indexPath.row]
+        let x = dict["lastresponsetime"] as? Int
+        let lastDate = dict["lasttesttime"] as? TimeInterval
+        let date = NSDate(timeIntervalSince1970: lastDate!)
         
-        cell.serverNameLabel?.text = dict["name"] as? String
-        cell.responseTimeLabel?.text = dict["lastresponsetime"] as? String
+        cell.serverId = (dict["id"] as? Int)!
+        cell.serverName = (dict["name"] as? String)!.uppercased()
+        
+        cell.serverNameLabel?.text = (dict["name"] as? String)?.uppercased()
+        cell.responseTimeLabel?.text = "\(x!)ms"
+        cell.locationLabel?.text = sections[indexPath.section]
+        
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
+        
+        cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: date as Date))"
         
         // Configure the cell...
         
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Servers"
+        backItem.tintColor = UIColor.white
+        navigationItem.backBarButtonItem = backItem
+    }
 
 
     /*

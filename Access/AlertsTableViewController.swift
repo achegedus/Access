@@ -59,7 +59,18 @@ class AlertsTableViewController: UITableViewController {
         var dict = self.arrRes[indexPath.row]
         
         cell.alertLabel?.text = dict["alert_body"] as? String
-        cell.dateLabel?.text = dict["created_at"] as? String
+        
+        let created_at = dict["created_at"] as? String
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: created_at!)
+        
+        
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
+        
+        cell.dateLabel?.text = dayTimePeriodFormatter.string(from: date! as Date)
+
         
         // Configure the cell...
 
