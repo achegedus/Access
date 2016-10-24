@@ -124,6 +124,7 @@
 		16703E251DB0112100207138 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		16703E281DB16A5200207138 /* AlertsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewController.swift; sourceTree = "<group>"; };
 		16703E2B1DB16F0E00207138 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		16DEB9621DBE5017009EB05C /* AccessWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AccessWatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		226982DA513DB93092F2D81F /* Pods_AccessWatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF450C407AD1A72D7669956 /* Pods-AccessWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +246,7 @@
 		16703E031DAECBB900207138 /* AccessWatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				16DEB9621DBE5017009EB05C /* AccessWatchKit Extension.entitlements */,
 				16703E061DAECBB900207138 /* InterfaceController.swift */,
 				16703E081DAECBB900207138 /* ExtensionDelegate.swift */,
 				16703E0A1DAECBB900207138 /* NotificationController.swift */,
@@ -428,6 +430,9 @@
 							com.apple.Keychain = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					16703DF21DAECBB900207138 = {
@@ -439,6 +444,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = BK6A3NXZJC;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -800,7 +810,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = Access/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -816,7 +826,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = Access/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -830,7 +840,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -848,7 +858,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				INFOPLIST_FILE = "AccessWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -867,7 +877,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				IBSC_MODULE = AccessWatchKit_Extension;
 				INFOPLIST_FILE = AccessWatchKit/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -886,7 +896,7 @@
 				DEVELOPMENT_TEAM = BK6A3NXZJC;
 				IBSC_MODULE = AccessWatchKit_Extension;
 				INFOPLIST_FILE = AccessWatchKit/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.Access.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.energycap.access.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

@@ -9,16 +9,17 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreData
+
 
 class ServersTableViewController: UITableViewController {
 
-    var arrRes = [[[String:AnyObject]]]()
+    var opsServers : [ServerStat] = []
+    
     let sections = ["Pittsburgh", "State College"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        arrRes = [[],[]]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +29,8 @@ class ServersTableViewController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
+        
+        self.getStats()
         self.getData()
     }
 
@@ -40,34 +43,29 @@ class ServersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (arrRes[section]).count
+        return self.opsServers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "serverTableCell") as! ServersTableViewCell
         
-        var dict = self.arrRes[indexPath.section][indexPath.row]
-        let x = dict["lastresponsetime"] as? Int
-        let lastDate = dict["lasttesttime"] as? TimeInterval
-        let date = NSDate(timeIntervalSince1970: lastDate!)
+        cell.serverId = Int(opsServers[indexPath.row].serverId)
+        cell.serverName = opsServers[indexPath.row].serverName!
         
-        cell.serverId = (dict["id"] as? Int)!
-        cell.serverName = (dict["name"] as? String)!.uppercased()
-        
-        cell.serverNameLabel?.text = (dict["name"] as? String)?.uppercased()
-        cell.responseTimeLabel?.text = "\(x!)ms"
-        cell.locationLabel?.text = sections[indexPath.section]
+        cell.serverNameLabel?.text = opsServers[indexPath.row].serverName!.uppercased()
+        cell.responseTimeLabel?.text = "\(opsServers[indexPath.row].responseTime)ms"
+        cell.locationLabel?.text = opsServers[indexPath.row].location!
         
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
         
-        cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: date as Date))"
+        cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: opsServers[indexPath.row].lastCheck as! Date))"
         
         // Configure the cell...
         
@@ -80,6 +78,20 @@ class ServersTableViewController: UITableViewController {
         backItem.title = "Servers"
         backItem.tintColor = UIColor.white
         navigationItem.backBarButtonItem = backItem
+    }
+    
+    
+    func getStats() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let fetchRequest = ServerStat.fetchRequest() as NSFetchRequest<ServerStat>
+        
+        do {
+            self.opsServers = try context.fetch(fetchRequest) as [ServerStat]
+            print(opsServers)
+        } catch {}
+        
+        self.tableView.reloadData()
     }
 
 
@@ -95,7 +107,11 @@ class ServersTableViewController: UITableViewController {
 
     
     func getData() {
-        
+        // data was recieved now store in core data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
         
         let authHeaders : HTTPHeaders = [
             "App-Key": "45hgnn8m0zlib3het48gzp4a97oqaduh"
@@ -104,42 +120,64 @@ class ServersTableViewController: UITableViewController {
         let user = "osc@energycap.com"
         let password = "faser1217"
         
-        var pittServers = [[String:AnyObject]]()
-        var StateCollegeServers = [[String:AnyObject]]()
-        
-        Alamofire.request("https://api.pingdom.com/api/2.0/checks?include_tags=true&tags=pittsburgh", headers: authHeaders)
+        Alamofire.request("https://api.pingdom.com/api/2.0/checks?include_tags=true&tags=pittsburgh,state-college", headers: authHeaders)
             .authenticate(user: user, password: password)
             .responseJSON { response in
                 if ((response.result.value) != nil) {
                     let swiftyJsonVar = JSON(response.result.value!)
                     
-                    if let resData = swiftyJsonVar["checks"].arrayObject {
-                        pittServers = resData as! [[String:AnyObject]]
-                    }
+//                    if let resData = swiftyJsonVar["checks"].arrayObject {
                     
-                    self.arrRes = [pittServers]
-                }
-                
-                Alamofire.request("https://api.pingdom.com/api/2.0/checks?include_tags=true&tags=state-college", headers: authHeaders)
-                    .authenticate(user: user, password: password)
-                    .responseJSON { response in
-                        if ((response.result.value) != nil) {
-                            let swiftyJsonVar = JSON(response.result.value!)
-                            
-                            
-                            if let resData = swiftyJsonVar["checks"].arrayObject {
-                                StateCollegeServers = resData as! [[String:AnyObject]]
-                            }
-                            
-                            self.arrRes.append(StateCollegeServers)
+                        // first empty the table
+                        let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "ServerStat")
+                        let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
+                        do {
+                            try managedContext.execute(deleteReq)
+                        } catch {
+                            print("COULDN'T DELETE DATA")
                         }
                         
-                        if (self.arrRes[0].count > 0 || self.arrRes[1].count > 0) {
-                            self.tableView.reloadData()
+                        // loop through data and populate core data
+                        for obj in swiftyJsonVar["checks"] {
+                            let server = ServerStat(context: managedContext)
+                            
+                            guard
+                                let serverID = obj["id"] as? Int64,
+                                let created = obj["created"] as? TimeInterval,
+                                let name = obj["name"] as? String,
+                                let hostname = obj["hostname"] as? String,
+                                let lastErrorTime = obj["lasterrortime"] as? TimeInterval,
+                                let lastCheck = obj["lasttesttime"] as? TimeInterval,
+                                let lastResponseTime = obj["lastresponsetime"] as? Int64,
+                                let status = obj["status"] as? String
+                                else {
+                                    return
+                            }
+                            
+                            for (key, subJson) in obj["tags"] {
+                                if let title = subJson["name"].string {
+                                    if title == "Pittsburgh" {
+                                        server.location = "Pittsburgh"
+                                    }
+                                    else {
+                                        server.location = "State College"
+                                    }
+                                } else {
+                                    server.location = "Unknown"
+                                }
+                            }
+                            
+                            // save object
+                            server.serverName = name
+                            server.serverId = serverID
+                            server.lastCheck = NSDate(timeIntervalSince1970: lastCheck)
+                            server.location = ""
+                            server.responseTime = lastResponseTime
+                            appDelegate.saveContext()
                         }
+//                    }
                 }
-        }
-        
+            }
         
     }
 }
