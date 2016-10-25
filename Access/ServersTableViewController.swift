@@ -18,14 +18,15 @@ class ServersTableViewController: UITableViewController {
     
     let sections = ["Pittsburgh", "State College"]
     
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
@@ -86,6 +87,9 @@ class ServersTableViewController: UITableViewController {
         
         let fetchRequest = ServerStat.fetchRequest() as NSFetchRequest<ServerStat>
         
+        let locationSort = NSSortDescriptor(key: "location", ascending: true)
+        fetchRequest.sortDescriptors = [locationSort]
+        
         do {
             self.opsServers = try context.fetch(fetchRequest) as [ServerStat]
             print(opsServers)
@@ -126,8 +130,6 @@ class ServersTableViewController: UITableViewController {
                 if ((response.result.value) != nil) {
                     let swiftyJsonVar = JSON(response.result.value!)
                     
-//                    if let resData = swiftyJsonVar["checks"].arrayObject {
-                    
                         // first empty the table
                         let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "ServerStat")
                         let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
@@ -138,44 +140,71 @@ class ServersTableViewController: UITableViewController {
                         }
                         
                         // loop through data and populate core data
-                        for obj in swiftyJsonVar["checks"] {
+                        for obj in swiftyJsonVar["checks"].arrayValue {
                             let server = ServerStat(context: managedContext)
                             
-                            guard
-                                let serverID = obj["id"] as? Int64,
-                                let created = obj["created"] as? TimeInterval,
-                                let name = obj["name"] as? String,
-                                let hostname = obj["hostname"] as? String,
-                                let lastErrorTime = obj["lasterrortime"] as? TimeInterval,
-                                let lastCheck = obj["lasttesttime"] as? TimeInterval,
-                                let lastResponseTime = obj["lastresponsetime"] as? Int64,
-                                let status = obj["status"] as? String
-                                else {
-                                    return
+                            if let serverID = obj["id"].int64 {
+                                server.serverId = serverID
+                            } else {
+                                server.serverId = 0
                             }
                             
+                            if let name = obj["name"].string {
+                                server.serverName = name
+                            } else {
+                                server.serverName = ""
+                            }
+                            
+                            if let hostname = obj["hostname"].string {
+                                server.hostname = hostname
+                            } else {
+                                server.hostname = ""
+                            }
+
+                            if let lastErrorTime = obj["lasterrortime"].double {
+                                let myTimeInterval = TimeInterval(lastErrorTime)
+                                server.lastError = NSDate(timeIntervalSince1970: myTimeInterval)
+                            } else {
+                                server.lastError = nil
+                            }
+                            
+                            if let lastCheck = obj["lasttesttime"].double {
+                                let myTimeInterval = TimeInterval(lastCheck)
+                                server.lastCheck = NSDate(timeIntervalSince1970: myTimeInterval)
+                            } else {
+                                server.lastCheck = nil
+                            }
+                            
+                            if let lastResponseTime = obj["lastresponsetime"].int64 {
+                                server.responseTime = lastResponseTime
+                            } else {
+                                server.responseTime = 0
+                            }
+                            
+                            if let status = obj["status"].string {
+                                server.status = status
+                            } else {
+                                server.status = nil
+                            }
+                            
+                            var tags:[String] = []
                             for (key, subJson) in obj["tags"] {
                                 if let title = subJson["name"].string {
-                                    if title == "Pittsburgh" {
-                                        server.location = "Pittsburgh"
-                                    }
-                                    else {
-                                        server.location = "State College"
-                                    }
-                                } else {
-                                    server.location = "Unknown"
+                                    tags.append(title)
                                 }
                             }
                             
+                            if tags.contains("pittsburgh") {
+                                server.location = "Pittsburgh"
+                            } else {
+                                server.location = "State College"
+                            }
+                            
+                            
                             // save object
-                            server.serverName = name
-                            server.serverId = serverID
-                            server.lastCheck = NSDate(timeIntervalSince1970: lastCheck)
-                            server.location = ""
-                            server.responseTime = lastResponseTime
                             appDelegate.saveContext()
                         }
-//                    }
+                    self.getStats()
                 }
             }
         

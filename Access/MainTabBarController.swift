@@ -23,6 +23,8 @@ class MainTabBarController: UITabBarController {
             viewControllers?.remove(at: index)
         }
         
+        self.tabBarController?.tabBar.tintColor = UIColor.red
+        
     }
 
     override func didReceiveMemoryWarning() {

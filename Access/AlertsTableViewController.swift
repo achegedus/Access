@@ -127,25 +127,38 @@ class AlertsTableViewController: UITableViewController {
                     
                     // loop through data and populate core data
                     for obj in resData as! [[String:AnyObject]] {
+                        
+                        debugPrint(obj)
                         let opsAlert = OpsAlert(context: managedContext)
-                        guard
-                            let body = obj["alert_body"] as? String,
-                            let sendDate = obj["created_at"] as? String,
-                            let sender = obj["sender"] as? String,
-                            let alertID = obj["id"] as? Int16
-                        else {
-                            return
+                        
+                        if let sender = obj["sender"] as? String {
+                            opsAlert.sender = sender
+                        } else {
+                            opsAlert.sender = ""
                         }
                         
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        let date = dateFormatter.date(from: sendDate)
+                        if let body = obj["alert_body"] as? String {
+                            opsAlert.bodyText = body
+                        } else {
+                            opsAlert.bodyText = ""
+                        }
                         
-                        // save object
-                        opsAlert.sendDate = date as NSDate?
-                        opsAlert.bodyText = body
-                        opsAlert.sender = sender
-                        opsAlert.id = alertID
+                        if let sendDate = obj["created_at"] as? String {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let date = dateFormatter.date(from: sendDate)
+                            
+                            opsAlert.sendDate = date as NSDate?
+                        } else {
+                            opsAlert.sendDate = nil
+                        }
+                        
+                        if let alertID = obj["id"] as? Int16 {
+                            opsAlert.id = alertID
+                        } else {
+                            opsAlert.id = 0
+                        }
+                        
                         appDelegate.saveContext()
                     }
                 }
