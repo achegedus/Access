@@ -8,23 +8,23 @@
 
 import UIKit
 import SimpleKeychain
+import SwiftyJSON
+import CoreData
+import Alamofire
 
 class TicketsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         let userDefaults = UserDefaults.standard
         
         if userDefaults.bool(forKey: "isAdmin") == true {
             self.navigationItem.rightBarButtonItem = nil
         }
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150
         
     }
 
@@ -62,7 +62,7 @@ class TicketsTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -70,43 +70,8 @@ class TicketsTableViewController: UITableViewController {
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
+    
     /*
     // MARK: - Navigation
 
@@ -116,5 +81,77 @@ class TicketsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getTickets() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let fetchRequest = Ticket.fetchRequest() as NSFetchRequest<Ticket>
+        
+        do {
+            self.getTickets = try context.fetch(fetchRequest) as [Ticket]
+        } catch {}
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    func getData() {
+        
+        // data was recieved now store in core data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        let token = keychain.string(forKey: "id_token")
+        
+        let authHeaders : HTTPHeaders = [
+            "Authorization": "Basic YWRhbWg6Q2hhcmwhZQ=="
+        ]
+        
+        Alamofire.request("https://jira.energycap.com/rest/api/2/search?jql=reporter='scottb' AND status!='Closed'&issuetype='Support Ticket'&fields=summary,key,status,description,created,updated,comment,assignee,priority", headers: authHeaders).responseJSON { response in
+            if ((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                
+                if let resData = swiftyJsonVar.arrayObject {
+                    
+                    // first empty the table
+                    let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Ticket")
+                    let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
+                    do {
+                        try managedContext.execute(deleteReq)
+                    } catch {
+                        print("COULDN'T DELETE TICKET DATA")
+                    }
+                    
+                    // loop through data and populate core data
+                    for obj in resData as! [[String:AnyObject]] {
+                        
+                        debugPrint(obj)
+                        let opsTicket = Ticket(context: managedContext)
+                        
+                        if let id = obj["id"] as? Int16 {
+                            opsTicket.id = id
+                        } else {
+                            opsTicket.id = 0
+                        }
+                        
+                        if let key = obj["key"] as? String {
+                            opsTicket.key = key
+                        } else {
+                            opsTicket.key = ""
+                        }
+
+                        appDelegate.saveContext()
+                    }
+                }
+                
+                print("Downloaded Ticket Data")
+                self.getTickets()
+            }
+        }
+    }
 
 }

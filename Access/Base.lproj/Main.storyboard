@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -216,7 +216,7 @@
             <objects>
                 <navigationController id="RoV-T5-iZE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ops Chat" image="734-chat" id="K6b-DY-tzC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mrh-1n-RHN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mrh-1n-RHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -958,7 +958,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DxB-TS-9Jz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="740-gear" id="fYG-MA-01K"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Sp-qb-Htw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9Sp-qb-Htw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1000,7 +1000,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cia-zB-gX0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Alerts" image="758-megaphone" id="f5E-2S-Uhe"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ekf-sD-xz4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ekf-sD-xz4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1023,7 +1023,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Va-QW-zoa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Servers" image="795-gauge" id="u3L-5O-dlm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1I-DZ-lIZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g1I-DZ-lIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1044,19 +1044,60 @@
         <scene sceneID="rlv-X4-ABk">
             <objects>
                 <tableViewController id="fXU-yu-AuN" customClass="TicketsTableViewController" customModule="Access" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EPz-Ex-pzO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="EPz-Ex-pzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dh6-sy-Psj" customClass="TicketsTableViewCell" customModule="Access" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="78" id="dh6-sy-Psj" customClass="TicketsTableViewCell" customModule="Access" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dh6-sy-Psj" id="UIm-IZ-ehe">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ticket_checked_35x35" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-1z-Yq6">
+                                            <rect key="frame" x="15" y="19" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="A0d-UU-Xja"/>
+                                                <constraint firstAttribute="width" constant="35" id="uPD-3h-Aeg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVJ-57-IF3">
+                                            <rect key="frame" x="65" y="15" width="290" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="QPj-Kv-ECv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-c6-nuM">
+                                            <rect key="frame" x="65" y="40" width="290" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Pea-bx-yuG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8P2-c6-nuM" firstAttribute="top" secondItem="QVJ-57-IF3" secondAttribute="bottom" constant="4" id="2YW-rs-fPT"/>
+                                        <constraint firstItem="QVJ-57-IF3" firstAttribute="leading" secondItem="D4q-1z-Yq6" secondAttribute="trailing" constant="15" id="8op-PH-oly"/>
+                                        <constraint firstItem="8P2-c6-nuM" firstAttribute="leading" secondItem="D4q-1z-Yq6" secondAttribute="trailing" constant="15" id="K8i-HD-MEy"/>
+                                        <constraint firstItem="QVJ-57-IF3" firstAttribute="top" secondItem="UIm-IZ-ehe" secondAttribute="top" constant="15" id="T9O-te-vEq"/>
+                                        <constraint firstAttribute="trailing" secondItem="8P2-c6-nuM" secondAttribute="trailing" constant="20" id="bek-WK-9Q8"/>
+                                        <constraint firstItem="D4q-1z-Yq6" firstAttribute="leading" secondItem="UIm-IZ-ehe" secondAttribute="leading" constant="15" id="e14-aG-5cp"/>
+                                        <constraint firstItem="D4q-1z-Yq6" firstAttribute="top" secondItem="UIm-IZ-ehe" secondAttribute="top" constant="19" id="mDf-Mh-tNx"/>
+                                        <constraint firstAttribute="trailing" secondItem="QVJ-57-IF3" secondAttribute="trailing" constant="20" id="pax-CM-GHq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="ticketCheckBox" destination="D4q-1z-Yq6" id="lCi-dI-epz"/>
+                                    <outlet property="ticketDescLabel" destination="8P2-c6-nuM" id="d56-Pb-ndG"/>
+                                    <outlet property="ticketIdLabel" destination="QVJ-57-IF3" id="k22-xm-YeL"/>
                                     <segue destination="arn-D9-xNj" kind="show" action="showDetailViewController:sender:" id="uZT-Nw-cL4"/>
                                 </connections>
                             </tableViewCell>
@@ -1077,7 +1118,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9G-Jt-pFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="833"/>
+            <point key="canvasLocation" x="2709.5999999999999" y="832.53373313343332"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="D4G-sc-Cht">
@@ -1103,7 +1144,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stt-un-fMM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Support" image="747-tag" id="Wzw-gA-dub"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X2E-F3-vTq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="X2E-F3-vTq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1155,6 +1196,7 @@
         <image name="icon_alert_green" width="14" height="14"/>
         <image name="icon_password_login" width="36" height="36"/>
         <image name="icon_response_time" width="18" height="18"/>
+        <image name="icon_ticket_checked_35x35" width="35" height="35"/>
         <image name="icon_username_login" width="36" height="36"/>
     </resources>
 </document>
