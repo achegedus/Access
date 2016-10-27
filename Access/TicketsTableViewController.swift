@@ -14,6 +14,8 @@ import Alamofire
 
 class TicketsTableViewController: UITableViewController {
 
+    var tickets : [Ticket] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +27,9 @@ class TicketsTableViewController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        
+     
+        self.getTickets()
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,7 +92,7 @@ class TicketsTableViewController: UITableViewController {
         let fetchRequest = Ticket.fetchRequest() as NSFetchRequest<Ticket>
         
         do {
-            self.getTickets = try context.fetch(fetchRequest) as [Ticket]
+            self.tickets = try context.fetch(fetchRequest) as [Ticket]
         } catch {}
         
         self.tableView.reloadData()
@@ -115,7 +119,7 @@ class TicketsTableViewController: UITableViewController {
             if ((response.result.value) != nil) {
                 let swiftyJsonVar = JSON(response.result.value!)
                 
-                if let resData = swiftyJsonVar.arrayObject {
+                if let resData = swiftyJsonVar["issues"].arrayObject {
                     
                     // first empty the table
                     let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Ticket")
