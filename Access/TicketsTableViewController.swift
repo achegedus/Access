@@ -16,6 +16,11 @@ class TicketsTableViewController: UITableViewController {
 
     var tickets : [Ticket] = []
     
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,8 @@ class TicketsTableViewController: UITableViewController {
         if userDefaults.bool(forKey: "isAdmin") == true {
             self.navigationItem.rightBarButtonItem = nil
         }
+        
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
@@ -41,12 +48,12 @@ class TicketsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return self.tickets.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,9 +75,12 @@ class TicketsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ticketTableCell") as! TicketsTableViewCell
+        
+        cell.ticketDescLabel?.text = self.tickets[indexPath.row].summary;
+        cell.ticketIdLabel?.text = self.tickets[indexPath.row].key;
 
         return cell
     }
@@ -111,11 +121,12 @@ class TicketsTableViewController: UITableViewController {
         
         let token = keychain.string(forKey: "id_token")
         
-        let authHeaders : HTTPHeaders = [
-            "Authorization": "Basic YWRhbWg6Q2hhcmwhZQ=="
+        
+        let headers = [
+            "authorization": "Basic YWRhbWg6Q2hhcmwhZQ==",
         ]
         
-        Alamofire.request("https://jira.energycap.com/rest/api/2/search?jql=reporter='scottb' AND status!='Closed'&issuetype='Support Ticket'&fields=summary,key,status,description,created,updated,comment,assignee,priority", headers: authHeaders).responseJSON { response in
+        Alamofire.request("https://jira.energycap.com/rest/api/2/search?jql=reporter%3D'scottb'%20AND%20status!%3D'Closed'&issuetype='Support%20Ticket'&fields=summary%2Ckey%2Cstatus%2Cdescription%2Ccreated%2Cupdated%2Ccomment%2Cassignee%2Cpriority", headers: headers).responseJSON { response in
             if ((response.result.value) != nil) {
                 let swiftyJsonVar = JSON(response.result.value!)
                 
@@ -136,16 +147,22 @@ class TicketsTableViewController: UITableViewController {
                         debugPrint(obj)
                         let opsTicket = Ticket(context: managedContext)
                         
-                        if let id = obj["id"] as? Int16 {
+                        if let id = obj["id"] as? String {
                             opsTicket.id = id
                         } else {
-                            opsTicket.id = 0
+                            opsTicket.id = ""
                         }
                         
                         if let key = obj["key"] as? String {
                             opsTicket.key = key
                         } else {
                             opsTicket.key = ""
+                        }
+                        
+                        if let summary = obj["fields"]?["summary"] as? String {
+                            opsTicket.summary = summary
+                        } else {
+                            opsTicket.summary = ""
                         }
 
                         appDelegate.saveContext()
