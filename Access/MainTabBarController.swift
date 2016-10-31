@@ -25,12 +25,19 @@ class MainTabBarController: UITabBarController {
         
         self.tabBarController?.tabBar.tintColor = UIColor.red
         
+        guard (UIApplication.shared.delegate as? AppDelegate) != nil else {
+            return
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
 
     /*
