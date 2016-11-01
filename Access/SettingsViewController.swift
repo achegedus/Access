@@ -57,6 +57,7 @@ class SettingsViewController: UIViewController {
             print("Logout Cancelled");
         })
         
+        sureAlert.view.tintColor = UIColor.init(hex: "#0083AA")
         sureAlert.addAction(OKAction);
         sureAlert.addAction(CancelAction);
         present(sureAlert, animated: true, completion: nil)

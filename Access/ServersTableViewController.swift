@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SimpleKeychain
+import Auth0
 import CoreData
 
 
@@ -65,8 +67,10 @@ class ServersTableViewController: UITableViewController {
         
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
+        let thisDate = self.opsServers[indexPath.row].lastCheck! as NSDate
         
-        cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: opsServers[indexPath.row].lastCheck as! Date))"
+        cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: thisDate as Date))"
+        
         
         // Configure the cell...
         
@@ -108,9 +112,116 @@ class ServersTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
     
     func getData() {
+        
+        // data was recieved now store in core data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        let token = keychain.string(forKey: "id_token")
+        
+        let authHeaders : HTTPHeaders = [
+            "Authorization": "Bearer \(token!)"
+        ]
+        
+        Alamofire.request("https://accesstemp.energycap.com/api/v1/servers", headers: authHeaders).responseJSON { response in
+            if ((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                
+                if let resData = swiftyJsonVar.arrayObject {
+                    
+                    // first empty the table
+                    let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "ServerStat")
+                    let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
+                    do {
+                        try managedContext.execute(deleteReq)
+                    } catch {
+                        print("COULDN'T DELETE DATA")
+                    }
+                    
+                    // loop through data and populate core data
+                    for obj in resData as! [[String:AnyObject]] {
+                        
+                        let server = ServerStat(context: managedContext)
+                        
+                        if let serverID = obj["id"] as? Int64 {
+                            server.serverId = serverID
+                        } else {
+                            server.serverId = 0
+                        }
+                        
+                        if let name = obj["name"] as? String {
+                            server.serverName = name
+                        } else {
+                            server.serverName = ""
+                        }
+                        
+                        if let hostname = obj["hostname"] as? String {
+                            server.hostname = hostname
+                        } else {
+                            server.hostname = ""
+                        }
+                        
+                        if let lastErrorTime = obj["lastErrorTime"] as? String {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let date = dateFormatter.date(from: lastErrorTime)
+                            
+                            server.lastError = date as NSDate?
+                        } else {
+                            server.lastError = nil
+                        }
+                        
+                        if let lastCheck = obj["lastTestTime"] as? String {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let date = dateFormatter.date(from: lastCheck)
+                            
+                            server.lastCheck = date as NSDate?
+                        } else {
+                            server.lastCheck = nil
+                        }
+                        
+                        if let lastResponseTime = obj["lastResponseTime"] as? Int64 {
+                            server.responseTime = lastResponseTime
+                        } else {
+                            server.responseTime = 0
+                        }
+                        
+                        if let status = obj["status"] as? String {
+                            server.status = status
+                        } else {
+                            server.status = nil
+                        }
+                        
+                        if let location = obj["location"] as? String {
+                            server.location = location
+                        } else {
+                            server.location = nil
+                        }
+                        
+                        // save object
+                        appDelegate.saveContext()
+                    }
+                }
+                
+                print("Downloaded Alert Data")
+                self.getStats()
+            }
+        }
+    }
+    
+    
+    
+
+    
+    func getData_old() {
         // data was recieved now store in core data
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return

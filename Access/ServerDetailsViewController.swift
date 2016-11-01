@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ServerDetailsViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class ServerDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = self.serverName
+        
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,14 +38,29 @@ class ServerDetailsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getData()
+    {
+        // data was recieved now store in core data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let authHeaders : HTTPHeaders = [
+            "App-Key": "45hgnn8m0zlib3het48gzp4a97oqaduh"
+        ]
+        
+        let user = "osc@energycap.com"
+        let password = "faser1217"
+        
+        Alamofire.request("https://api.pingdom.com/api/2.0/checks/494719", headers: authHeaders)
+            .authenticate(user: user, password: password)
+            .responseJSON { response in
+                if ((response.result.value) != nil) {
+                    let swiftyJsonVar = JSON(response.result.value!)
+                    
+                    
+            }
+        }
     }
-    */
-
 }

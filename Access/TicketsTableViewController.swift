@@ -69,6 +69,12 @@ class TicketsTableViewController: UITableViewController {
             backItem.title = ""
             backItem.tintColor = UIColor.white
             navigationItem.backBarButtonItem = backItem
+        } else if segue.identifier == "ticketDetailSegue"
+        {
+            let backItem = UIBarButtonItem()
+            backItem.title = "Tickets"
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
         }
     }
     
