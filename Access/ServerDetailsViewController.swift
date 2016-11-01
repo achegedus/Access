@@ -57,7 +57,7 @@ class ServerDetailsViewController: UIViewController {
             .authenticate(user: user, password: password)
             .responseJSON { response in
                 if ((response.result.value) != nil) {
-                    let swiftyJsonVar = JSON(response.result.value!)
+                    //let swiftyJsonVar = JSON(response.result.value!)
                     
                     
             }
