@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -216,7 +216,7 @@
             <objects>
                 <navigationController id="RoV-T5-iZE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ops Chat" image="734-chat" id="K6b-DY-tzC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mrh-1n-RHN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mrh-1n-RHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -958,7 +958,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DxB-TS-9Jz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="740-gear" id="fYG-MA-01K"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Sp-qb-Htw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9Sp-qb-Htw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1000,7 +1000,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cia-zB-gX0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Alerts" image="758-megaphone" id="f5E-2S-Uhe"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ekf-sD-xz4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ekf-sD-xz4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1023,7 +1023,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Va-QW-zoa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Servers" image="795-gauge" id="u3L-5O-dlm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1I-DZ-lIZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g1I-DZ-lIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51372549020000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
