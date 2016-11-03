@@ -7,7 +7,11 @@
 //
 
 import UIKit
+import SimpleKeychain
+import Auth0
 import Alamofire
+import SwiftyJSON
+
 
 class ServerDetailsViewController: UIViewController {
 
@@ -17,10 +21,12 @@ class ServerDetailsViewController: UIViewController {
     @IBOutlet weak var thumbImage: UIImageView!
     @IBOutlet weak var serverNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var currentResponseLabel: UILabel!
     @IBOutlet weak var lastCheckLabel: UILabel!
     @IBOutlet weak var lastErrorLabel: UILabel!
-    @IBOutlet weak var downtimeLabel: UILabel!
-    @IBOutlet weak var uptimeLabel: UILabel!
+    @IBOutlet weak var totalDownLabel: UILabel!
+    @IBOutlet weak var uptimePercLabel: UILabel!
+    @IBOutlet weak var avgResponseLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -46,21 +52,29 @@ class ServerDetailsViewController: UIViewController {
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        let token = keychain.string(forKey: "id_token")
+        
         let authHeaders : HTTPHeaders = [
-            "App-Key": "45hgnn8m0zlib3het48gzp4a97oqaduh"
+            "Authorization": "Bearer \(token!)"
         ]
         
-        let user = "osc@energycap.com"
-        let password = "faser1217"
-        
-        Alamofire.request("https://api.pingdom.com/api/2.0/checks/494719", headers: authHeaders)
-            .authenticate(user: user, password: password)
-            .responseJSON { response in
-                if ((response.result.value) != nil) {
-                    //let swiftyJsonVar = JSON(response.result.value!)
-                    
-                    
+        Alamofire.request("https://accesstemp.energycap.com/api/v1/servers/\(self.serverId)", headers: authHeaders).responseJSON { response in
+            if ((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                
+                
+                debugPrint(swiftyJsonVar)
+                
+                self.currentResponseLabel.text = "\(swiftyJsonVar["lastResponseTime"].stringValue) ms"
+                self.uptimePercLabel.text = "\(swiftyJsonVar["uptime_percentage"].stringValue)%"
+                self.avgResponseLabel.text = "\(swiftyJsonVar["avg_response"].stringValue) ms"
+
+                
+                print("Downloaded Server Detail")
             }
         }
+
     }
 }
