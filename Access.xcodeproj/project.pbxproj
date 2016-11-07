@@ -19,6 +19,9 @@
 		162A8E4C1DB54B7900471C57 /* ServerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E4B1DB54B7900471C57 /* ServerDetailsViewController.swift */; };
 		162A8E4E1DB55F9500471C57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162A8E4D1DB55F9500471C57 /* GoogleService-Info.plist */; };
 		162A8E501DB69E9300471C57 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162A8E4F1DB69E9300471C57 /* MainTabBarController.swift */; };
+		164EDDB31DD11E31004B211D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EDDB21DD11E31004B211D /* ContactDetailViewController.swift */; };
+		164EDDB51DD11F28004B211D /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */; };
+		164EDDB71DD11F38004B211D /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */; };
 		16579B2A1DB920860047261E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16579B291DB920860047261E /* Alert.swift */; };
 		16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDC1DAECB8600207138 /* AppDelegate.swift */; };
 		16703DDF1DAECB8600207138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDE1DAECB8600207138 /* ViewController.swift */; };
@@ -99,6 +102,9 @@
 		162A8E4B1DB54B7900471C57 /* ServerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDetailsViewController.swift; sourceTree = "<group>"; };
 		162A8E4D1DB55F9500471C57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		162A8E4F1DB69E9300471C57 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		164EDDB21DD11E31004B211D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		16579B291DB920860047261E /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		16703DD91DAECB8600207138 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16703DDC1DAECB8600207138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +191,16 @@
 			name = Tickets;
 			sourceTree = "<group>";
 		};
+		164EDDB11DD11E14004B211D /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				164EDDB21DD11E31004B211D /* ContactDetailViewController.swift */,
+				164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */,
+				164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
 		16579B281DB920770047261E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +284,7 @@
 		16703E1A1DAECBC600207138 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				164EDDB11DD11E14004B211D /* Contacts */,
 				162A8E421DB54A6200471C57 /* Tickets */,
 				162A8E391DB549FA00471C57 /* Servers */,
 				16703E2A1DB16EFE00207138 /* Chat */,
@@ -634,10 +651,12 @@
 			files = (
 				162A8E381DB52F9D00471C57 /* NewAlertViewController.swift in Sources */,
 				76A266351DAF285500480E93 /* LoginViewController.swift in Sources */,
+				164EDDB71DD11F38004B211D /* ContactTableViewCell.swift in Sources */,
 				162A8E501DB69E9300471C57 /* MainTabBarController.swift in Sources */,
 				162A8E411DB54A5100471C57 /* AlertsTableViewCell.swift in Sources */,
 				162A8E4C1DB54B7900471C57 /* ServerDetailsViewController.swift in Sources */,
 				16579B2A1DB920860047261E /* Alert.swift in Sources */,
+				164EDDB31DD11E31004B211D /* ContactDetailViewController.swift in Sources */,
 				162A8E3B1DB54A1500471C57 /* ServersTableViewController.swift in Sources */,
 				162A8E441DB54A6D00471C57 /* TicketsTableViewCell.swift in Sources */,
 				16703DE51DAECB8600207138 /* Access.xcdatamodeld in Sources */,
@@ -651,6 +670,7 @@
 				162A8E481DB54A8900471C57 /* TicketDetailViewController.swift in Sources */,
 				16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */,
 				162A8E4A1DB54B3400471C57 /* ChatTableViewController.swift in Sources */,
+				164EDDB51DD11F28004B211D /* ContactsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
