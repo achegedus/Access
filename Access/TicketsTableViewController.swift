@@ -28,6 +28,8 @@ class TicketsTableViewController: UITableViewController {
         
         if userDefaults.bool(forKey: "isAdmin") == true {
             self.navigationItem.rightBarButtonItem = nil
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
         }
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -69,8 +71,13 @@ class TicketsTableViewController: UITableViewController {
             backItem.title = ""
             backItem.tintColor = UIColor.white
             navigationItem.backBarButtonItem = backItem
-        } else if segue.identifier == "ticketDetailSegue"
-        {
+        } else if segue.identifier == "adminChatSegue" {
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
+
+        } else if segue.identifier == "ticketDetailSegue" {
             let backItem = UIBarButtonItem()
             backItem.title = "Tickets"
             backItem.tintColor = UIColor.white

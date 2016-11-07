@@ -33,7 +33,6 @@ class ServerDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = self.serverName
         
         self.getData()
     }
@@ -62,15 +61,37 @@ class ServerDetailsViewController: UIViewController {
         
         Alamofire.request("https://accesstemp.energycap.com/api/v1/servers/\(self.serverId)", headers: authHeaders).responseJSON { response in
             if ((response.result.value) != nil) {
-                let swiftyJsonVar = JSON(response.result.value!)
+                let json = JSON(response.result.value!)
                 
-                
-                debugPrint(swiftyJsonVar)
-                
-                self.currentResponseLabel.text = "\(swiftyJsonVar["lastResponseTime"].stringValue) ms"
-                self.uptimePercLabel.text = "\(swiftyJsonVar["uptime_percentage"].stringValue)%"
-                self.avgResponseLabel.text = "\(swiftyJsonVar["avg_response"].stringValue) ms"
+                let inputDateFormatter = DateFormatter()
+                inputDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
+                let outputDateFormatter = DateFormatter()
+                outputDateFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
+                
+                let status = json["status"].stringValue
+                
+                if status == "up" {
+                    self.thumbImage.image = UIImage(named:"ThumbsUp_big")
+                } else {
+                    self.thumbImage.image = UIImage(named:"ThumbsDown_big")
+                }
+                
+                self.locationLabel.text = json["location"].stringValue
+                self.serverNameLabel.text = json["name"].stringValue.uppercased()
+                self.currentResponseLabel.text = "\(json["lastResponseTime"].stringValue) ms"
+                self.uptimePercLabel.text = "\(json["uptime_percentage"].stringValue)%"
+                self.avgResponseLabel.text = "\(json["avg_response"].stringValue) ms"
+                
+                self.totalDownLabel.text = json["total_downtime"].stringValue
+                
+                let lastError = json["lastErrorTime"].stringValue
+                let lastErrorDate = inputDateFormatter.date(from: lastError)
+                self.lastErrorLabel?.text = outputDateFormatter.string(from: lastErrorDate! as Date)
+                
+                let lastCheck = json["lastTestTime"].stringValue
+                let lastCheckDate = inputDateFormatter.date(from: lastCheck)
+                self.lastCheckLabel?.text = outputDateFormatter.string(from: lastCheckDate! as Date)
                 
                 print("Downloaded Server Detail")
             }

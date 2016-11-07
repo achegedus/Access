@@ -16,14 +16,14 @@ class MainTabBarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        let userDefaults = UserDefaults.standard
+        //let userDefaults = UserDefaults.standard
         
-        if userDefaults.bool(forKey: "isAdmin") != true {
-            let index = 2
-            viewControllers?.remove(at: index)
-        }
+        //if userDefaults.bool(forKey: "isAdmin") != true {
+        //    let index = 5
+        //    viewControllers?.remove(at: index)
+        //}
         
-        self.tabBarController?.tabBar.tintColor = UIColor.red
+        //self.tabBarController?.tabBar.tintColor = UIColor.red
         
         guard (UIApplication.shared.delegate as? AppDelegate) != nil else {
             return

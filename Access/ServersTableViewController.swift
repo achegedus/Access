@@ -65,6 +65,12 @@ class ServersTableViewController: UITableViewController {
         cell.responseTimeLabel?.text = "\(opsServers[indexPath.row].responseTime)ms"
         cell.locationLabel?.text = opsServers[indexPath.row].location!
         
+        if opsServers[indexPath.row].status == "up" {
+            cell.thumbImage.image = UIImage(named: "ThumbsUp_small")
+        } else {
+            cell.thumbImage.image = UIImage(named: "ThumbsDown_small")
+        }
+        
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
         let thisDate = self.opsServers[indexPath.row].lastCheck! as NSDate
