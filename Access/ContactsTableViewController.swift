@@ -53,7 +53,7 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "alertTableCell") as! ContactTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableCell") as! ContactTableViewCell
         
         cell.nameLabel?.text = contacts[indexPath.row].first_name as String!
         
