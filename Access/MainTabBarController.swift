@@ -8,6 +8,9 @@
 
 import UIKit
 import SimpleKeychain
+import CoreData
+import SwiftyJSON
+import Alamofire
 
 class MainTabBarController: UITabBarController {
 
@@ -29,7 +32,7 @@ class MainTabBarController: UITabBarController {
             return
         }
         
-        
+        self.getDepartmentsFromAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +40,77 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    func getDepartmentsFromAPI()
+    {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        let token = keychain.string(forKey: "id_token")
+        
+        let authHeaders : HTTPHeaders = [
+            "Authorization": "Bearer \(token!)"
+        ]
+        
+        Alamofire.request("https://accesstemp.energycap.com/api/v1/departments", headers: authHeaders).responseJSON { response in
+            if ((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                
+                // first empty the table
+                let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Department")
+                let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
+                do {
+                    try managedContext.execute(deleteReq)
+                } catch {
+                    print("COULDN'T DELETE DATA")
+                }
+                
+                if let resData = swiftyJsonVar.arrayObject {
+                    
+                    // loop through data and populate core data
+                    for obj in resData as! [[String:AnyObject]] {
+                        
+                        let thisName = obj["name"] as? String
+                        
+                        
+                        if (self.fetchDepartment(name: thisName!) == nil) {
+                            let dept = Department(context: managedContext)
+                            
+                            if let deptName = obj["name"] as? String {
+                                dept.name = deptName
+                            }
+                            
+                            // save object
+                            appDelegate.saveContext()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func fetchDepartment(name: String) -> [Department]?
+    {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        return try? managedContext.fetch(fetchRequest)
+    }
 
     
 

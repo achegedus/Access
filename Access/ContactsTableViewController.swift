@@ -13,12 +13,17 @@ import Alamofire
 import SwiftyJSON
 import CoreData
 
-class ContactsTableViewController: UITableViewController {
+class ContactsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var contacts : [Contact] = []
+    var context: NSManagedObjectContext!
+    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,6 +37,23 @@ class ContactsTableViewController: UITableViewController {
         self.getContacts()
         self.getData()
     }
+    
+    
+    func initializeFetchedResultsController() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        let departmentSort = NSSortDescriptor(key: "department.name", ascending: true)
+        request.sortDescriptors = [departmentSort]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.context, sectionNameKeyPath: "department.name", cacheName: "rootCache")
+        fetchedResultsController.delegate = self
+        
+        do{
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FRC - Contacts")
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,12 +64,16 @@ class ContactsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return fetchedResultsController.sections!.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.contacts.count
+        guard let sections = fetchedResultsController.sections else {
+            fatalError("No sections in fetchedResultsController")
+        }
+        let sectionInfo = sections[section]
+        return sectionInfo.numberOfObjects
     }
 
     
@@ -107,12 +133,12 @@ class ContactsTableViewController: UITableViewController {
     */
     
     func getContacts() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let fetchRequest = Contact.fetchRequest() as NSFetchRequest<Contact>
+        fetchRequest.propertiesToGroupBy = ["department"]
         
         do {
-            self.contacts = try context.fetch(fetchRequest) as [Contact]
+            self.contacts = try self.context.fetch(fetchRequest) as [Contact]
             print(contacts)
         } catch {}
         
@@ -124,11 +150,6 @@ class ContactsTableViewController: UITableViewController {
     func getData() {
         
         // data was recieved now store in core data
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
         let keychain = A0SimpleKeychain(service: "Auth0")
         
         let token = keychain.string(forKey: "id_token")
@@ -145,9 +166,10 @@ class ContactsTableViewController: UITableViewController {
                     
                     // first empty the table
                     let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+                    
                     let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
                     do {
-                        try managedContext.execute(deleteReq)
+                        try self.context.execute(deleteReq)
                     } catch {
                         print("COULDN'T DELETE DATA")
                     }
@@ -156,7 +178,12 @@ class ContactsTableViewController: UITableViewController {
                     for obj in resData as! [[String:AnyObject]] {
                         
                         debugPrint(obj)
-                        let contact = Contact(context: managedContext)
+                        let contact = Contact(context: self.context)
+                        
+                        let deptName = obj["department"]?["name"] as? String
+                        let dept = self.fetchDepartment(name: deptName!)
+                        
+                        contact.department = dept
                         
                         if let first_name = obj["first_name"] as? String {
                             contact.first_name = first_name
@@ -176,7 +203,7 @@ class ContactsTableViewController: UITableViewController {
                             contact.id = 0
                         }
                         
-                        appDelegate.saveContext()
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     }
                 }
                 
@@ -185,5 +212,56 @@ class ContactsTableViewController: UITableViewController {
             }
         }
     }
+    
+    
+    func fetchDepartment(name: String) -> Department?
+    {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        return try! managedContext.fetch(fetchRequest)[0]
+    }
+    
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+        case .delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+        case .move:
+            break
+        case .update:
+            break
+        }
+    }
+    
 
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, indexPath: indexPath!)
+        case .move:a
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        }
+    }
+    
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
 }

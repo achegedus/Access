@@ -5,7 +5,6 @@
         <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cell_number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hire_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -16,6 +15,11 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zipcode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="contacts" inverseEntity="Department" syncable="YES"/>
+    </entity>
+    <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="department" inverseEntity="Contact" syncable="YES"/>
     </entity>
     <entity name="OpsAlert" representedClassName="OpsAlert" syncable="YES" codeGenerationType="class">
         <attribute name="bodyText" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,15 +38,20 @@
         <attribute name="serverName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
+        <attribute name="departmentsFillDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="Ticket" representedClassName="Ticket" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="OpsAlert" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="ServerStat" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="Ticket" positionX="-54" positionY="45" width="128" height="90"/>
-        <element name="Contact" positionX="-54" positionY="45" width="128" height="270"/>
+        <element name="OpsAlert" positionX="79" positionY="-36" width="128" height="118"/>
+        <element name="ServerStat" positionX="79" positionY="-243" width="128" height="165"/>
+        <element name="Ticket" positionX="252" positionY="90" width="128" height="90"/>
+        <element name="Contact" positionX="243" positionY="-225" width="128" height="270"/>
+        <element name="Department" positionX="430" positionY="-225" width="128" height="73"/>
+        <element name="Settings" positionX="432" positionY="-79" width="128" height="58"/>
     </elements>
 </model>
