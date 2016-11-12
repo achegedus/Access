@@ -16,15 +16,18 @@ import CoreData
 class ContactsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var contacts : [Contact] = []
-    var context: NSManagedObjectContext!
+    
+    lazy var context: NSManagedObjectContext! = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
+    
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,24 +37,24 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
         
-        self.getContacts()
-        self.getData()
-    }
-    
-    
-    func initializeFetchedResultsController() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
-        let departmentSort = NSSortDescriptor(key: "department.name", ascending: true)
-        request.sortDescriptors = [departmentSort]
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        let fetchSort = NSSortDescriptor(key: "last_name", ascending: true)
+        fetchRequest.sortDescriptors = [fetchSort]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.context, sectionNameKeyPath: "department.name", cacheName: "rootCache")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department", cacheName: nil)
         fetchedResultsController.delegate = self
+        
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         
         do{
             try fetchedResultsController.performFetch()
         } catch {
             fatalError("Failed to initialize FRC - Contacts")
         }
+        
+        
+        self.getContacts()
+        self.getData()
     }
     
 
@@ -60,28 +63,34 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return fetchedResultsController.sections!.count
+        guard let sectionCount = fetchedResultsController.sections?.count else {
+            return 0
+        }
+        return sectionCount
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        guard let sections = fetchedResultsController.sections else {
-            fatalError("No sections in fetchedResultsController")
+        
+        guard let sectionData = fetchedResultsController.sections?[section] else {
+            return 0
         }
-        let sectionInfo = sections[section]
-        return sectionInfo.numberOfObjects
+        return sectionData.numberOfObjects
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        let contact = fetchedResultsController.object(at: indexPath) as! Contact
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableCell") as! ContactTableViewCell
         
-        cell.nameLabel?.text = contacts[indexPath.row].first_name as String!
+        cell.nameLabel?.text = contact.first_name as String!
         
         return cell
     }
@@ -132,10 +141,16 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
     }
     */
     
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
+    
     func getContacts() {
         
         let fetchRequest = Contact.fetchRequest() as NSFetchRequest<Contact>
-        fetchRequest.propertiesToGroupBy = ["department"]
+        //fetchRequest.propertiesToGroupBy = ["department"]
         
         do {
             self.contacts = try self.context.fetch(fetchRequest) as [Contact]
@@ -216,52 +231,22 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
     
     func fetchDepartment(name: String) -> Department?
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
         // Create Fetch Request
-        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
-        
+        let fetchRequest = NSFetchRequest<Department>(entityName: "Department")
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        return try! managedContext.fetch(fetchRequest)[0]
-    }
-    
-    
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
-        case .delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
-        case .move:
-            break
-        case .update:
-            break
+        do {
+            let dept = try self.context.fetch(fetchRequest)
+            if dept.count == 0 {
+                return nil
+            } else {
+                return dept[0] as Department
+            }
+        } catch {
+            print("Department search failed")
         }
-    }
-    
-
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-        case .update:
-            configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, indexPath: indexPath!)
-        case .move:a
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
-        }
-    }
-    
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.endUpdates()
+        
+        return nil
     }
     
 }

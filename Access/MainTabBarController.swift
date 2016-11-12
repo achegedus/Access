@@ -14,6 +14,13 @@ import Alamofire
 
 class MainTabBarController: UITabBarController {
 
+    
+    lazy var context: NSManagedObjectContext! = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,20 +103,26 @@ class MainTabBarController: UITabBarController {
     }
     
     
-    func fetchDepartment(name: String) -> [Department]?
+    func fetchDepartment(name: String) -> Department?
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
         
         // Create Fetch Request
-        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
-        
+        let fetchRequest = NSFetchRequest<Department>(entityName: "Department")
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        return try? managedContext.fetch(fetchRequest)
+        do {
+            let dept = try self.context.fetch(fetchRequest)
+            
+            if dept.count == 0 {
+                return nil
+            } else {
+                return dept[0] as Department
+            }
+        } catch {
+            print("Department search failed")
+        }
+        
+        return nil
     }
 
     
