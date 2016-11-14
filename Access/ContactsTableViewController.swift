@@ -22,7 +22,17 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         return appDelegate.persistentContainer.viewContext
     }()
     
-    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
+    lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
+        let fetchSort = NSSortDescriptor(key: "last_name", ascending: true)
+        
+        fetchRequest.sortDescriptors = []
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department", cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
     
 
     override func viewDidLoad() {
@@ -37,17 +47,10 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
-        let fetchSort = NSSortDescriptor(key: "last_name", ascending: true)
-        fetchRequest.sortDescriptors = [fetchSort]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department", cacheName: nil)
-        fetchedResultsController.delegate = self
-        
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         
         do{
-            try fetchedResultsController.performFetch()
+            try self.fetchedResultsController.performFetch()
         } catch {
             fatalError("Failed to initialize FRC - Contacts")
         }
@@ -68,7 +71,7 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        guard let sectionCount = fetchedResultsController.sections?.count else {
+        guard let sectionCount = self.fetchedResultsController.sections?.count else {
             return 0
         }
         return sectionCount
@@ -77,7 +80,7 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let sectionData = fetchedResultsController.sections?[section] else {
+        guard let sectionData = self.fetchedResultsController.sections?[section] else {
             return 0
         }
         return sectionData.numberOfObjects
@@ -86,7 +89,7 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let contact = fetchedResultsController.object(at: indexPath) as! Contact
+        let contact = self.fetchedResultsController.object(at: indexPath) as! Contact
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableCell") as! ContactTableViewCell
         
