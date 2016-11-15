@@ -23,6 +23,7 @@
 		164EDDB51DD11F28004B211D /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */; };
 		164EDDB71DD11F38004B211D /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */; };
 		16579B2A1DB920860047261E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16579B291DB920860047261E /* Alert.swift */; };
+		165F414F1DDB856500F44694 /* AvatarImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F414E1DDB856500F44694 /* AvatarImageData.swift */; };
 		16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDC1DAECB8600207138 /* AppDelegate.swift */; };
 		16703DDF1DAECB8600207138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16703DDE1DAECB8600207138 /* ViewController.swift */; };
 		16703DE21DAECB8600207138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16703DE01DAECB8600207138 /* Main.storyboard */; };
@@ -106,6 +107,7 @@
 		164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		16579B291DB920860047261E /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		165F414E1DDB856500F44694 /* AvatarImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageData.swift; sourceTree = "<group>"; };
 		16703DD91DAECB8600207138 /* Access.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Access.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16703DDC1DAECB8600207138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16703DDE1DAECB8600207138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -194,9 +196,10 @@
 		164EDDB11DD11E14004B211D /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				164EDDB21DD11E31004B211D /* ContactDetailViewController.swift */,
 				164EDDB41DD11F28004B211D /* ContactsTableViewController.swift */,
+				164EDDB21DD11E31004B211D /* ContactDetailViewController.swift */,
 				164EDDB61DD11F38004B211D /* ContactTableViewCell.swift */,
+				165F414E1DDB856500F44694 /* AvatarImageData.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				16703E2C1DB16F0E00207138 /* ChatViewController.swift in Sources */,
 				16703DDF1DAECB8600207138 /* ViewController.swift in Sources */,
 				16703E261DB0112100207138 /* SettingsViewController.swift in Sources */,
+				165F414F1DDB856500F44694 /* AvatarImageData.swift in Sources */,
 				162A8E3D1DB54A2900471C57 /* ServersTableViewCell.swift in Sources */,
 				162A8E481DB54A8900471C57 /* TicketDetailViewController.swift in Sources */,
 				16703DDD1DAECB8600207138 /* AppDelegate.swift in Sources */,

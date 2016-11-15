@@ -16,7 +16,9 @@ target 'Access' do
   pod "Firebase/Database"
   pod "Firebase/Auth"
   pod "Alamofire", "~> 4.0"
+  pod "AlamofireImage", "~> 3.1"
   pod "SwiftyJSON"
+  pod "AvatarImageView"
   
 end
 

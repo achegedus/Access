@@ -12,6 +12,8 @@ import Auth0
 import Alamofire
 import SwiftyJSON
 import CoreData
+import AvatarImageView
+
 
 class ContactsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
@@ -105,7 +107,10 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableCell") as! ContactTableViewCell
         
-        cell.nameLabel?.text = contact.first_name as String!
+        cell.nameLabel?.text = "\(contact.first_name!) \(contact.last_name!)"
+        cell.titleLabel?.text = contact.title! as String
+        
+        cell.userImage.dataSource = AvatarImageData(inputName: "\(contact.first_name!) \(contact.last_name!)")
         
         return cell
     }
@@ -145,6 +150,20 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         return true
     }
     */
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Staff"
+        backItem.tintColor = UIColor.white
+        navigationItem.backBarButtonItem = backItem
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let detail = segue.destination as! ContactDetailViewController
+            let contact = self.fetchedResultsController.object(at: indexPath) as! Contact
+            detail.currentContact = contact
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -225,6 +244,60 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
                             contact.last_name = last_name
                         } else {
                             contact.last_name = ""
+                        }
+                        
+                        if let email = obj["email"] as? String {
+                            contact.email = email
+                        } else {
+                            contact.email = ""
+                        }
+                        
+                        if let address = obj["address"] as? String {
+                            contact.address = address
+                        } else {
+                            contact.address = ""
+                        }
+                        
+                        if let address2 = obj["address2"] as? String {
+                            contact.address2 = address2
+                        } else {
+                            contact.address2 = ""
+                        }
+                        
+                        if let city = obj["city"] as? String {
+                            contact.city = city
+                        } else {
+                            contact.city = ""
+                        }
+                        
+                        if let state = obj["state"] as? String {
+                            contact.state = state
+                        } else {
+                            contact.state = ""
+                        }
+                        
+                        if let zipcode = obj["zipcode"] as? String {
+                            contact.zipcode = zipcode
+                        } else {
+                            contact.zipcode = ""
+                        }
+                        
+                        if let title = obj["title"] as? String {
+                            contact.title = title
+                        } else {
+                            contact.title = ""
+                        }
+                        
+                        if let cell_number = obj["cell_number"] as? String {
+                            contact.cell_number = cell_number
+                        } else {
+                            contact.cell_number = ""
+                        }
+                        
+                        if let home_number = obj["home_number"] as? String {
+                            contact.home_number = home_number
+                        } else {
+                            contact.home_number = ""
                         }
                         
                         if let contactID = obj["id"] as? Int16 {
