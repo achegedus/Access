@@ -84,6 +84,8 @@ class AlertsTableViewController: UITableViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let fetchRequest = OpsAlert.fetchRequest() as NSFetchRequest<OpsAlert>
+        let dateSort = NSSortDescriptor(key: "sendDate", ascending: false)
+        fetchRequest.sortDescriptors = [dateSort]
         
         do {
             self.opsAlerts = try context.fetch(fetchRequest) as [OpsAlert]

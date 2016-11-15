@@ -22,13 +22,15 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
         return appDelegate.persistentContainer.viewContext
     }()
     
+    
     lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
-        let fetchSort = NSSortDescriptor(key: "last_name", ascending: true)
+        let primarySort = NSSortDescriptor(key: "department.name", ascending: true)
+        let lastnameSort = NSSortDescriptor(key: "last_name", ascending: true)
         
-        fetchRequest.sortDescriptors = []
+        fetchRequest.sortDescriptors = [primarySort, lastnameSort]
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department.name", cacheName: nil)
         fetchedResultsController.delegate = self
         
         return fetchedResultsController
@@ -84,6 +86,16 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
             return 0
         }
         return sectionData.numberOfObjects
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            return currentSection.name
+        }
+        
+        return nil
     }
 
     
