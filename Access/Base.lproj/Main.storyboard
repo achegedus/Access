@@ -345,11 +345,7 @@
                             <constraint firstAttribute="trailing" secondItem="fV0-XT-OpM" secondAttribute="trailing" constant="20" id="yjP-3P-s2h"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="Cr5-1h-ANP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="qlQ-ca-MDg">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="Cr5-1h-ANP"/>
                     <connections>
                         <outlet property="emailLabel" destination="fV0-XT-OpM" id="1yc-A6-rfd"/>
                         <outlet property="usernameLabel" destination="88o-Nx-5fU" id="SRt-I4-usw"/>
@@ -1193,7 +1189,7 @@
                                         <constraint firstItem="p85-g1-sPf" firstAttribute="centerY" secondItem="0Rj-Ba-YfE" secondAttribute="centerY" id="H4Q-Kk-KFP"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1276,6 +1272,7 @@
                                 <connections>
                                     <outlet property="alertLabel" destination="uhW-3M-CTM" id="hme-Pm-f44"/>
                                     <outlet property="dateLabel" destination="VzM-cb-rc4" id="SS2-k8-4Qa"/>
+                                    <outlet property="typeImage" destination="fUl-zk-cLw" id="F0E-cf-rGe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

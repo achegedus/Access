@@ -12,6 +12,7 @@ class AlertsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var alertLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var typeImage: UIImageView!
     
     
     override func awakeFromNib() {

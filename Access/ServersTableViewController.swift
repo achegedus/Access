@@ -14,16 +14,27 @@ import Auth0
 import CoreData
 
 
-class ServersTableViewController: UITableViewController {
-
-    var opsServers : [ServerStat] = []
+class ServersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    let sections = ["Pittsburgh", "State College"]
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
-        getData()
-        refreshControl.endRefreshing()
-    }
+    lazy var context: NSManagedObjectContext! = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
+    
+    
+    lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ServerStat")
+        let primarySort = NSSortDescriptor(key: "location", ascending: true)
+        
+        fetchRequest.sortDescriptors = [primarySort]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "location", cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +47,11 @@ class ServersTableViewController: UITableViewController {
         self.getStats()
         self.getData()
     }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,27 +61,43 @@ class ServersTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        guard let sectionCount = self.fetchedResultsController.sections?.count else {
+            return 0
+        }
+        return sectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.opsServers.count
+        guard let sectionData = self.fetchedResultsController.sections?[section] else {
+            return 0
+        }
+        return sectionData.numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            return currentSection.name
+        }
+        
+        return nil
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let server = self.fetchedResultsController.object(at: indexPath) as! ServerStat
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "serverTableCell") as! ServersTableViewCell
         
-        cell.serverId = Int(opsServers[indexPath.row].serverId)
-        cell.serverName = opsServers[indexPath.row].serverName!
+        cell.serverId = Int(server.serverId)
+        cell.serverName = server.serverName!
         
-        cell.serverNameLabel?.text = opsServers[indexPath.row].serverName!.uppercased()
-        cell.responseTimeLabel?.text = "\(opsServers[indexPath.row].responseTime)ms"
-        cell.locationLabel?.text = opsServers[indexPath.row].location!
+        cell.serverNameLabel?.text = server.serverName!.uppercased()
+        cell.responseTimeLabel?.text = "\(server.responseTime)ms"
+        cell.locationLabel?.text = server.location!
         
-        if opsServers[indexPath.row].status == "up" {
+        if server.status == "up" {
             cell.thumbImage.image = UIImage(named: "ThumbsUp_small")
         } else {
             cell.thumbImage.image = UIImage(named: "ThumbsDown_small")
@@ -73,46 +105,25 @@ class ServersTableViewController: UITableViewController {
         
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
-        let thisDate = self.opsServers[indexPath.row].lastCheck! as NSDate
+        let thisDate = server.lastCheck! as NSDate
         
         cell.lastCheckLabel?.text = "Last Check: \(dayTimePeriodFormatter.string(from: thisDate as Date))"
-        
-        
-        // Configure the cell...
         
         return cell
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Servers"
-        backItem.tintColor = UIColor.white
-        navigationItem.backBarButtonItem = backItem
+    func getStats() {
         
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            var detail = segue.destination as! ServerDetailsViewController
-            detail.serverId = Int(self.opsServers[indexPath.row].serverId)
-            detail.serverName = self.opsServers[indexPath.row].serverName!
+        // initialize frc
+        do{
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FRC - Server Stats")
         }
         
-    }
-    
-    
-    func getStats() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let fetchRequest = ServerStat.fetchRequest() as NSFetchRequest<ServerStat>
-        
-        let locationSort = NSSortDescriptor(key: "location", ascending: true)
-        fetchRequest.sortDescriptors = [locationSort]
-        
-        do {
-            self.opsServers = try context.fetch(fetchRequest) as [ServerStat]
-            print(opsServers)
-        } catch {}
-        
         self.tableView.reloadData()
+        
     }
 
 
@@ -229,4 +240,23 @@ class ServersTableViewController: UITableViewController {
             }
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Servers"
+        backItem.tintColor = UIColor.white
+        navigationItem.backBarButtonItem = backItem
+
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let server = self.fetchedResultsController.object(at: indexPath) as! ServerStat
+            
+            let detail = segue.destination as! ServerDetailsViewController
+            detail.serverId = Int(server.serverId)
+            detail.serverName = server.serverName!
+        }
+        
+    }
+
 }

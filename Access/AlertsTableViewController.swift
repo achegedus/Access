@@ -13,14 +13,28 @@ import Alamofire
 import SwiftyJSON
 import CoreData
 
-class AlertsTableViewController: UITableViewController {
+class AlertsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var opsAlerts : [OpsAlert] = []
+
+    lazy var context: NSManagedObjectContext! = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
-        getData()
-        refreshControl.endRefreshing()
-    }
+    
+    lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OpsAlert")
+        let primarySort = NSSortDescriptor(key: "sendDate", ascending: false)
+        
+        fetchRequest.sortDescriptors = [primarySort]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+
+
     
     override func viewDidLoad() {
         
@@ -41,6 +55,12 @@ class AlertsTableViewController: UITableViewController {
         self.getData()
     }
     
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,26 +70,48 @@ class AlertsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1 
+        guard let sectionCount = self.fetchedResultsController.sections?.count else {
+            return 0
+        }
+        return sectionCount
     }
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.opsAlerts.count
+        
+        guard let sectionData = self.fetchedResultsController.sections?[section] else {
+            return 0
+        }
+        return sectionData.numberOfObjects
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            return currentSection.name
+        }
+        
+        return nil
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let alert = self.fetchedResultsController.object(at: indexPath) as! OpsAlert
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alertTableCell") as! AlertsTableViewCell
         
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY @ hh:mm a"
-        let thisDate = opsAlerts[indexPath.row].sendDate! as NSDate
+        let thisDate = alert.sendDate! as NSDate
         
-        cell.alertLabel?.text = opsAlerts[indexPath.row].bodyText as String!
+        cell.alertLabel?.text = alert.bodyText as String!
         cell.dateLabel?.text = dayTimePeriodFormatter.string(from: thisDate as Date)
+        
+        if alert.isEmergency == true {
+            cell.typeImage.image = UIImage(named:"icon_alert_red")
+        }
 
         return cell
     }
@@ -81,16 +123,11 @@ class AlertsTableViewController: UITableViewController {
     
     
     func getAlerts() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let fetchRequest = OpsAlert.fetchRequest() as NSFetchRequest<OpsAlert>
-        let dateSort = NSSortDescriptor(key: "sendDate", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
-        
-        do {
-            self.opsAlerts = try context.fetch(fetchRequest) as [OpsAlert]
-            print(opsAlerts)
-        } catch {}
+        do{
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FRC - Alerts")
+        }
         
         self.tableView.reloadData()
     }
@@ -160,6 +197,19 @@ class AlertsTableViewController: UITableViewController {
                         } else {
                             opsAlert.id = 0
                         }
+                        
+                        if let isEmergency = obj["isEmergency"] as? Int16 {
+                            if isEmergency == 1 {
+                                opsAlert.isEmergency = true
+                            } else {
+                                opsAlert.isEmergency = false
+                            }
+                        } else {
+                            opsAlert.isEmergency = false
+                        }
+
+                        
+                        
                         
                         appDelegate.saveContext()
                     }

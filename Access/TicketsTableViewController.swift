@@ -12,14 +12,30 @@ import SwiftyJSON
 import CoreData
 import Alamofire
 
-class TicketsTableViewController: UITableViewController {
+class TicketsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    var tickets : [Ticket] = []
+    // Lazy load parameters
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
-        getData()
-        refreshControl.endRefreshing()
-    }
+    lazy var context : NSManagedObjectContext! = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
+    
+    
+    lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Ticket")
+        let primarySort = NSSortDescriptor(key: "key", ascending: true)
+        
+        fetchRequest.sortDescriptors = [primarySort]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +56,13 @@ class TicketsTableViewController: UITableViewController {
         self.getTickets()
         self.getData()
     }
+    
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,50 +73,39 @@ class TicketsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return self.tickets.count
+        guard let sectionCount = self.fetchedResultsController.sections?.count else {
+            return 0
+        }
+        return sectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserChatSegue"
-        {
-            let userDefaults = UserDefaults.standard
-            
-            if let destinationVC = segue.destination as? ChatViewController {
-                destinationVC.username = ((userDefaults.object(forKey: "fullname") as! String).replacingOccurrences(of: " ", with: "_"))
-            }
-            
-            let backItem = UIBarButtonItem()
-            backItem.title = ""
-            backItem.tintColor = UIColor.white
-            navigationItem.backBarButtonItem = backItem
-        } else if segue.identifier == "adminChatSegue" {
-            let backItem = UIBarButtonItem()
-            backItem.title = ""
-            backItem.tintColor = UIColor.white
-            navigationItem.backBarButtonItem = backItem
-
-        } else if segue.identifier == "ticketDetailSegue" {
-            let backItem = UIBarButtonItem()
-            backItem.title = "Tickets"
-            backItem.tintColor = UIColor.white
-            navigationItem.backBarButtonItem = backItem
+        guard let sectionData = self.fetchedResultsController.sections?[section] else {
+            return 0
         }
+        return sectionData.numberOfObjects
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            return currentSection.name
+        }
+        
+        return nil
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        let ticket =  self.fetchedResultsController.object(at: indexPath) as! Ticket
+        
         // Configure the cell...
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticketTableCell") as! TicketsTableViewCell
         
-        cell.ticketDescLabel?.text = self.tickets[indexPath.row].summary;
-        cell.ticketIdLabel?.text = self.tickets[indexPath.row].key;
+        cell.ticketDescLabel?.text = ticket.summary! as String;
+        cell.ticketIdLabel?.text = ticket.key! as String;
 
         return cell
     }
@@ -110,13 +122,12 @@ class TicketsTableViewController: UITableViewController {
     */
     
     func getTickets() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let fetchRequest = Ticket.fetchRequest() as NSFetchRequest<Ticket>
-        
-        do {
-            self.tickets = try context.fetch(fetchRequest) as [Ticket]
-        } catch {}
+        do{
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FRC - Tickets")
+        }
         
         self.tableView.reloadData()
     }
@@ -130,9 +141,9 @@ class TicketsTableViewController: UITableViewController {
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let keychain = A0SimpleKeychain(service: "Auth0")
+        //let keychain = A0SimpleKeychain(service: "Auth0")
         
-        let token = keychain.string(forKey: "id_token")
+        //let token = keychain.string(forKey: "id_token")
         
         
         let headers = [
@@ -185,6 +196,34 @@ class TicketsTableViewController: UITableViewController {
                 print("Downloaded Ticket Data")
                 self.getTickets()
             }
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserChatSegue"
+        {
+            let userDefaults = UserDefaults.standard
+            
+            if let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.username = ((userDefaults.object(forKey: "fullname") as! String).replacingOccurrences(of: " ", with: "_"))
+            }
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
+        } else if segue.identifier == "adminChatSegue" {
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
+            
+        } else if segue.identifier == "ticketDetailSegue" {
+            let backItem = UIBarButtonItem()
+            backItem.title = "Tickets"
+            backItem.tintColor = UIColor.white
+            navigationItem.backBarButtonItem = backItem
         }
     }
 
