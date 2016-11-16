@@ -138,6 +138,7 @@
 		4604173E59617A3BABD8FBB1 /* Pods-AccessWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit Extension/Pods-AccessWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		6D270C46DD94527B5EF45E33 /* Pods_Access.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Access.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A266341DAF285500480E93 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		76F481F01DDC199B00E9C23B /* Access v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Access v2.xcdatamodel"; sourceTree = "<group>"; };
 		80E7C5FC8D5B2256EDB250EE /* Pods_AccessWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E0A276D4B691A3FD76513D /* Pods-AccessWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessWatchKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessWatchKit/Pods-AccessWatchKit.release.xcconfig"; sourceTree = "<group>"; };
 		F41719818CEA95412425D0E2 /* Pods-Access.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Access.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Access/Pods-Access.debug.xcconfig"; sourceTree = "<group>"; };
@@ -977,9 +978,10 @@
 		16703DE31DAECB8600207138 /* Access.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				76F481F01DDC199B00E9C23B /* Access v2.xcdatamodel */,
 				16703DE41DAECB8600207138 /* Access.xcdatamodel */,
 			);
-			currentVersion = 16703DE41DAECB8600207138 /* Access.xcdatamodel */;
+			currentVersion = 76F481F01DDC199B00E9C23B /* Access v2.xcdatamodel */;
 			path = Access.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

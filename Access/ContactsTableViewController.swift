@@ -28,9 +28,11 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
     lazy var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>! = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
         let primarySort = NSSortDescriptor(key: "department.name", ascending: true)
+        
+        let deptHeadSort = NSSortDescriptor(key: "isDeptHead", ascending: false)
         let lastnameSort = NSSortDescriptor(key: "last_name", ascending: true)
         
-        fetchRequest.sortDescriptors = [primarySort, lastnameSort]
+        fetchRequest.sortDescriptors = [primarySort, deptHeadSort, lastnameSort]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: "department.name", cacheName: nil)
         fetchedResultsController.delegate = self
@@ -304,6 +306,16 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
                             contact.id = contactID
                         } else {
                             contact.id = 0
+                        }
+                        
+                        if let isDeptHead = obj["isDeptHead"] as? Int8 {
+                            if isDeptHead == 1 {
+                                contact.isDeptHead = true
+                            } else {
+                                contact.isDeptHead = false
+                            }
+                        } else {
+                            contact.isDeptHead = false
                         }
                         
                         (UIApplication.shared.delegate as! AppDelegate).saveContext()
